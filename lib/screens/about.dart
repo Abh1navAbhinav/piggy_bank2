@@ -1,5 +1,6 @@
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 import '../functions/colors_and_style.dart';
 
@@ -31,24 +32,17 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Good Morning\n',
-                            style: colorsobj.styles(),
-                          ),
-                          TextSpan(
-                            text: '      Abhinav',
-                            style: colorsobj.styles(
-                              color: Colors.pink,
-                            ),
-                          ),
-                        ],
+                    IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_rounded,
                       ),
                     ),
-                    const SizedBox(
-                      width: 75,
+                    Text(
+                      'About',
+                      style: colorsobj.styles(fontSize: 30,fontWeight: FontWeight.w500),
                     ),
                     obj.appLogo(),
                   ],
