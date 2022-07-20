@@ -156,7 +156,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                       width: 170,
                                       height: 65,
                                       child: TextFormField(
-                                        maxLength: 5,
+                                        maxLength: 6,
                                         controller: amountController,
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
