@@ -35,6 +35,12 @@ String yesterday = DateFormat.yMd().format(
   ),
 );
 
+String lastWeek = DateFormat.yMd().format(
+  DateTime.now().subtract(
+    const Duration(days: 7),
+  ),
+);
+
 filterFunction() async {
   final list = await transactiondObj.getAllTransactions();
 
@@ -57,29 +63,27 @@ filterFunction() async {
 
   for (var element in list) {
     String elementDate = DateFormat.yMd().format(element.date);
-    if (elementDate == today ) {
+    if (elementDate == today) {
       todayNotifier.value.add(element);
-    } 
-    
-     if (elementDate == yesterday ) {
+    }
+
+    if (elementDate == yesterday) {
       yesterdayNotifier.value.add(element);
-    } 
-    
-     if (elementDate == today && element.type == CategoryType.income) {
+    }
+
+    if (elementDate == today && element.type == CategoryType.income) {
       incomeTodayNotifier.value.add(element);
     }
-    
-      if (elementDate == yesterday &&
-        element.type == CategoryType.income) {
+
+    if (elementDate == yesterday && element.type == CategoryType.income) {
       incomeYesterdayNotifier.value.add(element);
     }
-    
-      if (elementDate == today && element.type == CategoryType.expense) {
+
+    if (elementDate == today && element.type == CategoryType.expense) {
       expenseTodayNotifier.value.add(element);
     }
-    
-      if (elementDate == yesterday &&
-        element.type == CategoryType.expense) {
+
+    if (elementDate == yesterday && element.type == CategoryType.expense) {
       expenseYesterdayNotifier.value.add(element);
     }
   }
