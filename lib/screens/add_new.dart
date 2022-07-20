@@ -70,13 +70,20 @@ class _AddTransactionState extends State<AddTransaction> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () => Get.back(),
+                              onPressed: () {
+                                setState(() {
+                                  visiblity = true;
+                                });
+                                Get.back();
+                              },
                               icon: const Icon(
                                 Icons.arrow_back_rounded,
                               ),
                             ),
                             Text(
-                              'Add new Transaction',
+                              visiblity == true
+                                  ? 'Add new Transaction'
+                                  : 'Edit selected Transaction',
                               style: colorsobj.styles(),
                             ),
                             obj.appLogo(),
