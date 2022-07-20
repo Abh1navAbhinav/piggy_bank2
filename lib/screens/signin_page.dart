@@ -3,7 +3,6 @@
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/main.dart';
 
-
 import 'package:cup_cake/screens/bottom_navigation.dart';
 
 import 'package:flutter/material.dart';
@@ -12,9 +11,8 @@ import 'package:get/route_manager.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../db/transaction_db.dart';
 import '../functions/colors_and_style.dart';
-
-
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -24,9 +22,15 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
+  @override
+  void initState() {
+    TransactionDb.instance.refresh();
+
+    super.initState();
+  }
+
   final obj = Widgets();
   final colorsobj = Colours();
-
 
   final _usernameController = TextEditingController();
   final formkey = GlobalKey<FormState>();
@@ -190,11 +194,8 @@ class _SigninPageState extends State<SigninPage> {
     if (formkey.currentState!.validate()) {
       final sharedpref = await SharedPreferences.getInstance();
       await sharedpref.setBool(saveKeyName, true);
-   
+
       Get.off(() => const BottomNav());
     }
   }
-  
-
-
 }
