@@ -25,6 +25,21 @@ ValueNotifier<List<TransactionModal>> expenseTodayNotifier = ValueNotifier([]);
 
 ValueNotifier<List<TransactionModal>> expenseYesterdayNotifier =
     ValueNotifier([]);
+ValueNotifier<List<TransactionModal>> lastWeekNotifier = ValueNotifier([]);
+
+ValueNotifier<List<TransactionModal>> incomeLastWeekNotifier =
+    ValueNotifier([]);
+
+ValueNotifier<List<TransactionModal>> expenseLastWeekNotifier =
+    ValueNotifier([]);
+
+ValueNotifier<List<TransactionModal>> lastMonthNotifier = ValueNotifier([]);
+
+ValueNotifier<List<TransactionModal>> incomeLastMonthNotifier =
+    ValueNotifier([]);
+
+ValueNotifier<List<TransactionModal>> expenseLastMonthNotifier =
+    ValueNotifier([]);
 
 String today = DateFormat.yMd().format(
   DateTime.now(),
@@ -41,6 +56,12 @@ String lastWeek = DateFormat.yMd().format(
   ),
 );
 
+String lastMonth = DateFormat.yMd().format(
+  DateTime.now().subtract(
+    const Duration(days: 30),
+  ),
+);
+
 filterFunction() async {
   final list = await transactiondObj.getAllTransactions();
 
@@ -52,6 +73,12 @@ filterFunction() async {
   incomeYesterdayNotifier.value.clear();
   expenseTodayNotifier.value.clear();
   expenseYesterdayNotifier.value.clear();
+  lastWeekNotifier.value.clear();
+  expenseLastWeekNotifier.value.clear();
+  incomeLastWeekNotifier.value.clear();
+  lastMonthNotifier.value.clear();
+  expenseLastMonthNotifier.value.clear();
+  incomeLastMonthNotifier.value.clear();
 
   for (var element in list) {
     if (element.type == CategoryType.income) {
@@ -70,6 +97,13 @@ filterFunction() async {
     if (elementDate == yesterday) {
       yesterdayNotifier.value.add(element);
     }
+    if (elementDate == lastWeek) {
+      lastWeekNotifier.value.add(element);
+    }
+
+    if (elementDate == lastMonth) {
+      lastMonthNotifier.value.add(element);
+    }
 
     if (elementDate == today && element.type == CategoryType.income) {
       incomeTodayNotifier.value.add(element);
@@ -86,6 +120,21 @@ filterFunction() async {
     if (elementDate == yesterday && element.type == CategoryType.expense) {
       expenseYesterdayNotifier.value.add(element);
     }
+    if (elementDate == lastWeek && element.type == CategoryType.income) {
+      incomeLastWeekNotifier.value.add(element);
+    }
+
+    if (elementDate == lastWeek && element.type == CategoryType.expense) {
+      expenseLastWeekNotifier.value.add(element);
+    }
+
+    if (elementDate == lastMonth && element.type == CategoryType.income) {
+      incomeLastMonthNotifier.value.add(element);
+    }
+
+    if (elementDate == lastMonth && element.type == CategoryType.expense) {
+      expenseLastMonthNotifier.value.add(element);
+    }
   }
 
   todayNotifier.notifyListeners();
@@ -96,4 +145,10 @@ filterFunction() async {
   incomeYesterdayNotifier.notifyListeners();
   expenseTodayNotifier.notifyListeners();
   expenseYesterdayNotifier.notifyListeners();
+  lastWeekNotifier.notifyListeners();
+  incomeLastWeekNotifier.notifyListeners();
+  expenseLastWeekNotifier.notifyListeners();
+  lastMonthNotifier.notifyListeners();
+  incomeLastMonthNotifier.notifyListeners();
+  expenseLastMonthNotifier.notifyListeners();
 }

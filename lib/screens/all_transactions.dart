@@ -177,6 +177,9 @@ class _AllTransactionState extends State<AllTransaction> {
                             'All',
                             'Today',
                             'Yesterday',
+                            'Lastweek',
+                            'Lastmonth',
+                            'Custom',
                           ]
                               .map(
                                 (e) => DropdownMenuItem(
@@ -307,6 +310,18 @@ class _AllTransactionState extends State<AllTransaction> {
       return expenseTodayNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'Yesterday') {
       return expenseYesterdayNotifier;
+    } else if (categoryId1 == 'All' && categoryId2 == 'Lastweek') {
+      return lastWeekNotifier;
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'Lastweek') {
+      return expenseLastWeekNotifier;
+    } else if (categoryId1 == 'Income' && categoryId2 == 'Lastweek') {
+      return incomeLastWeekNotifier;
+    } else if (categoryId1 == 'All' && categoryId2 == 'Lastmonth') {
+      return lastMonthNotifier;
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'Lastmonth') {
+      return expenseLastMonthNotifier;
+    } else if (categoryId1 == 'Income' && categoryId2 == 'Lastmonth') {
+      return incomeLastMonthNotifier;
     }
   }
 }
