@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/add_new.dart';
 import 'package:cup_cake/screens/all_transactions.dart';
@@ -42,13 +41,6 @@ class _BottomNavState extends State<BottomNav> {
     Settings(),
   ];
 
-  @override
-  void initState() {
-    CategoryDb.instance.refreshUi();
-    TransactionDb.instance.refresh();
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../db/category_db.dart';
+import '../db/transaction_db.dart';
 import '../functions/widgets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,6 +21,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     checkUserLoggedIn();
+
+    CategoryDb.instance.refreshUi();
+    TransactionDb.instance.refresh();
+
     super.initState();
   }
 
