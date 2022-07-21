@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:cup_cake/db/username_db.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/main.dart';
+import 'package:cup_cake/modals/username_modal.dart';
 
 import 'package:cup_cake/screens/bottom_navigation.dart';
 
@@ -31,6 +33,7 @@ class _SigninPageState extends State<SigninPage> {
 
   final obj = Widgets();
   final colorsobj = Colours();
+  
 
   final _usernameController = TextEditingController();
   final formkey = GlobalKey<FormState>();
@@ -196,6 +199,11 @@ class _SigninPageState extends State<SigninPage> {
       await sharedpref.setBool(saveKeyName, true);
 
       Get.off(() => const BottomNav());
+      final username = _usernameController.text.trim();
+      final modal = UsernameModal(username: username);
+      addUsername(modal);
     }
+
   }
+
 }

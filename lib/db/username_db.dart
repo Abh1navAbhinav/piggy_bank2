@@ -7,3 +7,9 @@ const userNamedbName = 'usernameDbName';
     final db =await Hive.openBox<UsernameModal>(userNamedbName);
     db.add(obj);
   }
+
+Future <String> getUserName()async{
+  final dB = await Hive.openBox<UsernameModal>(userNamedbName);
+    return dB.values.toString();
+
+}

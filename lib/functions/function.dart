@@ -6,8 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db/category_db.dart';
 import '../db/transaction_db.dart';
+import '../db/username_db.dart';
 import '../modals/category_modal.dart';
 import '../modals/transaction_modal.dart';
+import '../modals/username_modal.dart';
 import '../screens/signin_page.dart';
 
 final widgetsobj = Widgets();
@@ -134,6 +136,8 @@ class Functions {
     final transactiondB =
         await Hive.openBox<TransactionModal>(transactionDbName);
     transactiondB.clear();
+     final userNamedb =await Hive.openBox<UsernameModal>(userNamedbName);
+    userNamedb.clear();
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

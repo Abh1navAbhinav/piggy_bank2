@@ -1,5 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
-
+  part 'username_modal.g.dart';
+  
 @HiveType(typeId: 4)
 class UsernameModal {
 

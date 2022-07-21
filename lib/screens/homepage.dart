@@ -44,8 +44,8 @@ class _HomespagesState extends State<Homespages> {
                     style: colorsobj.styles(
                         fontWeight: FontWeight.w400, fontSize: 18),
                   ),
-                  Text(
-                    "username",
+                   Text(
+                    'username',
                     style: colorsobj.styles(
                       color: Colors.pink,
                     ),

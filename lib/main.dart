@@ -1,5 +1,6 @@
 import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
+import 'package:cup_cake/modals/username_modal.dart';
 
 
 import 'package:cup_cake/screens/splash_screen.dart';
@@ -23,6 +24,9 @@ Future<void> main() async {
   }
   if (!Hive.isAdapterRegistered(TransactionModalAdapter().typeId)) {
     Hive.registerAdapter(TransactionModalAdapter());
+  }
+  if (!Hive.isAdapterRegistered(UsernameModalAdapter().typeId)) {
+    Hive.registerAdapter(UsernameModalAdapter());
   }
 
   runApp(const MyApp());
