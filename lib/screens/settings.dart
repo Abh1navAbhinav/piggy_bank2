@@ -83,7 +83,9 @@ class Settings extends StatelessWidget {
             height: 30,
           ),
           obj.settingsitems(
-            function: () {},
+            function: () {
+              
+            },
             icon: const Icon(
               Icons.note_alt_outlined,
               color: Color.fromARGB(255, 27, 88, 83),
