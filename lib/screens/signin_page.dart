@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/db/username_db.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/main.dart';
@@ -27,6 +28,7 @@ class _SigninPageState extends State<SigninPage> {
   @override
   void initState() {
     TransactionDb.instance.refresh();
+    CategoryDb.instance.refreshUi();
 
     super.initState();
   }
