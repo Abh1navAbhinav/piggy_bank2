@@ -394,7 +394,6 @@ class _AddTransactionState extends State<AddTransaction> {
                                     addTransactionFunction();
 
                                     TransactionDb.instance.refresh();
-                                   
 
                                     setState(() {
                                       visiblity = true;
@@ -475,7 +474,9 @@ class _AddTransactionState extends State<AddTransaction> {
 
     functionsogj.showSnackbarSuccess(
       context: context,
-      text:visiblity == false?"Transaction updated succefully  ✓": "Transaction added succefully  ✓",
+      text: visiblity == false
+          ? "Transaction updated succefully  ✓"
+          : "Transaction added succefully  ✓",
       color: Colors.white,
       textcolor: Colors.green,
       visibility: false,
