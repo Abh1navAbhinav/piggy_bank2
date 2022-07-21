@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:cup_cake/db/transaction_db.dart';
 import 'package:cup_cake/functions/filteration.dart';
 import 'package:cup_cake/functions/popups.dart';
 import 'package:cup_cake/modals/category_modal.dart';
+import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:cup_cake/screens/add_new.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -13,16 +14,17 @@ import 'package:lottie/lottie.dart';
 
 import '../functions/colors_and_style.dart';
 import '../functions/widgets.dart';
-import '../modals/transaction_modal.dart';
 
 class AllTransaction extends StatefulWidget {
-  const AllTransaction({Key? key}) : super(key: key);
+   
+   const AllTransaction({Key? key}) : super(key: key);
 
   @override
   State<AllTransaction> createState() => _AllTransactionState();
 }
 
 class _AllTransactionState extends State<AllTransaction> {
+  
   final obj = Widgets();
   final popupsobj = Popups();
   final colorsobj = Colours();
@@ -246,7 +248,7 @@ class _AllTransactionState extends State<AllTransaction> {
                                     setState(() {
                                       visiblity = false;
                                       Get.to(
-                                        const AddTransaction(),
+                                         AddTransaction(index: index,modal: values, ),
                                         transition: Transition.zoom,
                                         duration: const Duration(
                                           milliseconds: 500,

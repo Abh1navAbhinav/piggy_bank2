@@ -36,7 +36,7 @@ class _BottomNavState extends State<BottomNav> {
   int currentindex = 0;
   final screens = [
     const Homespages(),
-    const AllTransaction(),
+     const AllTransaction(),
     const Graphs(),
     Settings(),
   ];
@@ -80,7 +80,7 @@ class _BottomNavState extends State<BottomNav> {
           elevation: 10,
           onPressed: () {
             Get.to(
-              const AddTransaction(),
+               AddTransaction(),
               transition: Transition.zoom,
               duration: const Duration(
                 milliseconds: 500,

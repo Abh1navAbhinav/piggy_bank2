@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/db/transaction_db.dart';
@@ -18,7 +18,13 @@ import '../modals/transaction_modal.dart';
 bool visiblity = true;
 
 class AddTransaction extends StatefulWidget {
-  const AddTransaction({Key? key}) : super(key: key);
+  TransactionModal? modal;
+  int? index;
+  AddTransaction({
+    Key? key,
+    this.index,
+    this.modal,
+  }) : super(key: key);
 
   @override
   State<AddTransaction> createState() => _AddTransactionState();
@@ -40,6 +46,12 @@ class _AddTransactionState extends State<AddTransaction> {
   @override
   void initState() {
     selectedCategoryType = CategoryType.income;
+    if (visiblity == false) {
+      amountController.text = widget.modal!.amount.toString();
+
+      selectedDate = widget.modal!.date;
+      selectedCategoryType = widget.modal!.type;
+    }
     super.initState();
   }
 
@@ -379,6 +391,9 @@ class _AddTransactionState extends State<AddTransaction> {
                                 visible: visiblity,
                                 replacement: TextButton.icon(
                                   onPressed: () {
+                                    addTransactionFunction();
+
+                                    TransactionDb.instance.refresh();
                                     Get.back();
 
                                     setState(() {
@@ -460,7 +475,7 @@ class _AddTransactionState extends State<AddTransaction> {
 
     functionsogj.showSnackbarSuccess(
       context: context,
-      text: "Transaction added succefully  ✓",
+      text:visiblity == false?"Transaction updated succefully  ✓": "Transaction added succefully  ✓",
       color: Colors.white,
       textcolor: Colors.green,
       visibility: false,

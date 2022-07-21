@@ -10,6 +10,7 @@ ValueNotifier<List<TransactionModal>> transactionListNotifier =
 
 abstract class TransactionDbFunctions {
   Future<void> addTransactionDb(TransactionModal obj);
+  Future<void> updateTransactionDb(TransactionModal obj);
   Future<List<TransactionModal>> getAllTransactions();
   Future<void> deleteTransaction(String id);
 }
@@ -49,5 +50,11 @@ class TransactionDb implements TransactionDbFunctions {
     final dB = await Hive.openBox<TransactionModal>(transactionDbName);
     await dB.delete(id);
     refresh();
+  }
+  
+  @override
+  Future<void> updateTransactionDb(TransactionModal obj) async{
+  final dB = await Hive.openBox<TransactionModal>(transactionDbName);
+    await dB.put(obj.id, obj);
   }
 }
