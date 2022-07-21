@@ -33,8 +33,10 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
           height: 15,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            const SizedBox(width: 20,),
+             Text('Transaction  Statistics',style: colorsobj.styles(),),
             obj.appLogo(),
           ],
         ),
