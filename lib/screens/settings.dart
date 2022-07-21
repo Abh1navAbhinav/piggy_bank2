@@ -4,6 +4,7 @@ import 'package:cup_cake/screens/about.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
   Settings({Key? key}) : super(key: key);
@@ -84,7 +85,31 @@ class Settings extends StatelessWidget {
           ),
           obj.settingsitems(
             function: () {
-              
+
+
+
+              String email = 'abhinavpm91@gmail.com';
+              String subject = 'Feed Back';
+              String body = 'Type your feed back here: ';
+
+              String? encodeQueryParameters(Map<String, String> params) {
+                return params.entries
+                    .map((MapEntry<String, String> e) =>
+                        '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                    .join('&');
+              }
+
+              final Uri emailUri = Uri(
+                scheme: 'mailto',
+                path: email,
+                query: encodeQueryParameters(
+                    <String, String>{'subject': subject, 'body': body}),
+              );
+              launchUrl(emailUri);
+
+
+
+
             },
             icon: const Icon(
               Icons.note_alt_outlined,
