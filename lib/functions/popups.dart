@@ -243,7 +243,6 @@ class Popups {
               onPressed: () async {
                 funtionsobj.resetApp();
                 Get.back();
-                TransactionDb.instance.refresh();
                 funtionsobj.showSnackbarSuccess(
                   context: context,
                   text: "Piggy Bank resetted succefully  ✓",

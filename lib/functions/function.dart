@@ -133,9 +133,12 @@ class Functions {
     await sharedpref.clear();
     final categoryDb = await Hive.openBox<CategoryModal>(categoryDbName);
     categoryDb.clear();
+    CategoryDb.instance.refreshUi();
+
     final transactiondB =
         await Hive.openBox<TransactionModal>(transactionDbName);
     transactiondB.clear();
+    TransactionDb.instance.refresh();
      final userNamedb =await Hive.openBox<UsernameModal>(userNamedbName);
     userNamedb.clear();
   }

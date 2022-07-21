@@ -46,6 +46,7 @@ class _AddTransactionState extends State<AddTransaction> {
   @override
   void initState() {
     selectedCategoryType = CategoryType.income;
+    CategoryDb.instance.refreshUi();
     if (visiblity == false) {
       amountController.text = widget.modal!.amount.toString();
 
@@ -469,7 +470,9 @@ class _AddTransactionState extends State<AddTransaction> {
       type: selectedCategoryType!,
       category: selectedCategoryModal!,
     );
-    visiblity == false? TransactionDb.instance.updateTransactionDb(widget.index,model): TransactionDb.instance.addTransactionDb(model);
+    visiblity == false
+        ? TransactionDb.instance.updateTransactionDb(widget.index, model)
+        : TransactionDb.instance.addTransactionDb(model);
     Get.back();
 
     functionsogj.showSnackbarSuccess(
