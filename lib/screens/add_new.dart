@@ -469,7 +469,7 @@ class _AddTransactionState extends State<AddTransaction> {
       type: selectedCategoryType!,
       category: selectedCategoryModal!,
     );
-    TransactionDb.instance.addTransactionDb(model);
+    visiblity == false? TransactionDb.instance.updateTransactionDb(widget.index,model): TransactionDb.instance.addTransactionDb(model);
     Get.back();
 
     functionsogj.showSnackbarSuccess(
