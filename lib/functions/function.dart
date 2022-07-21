@@ -1,4 +1,5 @@
 import 'package:cup_cake/functions/widgets.dart';
+import 'package:cup_cake/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:hive/hive.dart';
@@ -10,7 +11,6 @@ import '../db/username_db.dart';
 import '../modals/category_modal.dart';
 import '../modals/transaction_modal.dart';
 import '../modals/username_modal.dart';
-import '../screens/signin_page.dart';
 
 final widgetsobj = Widgets();
 
@@ -127,7 +127,7 @@ class Functions {
 
   resetApp() async {
     Get.offAll(
-      const SigninPage(),
+      const SplashScreen(),
     );
     final sharedpref = await SharedPreferences.getInstance();
     await sharedpref.clear();
