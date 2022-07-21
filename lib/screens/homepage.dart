@@ -118,7 +118,7 @@ class _HomespagesState extends State<Homespages> {
                           height: 30,
                           child: FittedBox(
                             child: Text(
-                              totalBalance == 0 ? '₹ 0.00' : '₹ $totalBalance',
+                              totalBalance == 0 ? '₹0.00' : '₹ $totalBalance',
                               style: colorsobj.styles(
                                 fontSize: 23,
                                 fontWeight: FontWeight.w500,
