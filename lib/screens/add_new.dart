@@ -394,7 +394,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                     addTransactionFunction();
 
                                     TransactionDb.instance.refresh();
-                                    Get.back();
+                                   
 
                                     setState(() {
                                       visiblity = true;
