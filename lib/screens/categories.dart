@@ -49,22 +49,11 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                         Icons.arrow_back_rounded,
                       ),
                     ),
+                     Text('C a t e g o r i e s',style: colorsobj.styles(),),
                     obj.appLogo(),
                   ],
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
-                obj.elevate(
-                  elevations: 10,
-                  radius: 15,
-                  width: 300,
-                  height: 70,
-                  gradient: colorsobj.colorsdark(),
-                  text: 'Category of Items',
-                  lpadding: 75,
-                  tpadding: 20,
-                ),
+               
                 const SizedBox(
                   height: 50,
                 ),
@@ -98,7 +87,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                       ),
                     ),
                     width: double.maxFinite,
-                    height: 300,
+                    height: 400,
                     child: TabBarView(
                       controller: tabController,
                       children: [
@@ -157,7 +146,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                 return ListTile(
                                   title: GestureDetector(
                                     onDoubleTap: () {
-                                      popupsobj.deleteCategoryPopUp( 
+                                      popupsobj.deleteCategoryPopUp(
                                         context: context,
                                         list: newlist[index],
                                       );
