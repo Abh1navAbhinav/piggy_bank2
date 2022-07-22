@@ -10,7 +10,7 @@ ValueNotifier<List<TransactionModal>> transactionListNotifier =
 
 abstract class TransactionDbFunctions {
   Future<void> addTransactionDb(TransactionModal obj);
-  Future<void> updateTransactionDb(index, value);
+  Future<void> updateTransactionDb({required index, required value});
   Future<List<TransactionModal>> getAllTransactions();
   Future<void> deleteTransaction(String id);
 }
@@ -53,9 +53,9 @@ class TransactionDb implements TransactionDbFunctions {
   }
   
   @override
-  Future<void> updateTransactionDb(index, value) async{
+  Future<void> updateTransactionDb({required index,required value}) async{
    final dB = await Hive.openBox<TransactionModal>(transactionDbName);
-   await dB.put(index,value );
+   await dB.putAt(index,value );
   }
   
 

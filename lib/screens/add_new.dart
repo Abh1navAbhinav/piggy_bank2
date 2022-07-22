@@ -471,7 +471,7 @@ class _AddTransactionState extends State<AddTransaction> {
       category: selectedCategoryModal!,
     );
     visiblity == false
-        ? TransactionDb.instance.updateTransactionDb(widget.index, model)
+        ? TransactionDb.instance.updateTransactionDb(index: widget.index, value: model)
         : TransactionDb.instance.addTransactionDb(model);
     Get.back();
 
