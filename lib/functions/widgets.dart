@@ -1,13 +1,15 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member, prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:cup_cake/db/category_db.dart';
-import 'package:cup_cake/functions/bottomsheet_rows.dart';
 
 import 'package:cup_cake/functions/function.dart';
+import 'package:cup_cake/functions/uri_functions.dart';
 import 'package:cup_cake/screens/about.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../modals/category_modal.dart';
 import 'colors_and_style.dart';
@@ -17,6 +19,7 @@ ValueNotifier<CategoryType> selectedCategoryNotifier =
 final categorydbs = CategoryDb();
 final funtionsobj = Functions();
 final colorsobj = Colours();
+final urifunctionobj = Urifunction();
 
 class Widgets {
   Widget listTiles({
@@ -324,7 +327,7 @@ class Widgets {
           height: 200,
           color: Colors.transparent,
           child: Container(
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               gradient: colorsobj.colorslight(),
               // color: Colors.white,
               borderRadius: const BorderRadius.only(
@@ -332,27 +335,101 @@ class Widgets {
                 topRight: Radius.circular(10.0),
               ),
             ),
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RowincolumnBottomSheet(
-                  function: () {},
-                  imagePath:
-                      'assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg',
-                  text: 'Contact me on LinkedIn',
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () async {
+                      final Uri url = Uri.parse('https://flutter.dev');
+                      if (!await launchUrl(url)) {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: AssetImage(
+                            'assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Contact me on LinkedIn',
+                          style: GoogleFonts.aBeeZee(
+                            fontSize: 20,
+                            color: const Color.fromARGB(255, 11, 90, 155),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                RowincolumnBottomSheet(
-                  function: () {},
-                  imagePath:
-                      'assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg',
-                  text: 'Contact me on FaceBook',
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () async {
+                      final Uri url = Uri.parse('https://flutter.dev');
+                      if (!await launchUrl(url)) {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: AssetImage(
+                            'assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Contact me on FaceBook',
+                          style: GoogleFonts.aBeeZee(
+                            fontSize: 20,
+                            color: const Color.fromARGB(255, 11, 90, 155),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                RowincolumnBottomSheet(
-                  function: () {},
-                  imagePath:
-                      'assets/images/socialMedia/instagram-6970242_960_720.jpg',
-                  text: 'Contact me on Instagram',
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () async {
+                      final Uri url = Uri.parse('https://flutter.dev');
+                      if (!await launchUrl(url)) {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: AssetImage(
+                            'assets/images/socialMedia/instagram-6970242_960_720.jpg',
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'Contact me on Instagram',
+                          style: GoogleFonts.aBeeZee(
+                            fontSize: 20,
+                            color: const Color.fromARGB(255, 11, 90, 155),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

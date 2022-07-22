@@ -82,7 +82,7 @@ class Settings extends StatelessWidget {
               Icons.contact_page_outlined,
               color: Color.fromARGB(255, 27, 88, 83),
             ),
-            text: 'Contact us',
+            text: 'Contact Me',
           ),
           const SizedBox(
             height: 30,
