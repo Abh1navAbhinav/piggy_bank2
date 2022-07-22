@@ -342,7 +342,8 @@ class Widgets {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () async {
-                      final Uri url = Uri.parse('https://flutter.dev');
+                      final Uri url = Uri.parse(
+                          'https://www.linkedin.com/in/abhinav-pm-a92953232');
                       if (!await launchUrl(url)) {
                         throw 'Could not launch $url';
                       }
@@ -373,7 +374,8 @@ class Widgets {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () async {
-                      final Uri url = Uri.parse('https://flutter.dev');
+                      final Uri url =
+                          Uri.parse('https://www.facebook.com/abhinav.pm.566');
                       if (!await launchUrl(url)) {
                         throw 'Could not launch $url';
                       }
@@ -404,7 +406,8 @@ class Widgets {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () async {
-                      final Uri url = Uri.parse('https://flutter.dev');
+                      final Uri url = Uri.parse(
+                          'https://instagram.com/abhinav_p.m?igshid=YmMyMTA2M2Y=');
                       if (!await launchUrl(url)) {
                         throw 'Could not launch $url';
                       }
