@@ -12,6 +12,7 @@ class Settings extends StatelessWidget {
   final obj = Widgets();
   final popupsobj = Popups();
   final urifunctionsobj = Urifunction();
+  final widgetsobj = Widgets();
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,9 @@ class Settings extends StatelessWidget {
             height: 30,
           ),
           obj.settingsitems(
-            function: () {},
+            function: () {
+              widgetsobj.showbottomsheeet(context: context);
+            },
             icon: const Icon(
               Icons.contact_page_outlined,
               color: Color.fromARGB(255, 27, 88, 83),

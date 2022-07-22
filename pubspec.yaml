@@ -81,6 +81,9 @@ flutter:
     - assets/images/lottie/107642-lost-in-the-metaverse.json
     - assets/images/icons/piggy-bank (2).png
     - assets/images/lottie/43191-no-data-error.json
+    - assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg
+    - assets/images/socialMedia/instagram-6970242_960_720.jpg
+    - assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

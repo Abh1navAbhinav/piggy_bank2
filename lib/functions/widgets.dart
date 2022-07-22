@@ -1,5 +1,7 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member, prefer_typing_uninitialized_variables, must_be_immutable
+
 import 'package:cup_cake/db/category_db.dart';
+import 'package:cup_cake/functions/bottomsheet_rows.dart';
 
 import 'package:cup_cake/functions/function.dart';
 import 'package:cup_cake/screens/about.dart';
@@ -105,7 +107,7 @@ class Widgets {
     );
   }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   Widget elevate({
     required double elevations,
@@ -146,7 +148,7 @@ class Widgets {
     );
   }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   Widget appLogo({
     double radius = 20,
@@ -190,7 +192,7 @@ class Widgets {
     );
   }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   Widget settingsitems({required String text, required Icon icon, function}) {
     return Row(
@@ -241,7 +243,7 @@ class Widgets {
     );
   }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   Widget incomeAndExpense({
     required int totalIncome,
@@ -309,6 +311,54 @@ class Widgets {
           ],
         ),
       ),
+    );
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  showbottomsheeet({required BuildContext context}) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (builder) {
+        return Container(
+          height: 200,
+          color: Colors.transparent,
+          child: Container(
+            decoration:  BoxDecoration(
+              gradient: colorsobj.colorslight(),
+              // color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
+              ),
+            ),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RowincolumnBottomSheet(
+                  function: () {},
+                  imagePath:
+                      'assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg',
+                  text: 'Contact me on LinkedIn',
+                ),
+                RowincolumnBottomSheet(
+                  function: () {},
+                  imagePath:
+                      'assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg',
+                  text: 'Contact me on FaceBook',
+                ),
+                RowincolumnBottomSheet(
+                  function: () {},
+                  imagePath:
+                      'assets/images/socialMedia/instagram-6970242_960_720.jpg',
+                  text: 'Contact me on Instagram',
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
