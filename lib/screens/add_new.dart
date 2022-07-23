@@ -395,10 +395,6 @@ class _AddTransactionState extends State<AddTransaction> {
                                     addTransactionFunction();
 
                                     TransactionDb.instance.refresh();
-
-                                    setState(() {
-                                      visiblity = true;
-                                    });
                                   },
                                   icon: const Icon(
                                     Icons.check_circle_outline_rounded,
@@ -470,10 +466,15 @@ class _AddTransactionState extends State<AddTransaction> {
       type: selectedCategoryType!,
       category: selectedCategoryModal!,
     );
+
     visiblity == false
-        ? TransactionDb.instance.updateTransactionDb(index: widget.index, value: model)
+        ? TransactionDb.instance
+            .updateTransactionDb(index: widget.index, value: model)
         : TransactionDb.instance.addTransactionDb(model);
     Get.back();
+    setState(() {
+      visiblity = true;
+    });
 
     functionsogj.showSnackbarSuccess(
       context: context,
