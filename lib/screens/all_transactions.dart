@@ -182,7 +182,7 @@ class _AllTransactionState extends State<AllTransaction> {
                             'Yesterday',
                             'Lastweek',
                             'Lastmonth',
-                            'Custom',
+                           
                           ]
                               .map(
                                 (e) => DropdownMenuItem(
