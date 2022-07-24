@@ -6,6 +6,8 @@ import 'package:cup_cake/screens/about.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../functions/remainder.dart';
+
 class Settings extends StatelessWidget {
   Settings({Key? key}) : super(key: key);
 
@@ -101,7 +103,11 @@ class Settings extends StatelessWidget {
             height: 30,
           ),
           obj.settingsitems(
-            function: () {},
+            function: () => NotificationApi.showNotification(
+              title: 'title',
+              body: 'body',
+              payload: 'payload',
+            ),
             icon: const Icon(
               Icons.notifications_active_outlined,
               color: Color.fromARGB(255, 27, 88, 83),
