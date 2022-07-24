@@ -17,15 +17,13 @@ import '../functions/colors_and_style.dart';
 import '../functions/widgets.dart';
 
 class AllTransaction extends StatefulWidget {
-   
-   const AllTransaction({Key? key}) : super(key: key);
+  const AllTransaction({Key? key}) : super(key: key);
 
   @override
   State<AllTransaction> createState() => _AllTransactionState();
 }
 
 class _AllTransactionState extends State<AllTransaction> {
-  
   final obj = Widgets();
   final popupsobj = Popups();
   final colorsobj = Colours();
@@ -54,7 +52,8 @@ class _AllTransactionState extends State<AllTransaction> {
           children: [
             Material(
               borderRadius: BorderRadius.circular(50),
-              elevation: 20,
+              shadowColor: const Color.fromARGB(255, 187, 251, 247),
+              elevation: 8,
               child: Container(
                 width: 250,
                 height: 50,
@@ -95,9 +94,9 @@ class _AllTransactionState extends State<AllTransaction> {
                 bottom: 24,
               ),
               child: Material(
-                shadowColor: Colors.grey[100],
+                shadowColor: const Color.fromARGB(255, 187, 251, 247),
                 borderRadius: BorderRadius.circular(18),
-                elevation: 20,
+                elevation: 10,
                 child: Container(
                   height: 50,
                   width: 130,
@@ -150,9 +149,9 @@ class _AllTransactionState extends State<AllTransaction> {
                 bottom: 24,
               ),
               child: Material(
-                shadowColor: Colors.grey[100],
+                shadowColor: const Color.fromARGB(255, 187, 251, 247),
                 borderRadius: BorderRadius.circular(18),
-                elevation: 20,
+                elevation: 10,
                 child: Container(
                   height: 50,
                   width: 130,
@@ -182,7 +181,6 @@ class _AllTransactionState extends State<AllTransaction> {
                             'Yesterday',
                             'Lastweek',
                             'Lastmonth',
-                           
                           ]
                               .map(
                                 (e) => DropdownMenuItem(
@@ -208,11 +206,13 @@ class _AllTransactionState extends State<AllTransaction> {
         Material(
           elevation: 10,
           borderRadius: BorderRadius.circular(21),
+          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
           child: Container(
             width: 312,
             height: 470,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(21),
+              
               gradient: colorsobj.colorsdark(),
             ),
             child: ValueListenableBuilder(
@@ -223,8 +223,8 @@ class _AllTransactionState extends State<AllTransaction> {
                     ? Lottie.asset(
                         'assets/images/lottie/43191-no-data-error.json')
                     : ScrollConfiguration(
-                      behavior: MyBehavior(),
-                      child: ListView.builder(
+                        behavior: MyBehavior(),
+                        child: ListView.builder(
                           itemBuilder: (BuildContext context, index) {
                             final values = newlist[index];
                             return Slidable(
@@ -251,7 +251,10 @@ class _AllTransactionState extends State<AllTransaction> {
                                       setState(() {
                                         visiblity = false;
                                         Get.to(
-                                           AddTransaction(index: index,modal: values, ),
+                                          AddTransaction(
+                                            index: index,
+                                            modal: values,
+                                          ),
                                           transition: Transition.zoom,
                                           duration: const Duration(
                                             milliseconds: 500,
@@ -284,7 +287,7 @@ class _AllTransactionState extends State<AllTransaction> {
                           },
                           itemCount: newlist.length,
                         ),
-                    );
+                      );
               },
             ),
           ),

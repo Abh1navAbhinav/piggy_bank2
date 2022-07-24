@@ -38,6 +38,7 @@ class Widgets {
         children: [
           Material(
             elevation: 20,
+            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(50),
             child: Container(
               height: 45,
@@ -61,6 +62,7 @@ class Widgets {
           Material(
             elevation: 20,
             borderRadius: BorderRadius.circular(10),
+            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
             child: Container(
               height: 50,
               width: 200,
