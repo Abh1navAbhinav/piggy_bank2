@@ -351,7 +351,7 @@ class Widgets {
                     child: Row(
                       children: [
                         const CircleAvatar(
-                          radius: 25,
+                          radius: 20,
                           backgroundImage: AssetImage(
                             'assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg',
                           ),
@@ -360,7 +360,7 @@ class Widgets {
                           width: 20,
                         ),
                         Text(
-                          'Contact me on LinkedIn',
+                          '@LinkedIn',
                           style: GoogleFonts.aBeeZee(
                             fontSize: 20,
                             color: const Color.fromARGB(255, 11, 90, 155),
@@ -383,7 +383,7 @@ class Widgets {
                     child: Row(
                       children: [
                         const CircleAvatar(
-                          radius: 25,
+                          radius: 20,
                           backgroundImage: AssetImage(
                             'assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg',
                           ),
@@ -392,7 +392,7 @@ class Widgets {
                           width: 20,
                         ),
                         Text(
-                          'Contact me on FaceBook',
+                          '@FaceBook',
                           style: GoogleFonts.aBeeZee(
                             fontSize: 20,
                             color: const Color.fromARGB(255, 11, 90, 155),
@@ -415,7 +415,7 @@ class Widgets {
                     child: Row(
                       children: [
                         const CircleAvatar(
-                          radius: 25,
+                          radius: 20,
                           backgroundImage: AssetImage(
                             'assets/images/socialMedia/instagram-6970242_960_720.jpg',
                           ),
@@ -424,7 +424,7 @@ class Widgets {
                           width: 20,
                         ),
                         Text(
-                          'Contact me on Instagram',
+                          '@Instagram',
                           style: GoogleFonts.aBeeZee(
                             fontSize: 20,
                             color: const Color.fromARGB(255, 11, 90, 155),
