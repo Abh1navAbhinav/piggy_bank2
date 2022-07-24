@@ -35,8 +35,13 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(width: 20,),
-             Text('Transaction  Statistics',style: colorsobj.styles(),),
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              'Transaction  Statistics',
+              style: colorsobj.styles(),
+            ),
             obj.appLogo(),
           ],
         ),
@@ -116,7 +121,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                     borderData: FlBorderData(
                       show: false,
                     ),
-                    centerSpaceRadius: 90,
+                    centerSpaceRadius: 50,
                     sections: getsections(),
                   ),
                 ),
@@ -127,6 +132,10 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 ),
                 child: PieChart(
                   PieChartData(
+                    borderData: FlBorderData(
+                      show: false,
+                    ),
+                    centerSpaceRadius: 50,
                     sections: getsections(),
                   ),
                 ),
