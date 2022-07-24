@@ -4,6 +4,7 @@ import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/db/transaction_db.dart';
 import 'package:cup_cake/functions/function.dart';
 import 'package:cup_cake/functions/widgets.dart';
+import 'package:cup_cake/screens/bottom_navigation.dart';
 import 'package:cup_cake/screens/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -471,7 +472,13 @@ class _AddTransactionState extends State<AddTransaction> {
         ? TransactionDb.instance
             .updateTransactionDb(index: widget.index, value: model)
         : TransactionDb.instance.addTransactionDb(model);
-    Get.back();
+    Get.off(
+      () => const BottomNav(),
+      transition: Transition.zoom,
+      duration: const Duration(
+        milliseconds: 500,
+      ),
+    );
     setState(() {
       visiblity = true;
     });

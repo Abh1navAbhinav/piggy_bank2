@@ -116,7 +116,7 @@ class _AllTransactionState extends State<AllTransaction> {
                             color: Colors.transparent,
                           ),
                           style: colorsobj.styles(
-                            fontSize: 16,
+                            fontSize: 20,
                             fontWeight: FontWeight.w400,
                           ),
                           value: categoryId1,
@@ -171,7 +171,7 @@ class _AllTransactionState extends State<AllTransaction> {
                             color: Colors.transparent,
                           ),
                           style: colorsobj.styles(
-                            fontSize: 16,
+                            fontSize: 20,
                             fontWeight: FontWeight.w400,
                           ),
                           value: categoryId2,
