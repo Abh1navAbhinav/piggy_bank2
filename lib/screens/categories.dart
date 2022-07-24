@@ -1,5 +1,6 @@
 import 'package:cup_cake/functions/function.dart';
 import 'package:cup_cake/functions/popups.dart';
+import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -88,87 +89,90 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                     ),
                     width: double.maxFinite,
                     height: 400,
-                    child: TabBarView(
-                      controller: tabController,
-                      children: [
-                        ValueListenableBuilder(
-                          valueListenable:
-                              categorydbs.incomeCategoryListNotifier,
-                          builder: (BuildContext ctx,
-                              List<CategoryModal> newlist, Widget? _) {
-                            return GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                              ),
-                              itemBuilder: (
-                                BuildContext context,
-                                index,
-                              ) {
-                                return ListTile(
-                                  title: GestureDetector(
-                                    onDoubleTap: () {
-                                      popupsobj.deleteCategoryPopUp(
-                                        context: context,
-                                        list: newlist[index],
-                                      );
-                                    },
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        newlist[index].name,
-                                        style: colorsobj.styles(
-                                          color: const Color.fromARGB(
-                                              255, 27, 88, 83),
+                    child: ScrollConfiguration(
+                      behavior: MyBehavior(),
+                      child: TabBarView(
+                        controller: tabController,
+                        children: [
+                          ValueListenableBuilder(
+                            valueListenable:
+                                categorydbs.incomeCategoryListNotifier,
+                            builder: (BuildContext ctx,
+                                List<CategoryModal> newlist, Widget? _) {
+                              return GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                ),
+                                itemBuilder: (
+                                  BuildContext context,
+                                  index,
+                                ) {
+                                  return ListTile(
+                                    title: GestureDetector(
+                                      onDoubleTap: () {
+                                        popupsobj.deleteCategoryPopUp(
+                                          context: context,
+                                          list: newlist[index],
+                                        );
+                                      },
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          newlist[index].name,
+                                          style: colorsobj.styles(
+                                            color: const Color.fromARGB(
+                                                255, 27, 88, 83),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                              itemCount: newlist.length,
-                            );
-                          },
-                        ),
-                        ValueListenableBuilder(
-                          valueListenable: categorydbs.expenseCategoryList,
-                          builder: (BuildContext ctx,
-                              List<CategoryModal> newlist, Widget? _) {
-                            return GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                              ),
-                              itemBuilder: (
-                                BuildContext context,
-                                index,
-                              ) {
-                                return ListTile(
-                                  title: GestureDetector(
-                                    onDoubleTap: () {
-                                      popupsobj.deleteCategoryPopUp(
-                                        context: context,
-                                        list: newlist[index],
-                                      );
-                                    },
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        newlist[index].name,
-                                        style: colorsobj.styles(
-                                          color: const Color.fromARGB(
-                                              255, 27, 88, 83),
+                                  );
+                                },
+                                itemCount: newlist.length,
+                              );
+                            },
+                          ),
+                          ValueListenableBuilder(
+                            valueListenable: categorydbs.expenseCategoryList,
+                            builder: (BuildContext ctx,
+                                List<CategoryModal> newlist, Widget? _) {
+                              return GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                ),
+                                itemBuilder: (
+                                  BuildContext context,
+                                  index,
+                                ) {
+                                  return ListTile(
+                                    title: GestureDetector(
+                                      onDoubleTap: () {
+                                        popupsobj.deleteCategoryPopUp(
+                                          context: context,
+                                          list: newlist[index],
+                                        );
+                                      },
+                                      child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          newlist[index].name,
+                                          style: colorsobj.styles(
+                                            color: const Color.fromARGB(
+                                                255, 27, 88, 83),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                              itemCount: newlist.length,
-                            );
-                          },
-                        ),
-                      ],
+                                  );
+                                },
+                                itemCount: newlist.length,
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
