@@ -50,11 +50,13 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                         Icons.arrow_back_rounded,
                       ),
                     ),
-                     Text('C a t e g o r i e s',style: colorsobj.styles(),),
+                    Text(
+                      'C a t e g o r i e s',
+                      style: colorsobj.styles(),
+                    ),
                     obj.appLogo(),
                   ],
                 ),
-               
                 const SizedBox(
                   height: 50,
                 ),
@@ -79,6 +81,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(
                     20,
                   ),
+                  shadowColor: const Color.fromARGB(255, 187, 251, 247),
                   elevation: 10,
                   child: Container(
                     decoration: BoxDecoration(
@@ -184,6 +187,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                   child: Material(
                     elevation: 5,
                     borderRadius: BorderRadius.circular(30),
+                    shadowColor:  const Color.fromARGB(255, 187, 251, 247),
                     child: Container(
                       height: 50,
                       width: 135,

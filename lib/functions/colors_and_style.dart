@@ -5,8 +5,8 @@ class Colours {
   colorslight() {
     return const LinearGradient(
       colors: <Color>[
-        Color.fromARGB(247, 252, 242, 250),
-        Color.fromARGB(255, 224, 250, 251),
+         Color.fromARGB(255, 253, 251, 251),
+        Color.fromARGB(255, 235, 237, 238),
       ],
     );
   }

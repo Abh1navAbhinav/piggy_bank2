@@ -113,6 +113,8 @@ class _AddTransactionState extends State<AddTransaction> {
                           child: Material(
                             elevation: 15,
                             borderRadius: BorderRadius.circular(30),
+                            shadowColor:
+                                const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
                               height: 100,
                               width: 306,
@@ -127,6 +129,8 @@ class _AddTransactionState extends State<AddTransaction> {
                                   ),
                                   Material(
                                     borderRadius: BorderRadius.circular(18),
+                                    shadowColor: const Color.fromARGB(
+                                        255, 187, 251, 247),
                                     elevation: 5,
                                     child: TextButton.icon(
                                       onPressed: () async {
@@ -209,6 +213,7 @@ class _AddTransactionState extends State<AddTransaction> {
                           child: Material(
                             elevation: 15,
                             borderRadius: BorderRadius.circular(30),
+                            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
                               height: 250,
                               width: 306,
@@ -223,6 +228,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                   ),
                                   Material(
                                     borderRadius: BorderRadius.circular(18),
+                                    shadowColor:  const Color.fromARGB(255, 187, 251, 247),
                                     elevation: 5,
                                     child: Container(
                                       height: 60,
@@ -294,6 +300,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                     ),
                                     child: Material(
                                       borderRadius: BorderRadius.circular(18),
+                                      shadowColor:  const Color.fromARGB(255, 187, 251, 247),
                                       elevation: 5,
                                       child: Container(
                                         height: 60,
@@ -382,6 +389,7 @@ class _AddTransactionState extends State<AddTransaction> {
                           child: Material(
                             elevation: 5,
                             borderRadius: BorderRadius.circular(20),
+                            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
                               height: 50,
                               width: 120,

@@ -53,9 +53,9 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
             bottom: 24,
           ),
           child: Material(
-            shadowColor: Colors.grey[100],
+           shadowColor:  const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(18),
-            elevation: 20,
+            elevation: 10,
             child: Container(
               height: 50,
               width: 300,
