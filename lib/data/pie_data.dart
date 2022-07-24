@@ -10,17 +10,17 @@ class PieData {
     Data(
       name: 'Yellow',
       percent: 40,
-      color: Colors.yellow,
+      color: const Color.fromARGB(255, 203, 161, 193),
     ),
     Data(
       name: 'green',
       percent: 40,
-      color: Colors.green,
+      color: const Color.fromARGB(255, 82, 168, 85),
     ),
     Data(
       name: 'red',
       percent: 40,
-      color:Colors.red,
+      color:const Color.fromARGB(255, 171, 82, 76),
     ),
   ];
 }

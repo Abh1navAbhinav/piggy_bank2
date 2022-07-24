@@ -3,6 +3,7 @@
 import 'package:cup_cake/db/transaction_db.dart';
 import 'package:cup_cake/functions/filteration.dart';
 import 'package:cup_cake/functions/popups.dart';
+import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:cup_cake/screens/add_new.dart';
@@ -221,66 +222,69 @@ class _AllTransactionState extends State<AllTransaction> {
                 return newlist.isEmpty
                     ? Lottie.asset(
                         'assets/images/lottie/43191-no-data-error.json')
-                    : ListView.builder(
-                        itemBuilder: (BuildContext context, index) {
-                          final values = newlist[index];
-                          return Slidable(
-                            key: Key(values.id!),
-                            startActionPane: ActionPane(
-                              motion: const ScrollMotion(),
-                              children: [
-                                SlidableAction(
-                                  onPressed: (ctx) {
-                                    popupsobj.deleteTransactionPopup(
-                                        context: ctx, list: values);
-                                  },
-                                  icon: Icons.delete,
-                                  foregroundColor: Colors.black,
-                                  backgroundColor: Colors.transparent,
-                                )
-                              ],
-                            ),
-                            endActionPane: ActionPane(
-                              motion: const ScrollMotion(),
-                              children: [
-                                SlidableAction(
-                                  onPressed: (ctx) {
-                                    setState(() {
-                                      visiblity = false;
-                                      Get.to(
-                                         AddTransaction(index: index,modal: values, ),
-                                        transition: Transition.zoom,
-                                        duration: const Duration(
-                                          milliseconds: 500,
-                                        ),
-                                      );
-                                    });
-                                  },
-                                  icon: Icons.edit,
-                                  backgroundColor: Colors.transparent,
-                                  foregroundColor: Colors.black,
-                                )
-                              ],
-                            ),
-                            child: obj.listTiles(
-                              amountColor: values.type == CategoryType.expense
-                                  ? Colors.red
-                                  : Colors.green,
-                              image: Image(
-                                image: AssetImage(
-                                  values.type == CategoryType.income
-                                      ? 'assets/images/icons/piggy-bank (1).png'
-                                      : 'assets/images/icons/bankruptcy.png',
-                                ),
+                    : ScrollConfiguration(
+                      behavior: MyBehavior(),
+                      child: ListView.builder(
+                          itemBuilder: (BuildContext context, index) {
+                            final values = newlist[index];
+                            return Slidable(
+                              key: Key(values.id!),
+                              startActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (ctx) {
+                                      popupsobj.deleteTransactionPopup(
+                                          context: ctx, list: values);
+                                    },
+                                    icon: Icons.delete,
+                                    foregroundColor: Colors.black,
+                                    backgroundColor: Colors.transparent,
+                                  )
+                                ],
                               ),
-                              title: values.category.name,
-                              subtitle: parseDate(values.date),
-                              amount: values.amount.toString(),
-                            ),
-                          );
-                        },
-                        itemCount: newlist.length,
-                      );
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (ctx) {
+                                      setState(() {
+                                        visiblity = false;
+                                        Get.to(
+                                           AddTransaction(index: index,modal: values, ),
+                                          transition: Transition.zoom,
+                                          duration: const Duration(
+                                            milliseconds: 500,
+                                          ),
+                                        );
+                                      });
+                                    },
+                                    icon: Icons.edit,
+                                    backgroundColor: Colors.transparent,
+                                    foregroundColor: Colors.black,
+                                  )
+                                ],
+                              ),
+                              child: obj.listTiles(
+                                amountColor: values.type == CategoryType.expense
+                                    ? Colors.red
+                                    : Colors.green,
+                                image: Image(
+                                  image: AssetImage(
+                                    values.type == CategoryType.income
+                                        ? 'assets/images/icons/piggy-bank (1).png'
+                                        : 'assets/images/icons/bankruptcy.png',
+                                  ),
+                                ),
+                                title: values.category.name,
+                                subtitle: parseDate(values.date),
+                                amount: values.amount.toString(),
+                              ),
+                            );
+                          },
+                          itemCount: newlist.length,
+                        ),
+                    );
               },
             ),
           ),

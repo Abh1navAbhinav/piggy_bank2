@@ -3,7 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../functions/colors_and_style.dart';
-import '../functions/piechart_functions.dart';
+import '../data/piechart_functions.dart';
 import '../functions/state_widgets.dart';
 
 class Graphs extends StatefulWidget {
@@ -70,9 +70,9 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                       items: const <String>[
                         'Today',
                         'Yesterday',
-                        'Month',
-                        'Year',
-                        'Custom',
+                        'This Month',
+                        'This Year',
+                       
                       ],
                     ),
                   ],
@@ -127,6 +127,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 ),
                 child: PieChart(
                   PieChartData(
+                     centerSpaceRadius: 90,
                     sections: getsections(),
                   ),
                 ),

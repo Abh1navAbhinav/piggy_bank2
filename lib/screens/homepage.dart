@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:cup_cake/functions/function.dart';
+import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
@@ -175,35 +176,38 @@ class _HomespagesState extends State<Homespages> {
               padding: const EdgeInsets.only(
                 top: 15,
               ),
-              child: ValueListenableBuilder(
-                valueListenable: transactionListNotifier,
-                builder: (BuildContext context, List<TransactionModal> newlist,
-                    Widget? _) {
-                  return newlist.isEmpty
-                      ? Lottie.asset(
-                          'assets/images/lottie/43191-no-data-error.json')
-                      : ListView.builder(
-                          itemBuilder: (BuildContext context, index) {
-                            final values = newlist[index];
-                            return obj.listTiles(
-                              amountColor: values.type == CategoryType.expense
-                                  ? Colors.red
-                                  : Colors.green,
-                              image: Image(
-                                image: AssetImage(
-                                  values.type == CategoryType.income
-                                      ? 'assets/images/icons/piggy-bank (1).png'
-                                      : 'assets/images/icons/bankruptcy.png',
+              child: ScrollConfiguration(
+                behavior: MyBehavior(),
+                child: ValueListenableBuilder(
+                  valueListenable: transactionListNotifier,
+                  builder: (BuildContext context, List<TransactionModal> newlist,
+                      Widget? _) {
+                    return newlist.isEmpty
+                        ? Lottie.asset(
+                            'assets/images/lottie/43191-no-data-error.json')
+                        : ListView.builder(
+                            itemBuilder: (BuildContext context, index) {
+                              final values = newlist[index];
+                              return obj.listTiles(
+                                amountColor: values.type == CategoryType.expense
+                                    ? Colors.red
+                                    : Colors.green,
+                                image: Image(
+                                  image: AssetImage(
+                                    values.type == CategoryType.income
+                                        ? 'assets/images/icons/piggy-bank (1).png'
+                                        : 'assets/images/icons/bankruptcy.png',
+                                  ),
                                 ),
-                              ),
-                              title: values.category.name,
-                              subtitle: parseDate(values.date),
-                              amount: values.amount.toString(),
-                            );
-                          },
-                          itemCount: newlist.length > 3 ? 3 : newlist.length,
-                        );
-                },
+                                title: values.category.name,
+                                subtitle: parseDate(values.date),
+                                amount: values.amount.toString(),
+                              );
+                            },
+                            itemCount: newlist.length > 3 ? 3 : newlist.length,
+                          );
+                  },
+                ),
               ),
             ),
           ),
