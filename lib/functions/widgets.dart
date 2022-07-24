@@ -166,8 +166,8 @@ class Widgets {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              blurRadius: 10,
-              color: Color.fromARGB(255, 165, 152, 152),
+              blurRadius: 5,
+              color: Color.fromARGB(255, 255, 203, 219),
               spreadRadius: 1,
             )
           ],
@@ -254,8 +254,9 @@ class Widgets {
     required bool flag,
   }) {
     return Material(
-      elevation: 5,
+      elevation: 8,
       color: Colors.transparent,
+      shadowColor:  const Color.fromARGB(255, 187, 251, 247),
       borderRadius: const BorderRadius.all(
         Radius.circular(30),
       ),

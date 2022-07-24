@@ -2,20 +2,20 @@
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:cup_cake/functions/widgets.dart';
-import 'package:cup_cake/screens/add_new.dart';
 import 'package:cup_cake/screens/all_transactions.dart';
 import 'package:cup_cake/screens/graph.dart';
 import 'package:cup_cake/screens/homepage.dart';
 import 'package:cup_cake/screens/settings.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
-import 'package:get/get.dart';
 
 import '../db/transaction_db.dart';
 
 import '../functions/colors_and_style.dart';
 import '../modals/category_modal.dart';
+import 'add_new.dart';
 
 int totalBalance = 0;
 int totalIncome = 0;
@@ -76,6 +76,7 @@ class _BottomNavState extends State<BottomNav> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+         
           backgroundColor: const Color.fromARGB(255, 147, 232, 225),
           elevation: 10,
           onPressed: () {
@@ -99,8 +100,8 @@ class _BottomNavState extends State<BottomNav> {
             borderRadius: BorderRadius.circular(100),
             boxShadow: const [
               BoxShadow(
-                color: Color.fromARGB(255, 230, 210, 210),
-                blurRadius: 25.0,
+                color:Color.fromARGB(255, 187, 251, 247),
+                blurRadius: 10.0,
                 offset: Offset(0, 0),
               )
             ],

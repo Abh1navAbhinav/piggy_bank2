@@ -65,6 +65,7 @@ class _HomespagesState extends State<Homespages> {
           child: Material(
             elevation: 5,
             color: Colors.transparent,
+            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(20),
             child: Container(
               height: 150,
@@ -162,8 +163,9 @@ class _HomespagesState extends State<Homespages> {
           ),
         ),
         Material(
-          elevation: 5,
+          elevation: 8,
           color: Colors.transparent,
+          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
           borderRadius: BorderRadius.circular(40),
           child: Container(
             height: 270,
