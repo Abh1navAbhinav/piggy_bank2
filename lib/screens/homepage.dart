@@ -30,6 +30,8 @@ class _HomespagesState extends State<Homespages> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Padding(
@@ -45,7 +47,9 @@ class _HomespagesState extends State<Homespages> {
                   Text(
                     funtionsobj.greeting(),
                     style: colorsobj.styles(
-                        fontWeight: FontWeight.w400, fontSize: 18),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                    ),
                   ),
                   Text(
                     'username',
@@ -55,8 +59,8 @@ class _HomespagesState extends State<Homespages> {
                   ),
                 ],
               ),
-              const SizedBox(
-                width: 75,
+               SizedBox(
+                width: width*0.208,
               ),
               obj.appLogo(),
             ],
@@ -70,8 +74,8 @@ class _HomespagesState extends State<Homespages> {
             shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              height: 150,
-              width: 320,
+              height: height*0.197,
+              width: width*0.888,
               decoration: BoxDecoration(
                 gradient: colorsobj.colorsdark(),
                 borderRadius: BorderRadius.circular(20),
