@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:cup_cake/db/category_db.dart';
-import 'package:cup_cake/db/username_db.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/main.dart';
 import 'package:cup_cake/modals/username_modal.dart';
@@ -15,6 +14,7 @@ import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db/transaction_db.dart';
+import '../db/username_db.dart';
 import '../functions/colors_and_style.dart';
 
 class SigninPage extends StatefulWidget {
@@ -217,7 +217,7 @@ class _SigninPageState extends State<SigninPage> {
       Get.off(() => const BottomNav());
       final username = _usernameController.text.trim();
       final modal = UsernameModal(username: username);
-      addUsername(modal);
+      await addUsername(modal);
     }
   }
 }

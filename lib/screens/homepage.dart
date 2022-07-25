@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:cup_cake/db/username_db.dart';
 import 'package:cup_cake/functions/function.dart';
 import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
@@ -30,6 +31,7 @@ class _HomespagesState extends State<Homespages> {
 
   @override
   Widget build(BuildContext context) {
+   
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Column(
@@ -52,7 +54,7 @@ class _HomespagesState extends State<Homespages> {
                     ),
                   ),
                   Text(
-                    'username',
+                 userListNotifier.value ,
                     style: colorsobj.styles(
                       color: Colors.pink,
                     ),
