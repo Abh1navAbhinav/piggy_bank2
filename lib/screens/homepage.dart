@@ -47,7 +47,7 @@ class _HomespagesState extends State<Homespages> {
                     style: colorsobj.styles(
                         fontWeight: FontWeight.w400, fontSize: 18),
                   ),
-                   Text(
+                  Text(
                     'username',
                     style: colorsobj.styles(
                       color: Colors.pink,
@@ -67,7 +67,7 @@ class _HomespagesState extends State<Homespages> {
           child: Material(
             elevation: 5,
             color: Colors.transparent,
-            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+            shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(20),
             child: Container(
               height: 150,
@@ -122,10 +122,15 @@ class _HomespagesState extends State<Homespages> {
                           height: 30,
                           child: FittedBox(
                             child: Text(
-                              totalBalance == 0 ? '₹0.00' : '₹ ${formatter.format(totalBalance)}',
+                              totalBalance == 0
+                                  ? '₹0.00'
+                                  : '₹ ${formatter.format(totalBalance)}',
                               style: colorsobj.styles(
                                 fontSize: 23,
                                 fontWeight: FontWeight.w500,
+                                color: totalBalance < 0
+                                    ? Colors.red
+                                    : Colors.black,
                               ),
                             ),
                           ),
@@ -167,7 +172,7 @@ class _HomespagesState extends State<Homespages> {
         Material(
           elevation: 8,
           color: Colors.transparent,
-          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+          shadowColor: const Color.fromARGB(255, 187, 251, 247),
           borderRadius: BorderRadius.circular(40),
           child: Container(
             height: 270,
@@ -184,8 +189,8 @@ class _HomespagesState extends State<Homespages> {
                 behavior: MyBehavior(),
                 child: ValueListenableBuilder(
                   valueListenable: transactionListNotifier,
-                  builder: (BuildContext context, List<TransactionModal> newlist,
-                      Widget? _) {
+                  builder: (BuildContext context,
+                      List<TransactionModal> newlist, Widget? _) {
                     return newlist.isEmpty
                         ? Lottie.asset(
                             'assets/images/lottie/43191-no-data-error.json')
@@ -222,8 +227,5 @@ class _HomespagesState extends State<Homespages> {
 
   String parseDate(DateTime date) {
     return DateFormat.MMMd().format(date);
-    
   }
-  
-   
 }
