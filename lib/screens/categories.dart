@@ -29,6 +29,8 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     TabController tabController = TabController(length: 2, vsync: this);
     return Container(
       decoration: BoxDecoration(
@@ -58,8 +60,8 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                     obj.appLogo(),
                   ],
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: height * 0.0657,
                 ),
                 TabBar(
                   indicator: const UnderlineTabIndicator(
@@ -91,8 +93,8 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                         20,
                       ),
                     ),
-                    width: double.maxFinite,
-                    height: 400,
+                    width: width,
+                    height: height * 0.526,
                     child: ScrollConfiguration(
                       behavior: MyBehavior(),
                       child: TabBarView(
@@ -196,8 +198,8 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                     borderRadius: BorderRadius.circular(30),
                     shadowColor: const Color.fromARGB(255, 187, 251, 247),
                     child: Container(
-                      height: 50,
-                      width: 135,
+                      height: height * 0.0657,
+                      width: width * 0.375,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         gradient: colorsobj.colorsdark(),
