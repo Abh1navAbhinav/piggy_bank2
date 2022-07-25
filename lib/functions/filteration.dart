@@ -49,7 +49,7 @@ String yesterday = DateFormat.yMd().format(
     const Duration(days: 1),
   ),
 );
-
+/* 
 String lastWeek = DateFormat.yMd().format(
   DateTime.now().subtract(
     const Duration(days: 7),
@@ -61,7 +61,7 @@ String lastMonth = DateFormat.yMd().format(
     const Duration(days: 30),
   ),
 );
-
+ */
 filterFunction() async {
   final list = await transactiondObj.getAllTransactions();
 
@@ -97,11 +97,19 @@ filterFunction() async {
     if (elementDate == yesterday) {
       yesterdayNotifier.value.add(element);
     }
-    if (elementDate == lastWeek) {
+    if (element.date.isAfter(
+      DateTime.now().subtract(
+        const Duration(days: 7),
+      ),
+    )) {
       lastWeekNotifier.value.add(element);
     }
 
-    if (elementDate == lastMonth) {
+    if (element.date.isAfter(
+      DateTime.now().subtract(
+        const Duration(days: 30),
+      ),
+    )) {
       lastMonthNotifier.value.add(element);
     }
 
@@ -120,19 +128,39 @@ filterFunction() async {
     if (elementDate == yesterday && element.type == CategoryType.expense) {
       expenseYesterdayNotifier.value.add(element);
     }
-    if (elementDate == lastWeek && element.type == CategoryType.income) {
+    if (element.date.isAfter(
+          DateTime.now().subtract(
+            const Duration(days: 7),
+          ),
+        ) &&
+        element.type == CategoryType.income) {
       incomeLastWeekNotifier.value.add(element);
     }
 
-    if (elementDate == lastWeek && element.type == CategoryType.expense) {
+    if (element.date.isAfter(
+          DateTime.now().subtract(
+            const Duration(days: 7),
+          ),
+        ) &&
+        element.type == CategoryType.expense) {
       expenseLastWeekNotifier.value.add(element);
     }
 
-    if (elementDate == lastMonth && element.type == CategoryType.income) {
+    if (element.date.isAfter(
+          DateTime.now().subtract(
+            const Duration(days: 30),
+          ),
+        ) &&
+        element.type == CategoryType.income) {
       incomeLastMonthNotifier.value.add(element);
     }
 
-    if (elementDate == lastMonth && element.type == CategoryType.expense) {
+    if (element.date.isAfter(
+          DateTime.now().subtract(
+            const Duration(days: 30),
+          ),
+        ) &&
+        element.type == CategoryType.expense) {
       expenseLastMonthNotifier.value.add(element);
     }
   }
