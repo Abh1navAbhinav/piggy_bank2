@@ -82,8 +82,8 @@ class _HomespagesState extends State<Homespages> {
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 31,
+                   SizedBox(
+                    height: height*0.0407,
                   ),
                   Text(
                     'Total Balance',
@@ -100,30 +100,30 @@ class _HomespagesState extends State<Homespages> {
                     child: Row(
                       children: [
                         totalBalance >= 0
-                            ? const SizedBox(
-                                height: 50,
-                                width: 50,
-                                child: Image(
+                            ?  SizedBox(
+                                height: height*0.0657,
+                                width: width*0.138,
+                                child: const Image(
                                   image: AssetImage(
                                     'assets/images/piggy balance.png',
                                   ),
                                 ),
                               )
-                            : const SizedBox(
-                                height: 40,
-                                width: 40,
-                                child: Image(
+                            :  SizedBox(
+                                height: height*0.0526,
+                                width: width*0.11,
+                                child: const Image(
                                   image: AssetImage(
                                     'assets/images/icons/piggy-bank (2).png',
                                   ),
                                 ),
                               ),
-                        const SizedBox(
-                          width: 15,
+                         SizedBox(
+                          width: width*0.0416,
                         ),
                         SizedBox(
-                          width: 100,
-                          height: 30,
+                          width: width*0.277,
+                          height: height*0.0394,
                           child: FittedBox(
                             child: Text(
                               totalBalance == 0
@@ -151,18 +151,20 @@ class _HomespagesState extends State<Homespages> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             obj.incomeAndExpense(
+              context: context,
                 flag: true,
                 totalExpense: totalExpense,
                 totalIncome: totalIncome),
             obj.incomeAndExpense(
+              context: context,
               flag: false,
               totalExpense: totalExpense,
               totalIncome: totalIncome,
             ),
           ],
         ),
-        const SizedBox(
-          height: 50,
+         SizedBox(
+          height: height*0.045,
         ),
         Padding(
           padding: const EdgeInsets.only(right: 150, bottom: 5),
@@ -179,8 +181,8 @@ class _HomespagesState extends State<Homespages> {
           shadowColor: const Color.fromARGB(255, 187, 251, 247),
           borderRadius: BorderRadius.circular(40),
           child: Container(
-            height: 270,
-            width: 312,
+            height: height*0.355,
+            width: width*0.866,
             decoration: BoxDecoration(
               gradient: colorsobj.colorsdark(),
               borderRadius: BorderRadius.circular(40),

@@ -27,6 +27,7 @@ final colorsobj = Colours();
 final urifunctionobj = Urifunction();
 final popupsobj = Popups();
 
+
 class Widgets {
   Widget listTiles({
     required Image image,
@@ -263,6 +264,8 @@ class Widgets {
     required int totalIncome,
     required int totalExpense,
     required bool flag,
+   required BuildContext context,
+  
   }) {
     return Material(
       elevation: 8,
@@ -272,8 +275,8 @@ class Widgets {
         Radius.circular(30),
       ),
       child: Container(
-        height: 55,
-        width: 150,
+        height: MediaQuery.of(context).size.height*0.0723,
+        width: MediaQuery.of(context).size.width*0.416,
         decoration: BoxDecoration(
           gradient: colorsobj.colorsdark(),
           borderRadius: const BorderRadius.all(
@@ -283,8 +286,8 @@ class Widgets {
         child: Row(
           children: [
             Container(
-              height: 45,
-              width: 45,
+              height: MediaQuery.of(context).size.height*0.059,
+              width: MediaQuery.of(context).size.width*0.125,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(30),
@@ -306,8 +309,8 @@ class Widgets {
               ),
             ),
             SizedBox(
-              height: 75,
-              width: 100,
+              height: MediaQuery.of(context).size.height*0.0986,
+              width: MediaQuery.of(context).size.width*0.277,
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: FittedBox(
