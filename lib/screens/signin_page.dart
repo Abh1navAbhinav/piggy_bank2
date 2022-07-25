@@ -17,8 +17,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../db/transaction_db.dart';
 import '../functions/colors_and_style.dart';
 
-
-
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
 
@@ -40,13 +38,14 @@ class _SigninPageState extends State<SigninPage> {
 
   final _usernameController = TextEditingController();
   final formkey = GlobalKey<FormState>();
-  
 
   @override
   Widget build(BuildContext context) {
-    double width =MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         gradient: colorsobj.colorslight(),
       ),
@@ -69,15 +68,16 @@ class _SigninPageState extends State<SigninPage> {
                       obj.elevate(
                         elevations: 5,
                         radius: 5,
-                        width: width*0.81,
-                        height: height*0.064,
+                        width: width * 0.81,
+                        height: height * 0.064,
                         gradient: colorsobj.colorsdark(),
                         text: 'Welcome  to   Piggy Bank',
-                        tpadding: 13,
+                        tpadding: MediaQuery.of(context).size.height*0.017,
                         lpadding: 17,
+                        
                       ),
                       SizedBox(
-                        height: height*0.39,
+                        height: height * 0.39,
                         width: width,
                         child: Lottie.asset(
                           'assets/images/lottie/107642-lost-in-the-metaverse.json',
@@ -90,7 +90,7 @@ class _SigninPageState extends State<SigninPage> {
                           shadowColor: Colors.blue,
                           borderRadius: BorderRadius.circular(50),
                           child: Container(
-                            height: height*0.197,
+                           
                             width: width,
                             decoration: BoxDecoration(
                               gradient: colorsobj.colorsdark(),
@@ -100,13 +100,20 @@ class _SigninPageState extends State<SigninPage> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 20,
-                                      bottom: 10,
+                                    padding: EdgeInsets.only(
+                                      top: MediaQuery.of(context).size.height *
+                                          0.026,
+                                      bottom:
+                                          MediaQuery.of(context).size.height *
+                                              0.013,
                                     ),
                                     child: Text(
                                       'Enter your Name',
-                                      style: colorsobj.styles(),
+                                      style: colorsobj.styles(
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -149,6 +156,7 @@ class _SigninPageState extends State<SigninPage> {
                                       ),
                                     ),
                                   ),
+                                  const SizedBox(height: 20,)
                                 ],
                               ),
                             ),
@@ -162,11 +170,12 @@ class _SigninPageState extends State<SigninPage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Material(
-                            elevation: 20,
+                            elevation: 10,
                             borderRadius: BorderRadius.circular(30),
+                            shadowColor: Colors.blue,
                             child: Container(
-                              height: height*0.065,
-                              width: width*0.28,
+                              height: height * 0.065,
+                              width: width * 0.28,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: colorsobj.colorsdark(),
@@ -184,8 +193,8 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                             ),
                           ),
-                           SizedBox(
-                            width: width*0.028,
+                          SizedBox(
+                            width: width * 0.028,
                           )
                         ],
                       ),

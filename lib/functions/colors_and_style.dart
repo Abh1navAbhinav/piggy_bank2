@@ -24,6 +24,7 @@ class Colours {
     Color color = Colors.black,
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.bold,
+   
     
   }) {
     return GoogleFonts.roboto(
