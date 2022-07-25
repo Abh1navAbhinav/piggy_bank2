@@ -463,6 +463,12 @@ class _AddTransactionState extends State<AddTransaction> {
         text: 'enter the amount',
       );
     }
+     if (amountText == '0' ) {
+      return functionsogj.showSnackbarSuccess(
+        context: context,
+        text: 'amount column is "0"',
+      );
+    }
     if (selectedCategoryModal == null || categoryId == null) {
       return functionsogj.showSnackbarSuccess(
         context: context,
