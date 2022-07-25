@@ -40,6 +40,8 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+     double width =MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 10,
@@ -61,14 +63,14 @@ class _SettingsState extends State<Settings> {
                   color: const Color.fromARGB(255, 27, 88, 83),
                 ),
               ),
-              const SizedBox(
-                width: 149,
+               SizedBox(
+                width: width*0.4138,
               ),
               obj.appLogo(),
             ],
           ),
-          const SizedBox(
-            height: 50,
+           SizedBox(
+            height: height*0.0657,
           ),
           obj.settingsitems(
             function: () {
@@ -80,8 +82,8 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Reset Piggy Bank',
           ),
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: height*0.039,
           ),
           obj.settingsitems(
             function: () {
@@ -93,8 +95,8 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Contact Me',
           ),
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: height*0.039,
           ),
           obj.settingsitems(
             function: () {
@@ -106,8 +108,8 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Feed Back',
           ),
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: height*0.039,
           ),
           obj.settingsitems(
             function: () async {
@@ -136,8 +138,8 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Remainder',
           ),
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: height*0.039,
           ),
           obj.settingsitems(
             function: () {
@@ -152,8 +154,8 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Delete',
           ),
-          const SizedBox(
-            height: 30,
+           SizedBox(
+            height: height*0.039,
           ),
           obj.settingsitems(
             function: () {
