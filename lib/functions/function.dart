@@ -163,7 +163,7 @@ class Functions {
     String text,
   ) {
     final usernamecontroller = TextEditingController();
-    usernamecontroller.text = userListNotifier.value.toString();
+    usernamecontroller.text = userListNotifier.value.username;
     return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -188,7 +188,8 @@ class Functions {
                 left: 200,
               ),
               child: IconButton(
-                onPressed: () {
+                onPressed: () async {
+                 userListNotifier.value.updateusername(usernamecontroller.text);
                   Get.back();
                 },
                 icon: const Icon(

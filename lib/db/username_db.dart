@@ -7,13 +7,16 @@ const userNamedbName = 'usernameDbName';
 Future<void> addUsername(UsernameModal obj) async {
   final db = await Hive.openBox<UsernameModal>(userNamedbName);
   db.add(obj);
- 
 }
 
- getUserName() async {
+getUserName() async {
   final dB = await Hive.openBox<UsernameModal>(userNamedbName);
-   userListNotifier.value= dB.values.toList()[0].username; 
- 
+  userListNotifier.value = dB.values.toList()[0];
 }
 
-ValueNotifier<String> userListNotifier = ValueNotifier('');
+ValueNotifier<UsernameModal> userListNotifier = ValueNotifier(UsernameModal(username: ''));
+Future<void> updateUserNameDb({required UsernameModal modal}) async {
+  final dB = await Hive.openBox<UsernameModal>(userNamedbName);
+  await dB.put(modal.id, modal);
+  getUserName();
+}

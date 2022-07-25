@@ -58,7 +58,7 @@ class _HomespagesState extends State<Homespages> {
                       funtionsobj.editUserName(context, 'change user Name');
                     },
                     child: Text(
-                      userListNotifier.value,
+                      userListNotifier.value.username,
                       style: colorsobj.styles(
                         color: Colors.pink,
                       ),
