@@ -51,8 +51,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     obj.appLogo(),
                   ],
                 ),
-                const SizedBox(
-                  height: 100,
+                 SizedBox(
+                  height: height*0.131,
                 ),
                 TabBar(
                   indicator: const UnderlineTabIndicator(
@@ -71,8 +71,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: height*0.0263,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(
@@ -91,7 +91,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       width: double.maxFinite,
-                      height: 400,
+                      height: height*0.526,
                       child: ScrollConfiguration(
                         behavior: MyBehavior(),
                         child: TabBarView(
