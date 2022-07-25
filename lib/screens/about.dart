@@ -99,16 +99,16 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               'Hi userName,\n\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.[you can delete and edit your transaction by simply sliding the transaction tile on second page].We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
-                                fontSize: 15,
-                                letterSpacing: 0.5,
-                                wordSpacing: 2,
+                                fontSize: 17,
+                                // letterSpacing: 0.5,
+                                // wordSpacing: 2,
                               ),
                             ),
                             Text(
-                              'Hi userName,\n\n\nI am Abhinav. Expertised in UI Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping ${'Contact Me'} on the settings.Once of all thank you for supporting me.',
+                              'Hi userName,\n\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
-                                fontSize: 15,
+                                fontSize: 17,
                               ),
                             ),
                           ],
