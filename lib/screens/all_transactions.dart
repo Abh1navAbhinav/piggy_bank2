@@ -101,7 +101,7 @@ class _AllTransactionState extends State<AllTransaction> {
                 elevation: 10,
                 child: Container(
                   height: height * 0.0657,
-                  width: width * 0.36,
+                  width: width * 0.38,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     gradient: colorsobj.colorsdark(),
@@ -156,7 +156,7 @@ class _AllTransactionState extends State<AllTransaction> {
                 elevation: 10,
                 child: Container(
                   height: height * 0.0657,
-                  width: width * 0.36,
+                  width: width * 0.38,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     gradient: colorsobj.colorsdark(),

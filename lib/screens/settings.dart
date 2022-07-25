@@ -49,23 +49,25 @@ class _SettingsState extends State<Settings> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(
-                Icons.settings_outlined,
-                color: Color.fromARGB(255, 27, 88, 83),
-                size: 30,
+              Row(
+                children: [
+                  const Icon(
+                    Icons.settings_outlined,
+                    color: Color.fromARGB(255, 27, 88, 83),
+                    size: 30,
+                  ),
+                  Text(
+                    '    Settings',
+                    style: colorsobj.styles(
+                      fontSize: 25,
+                      color: const Color.fromARGB(255, 27, 88, 83),
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                '    Settings',
-                style: colorsobj.styles(
-                  fontSize: 25,
-                  color: const Color.fromARGB(255, 27, 88, 83),
-                ),
-              ),
-               SizedBox(
-                width: width*0.4138,
-              ),
+               
               obj.appLogo(),
             ],
           ),

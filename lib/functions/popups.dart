@@ -249,14 +249,14 @@ class Popups {
               onPressed: () async {
                 funtionsobj.resetApp();
                 Get.back();
-                funtionsobj.showSnackbarSuccess(
+                /* funtionsobj.showSnackbarSuccess(
                   context: context,
                   text: "Piggy Bank resetted succefully  ✓",
                   color: Colors.white,
                   textcolor: Colors.green,
                   visibility: false,
                   fontWeight: FontWeight.bold,
-                );
+                ); */
               },
               child: Text(
                 'Confirm Reset',
