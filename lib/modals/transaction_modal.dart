@@ -4,18 +4,18 @@ import 'package:hive/hive.dart';
 part 'transaction_modal.g.dart';
 
 @HiveType(typeId: 3)
-class TransactionModal {
+class TransactionModal extends HiveObject{
   @HiveField(0)
-  final int amount;
+   int amount;
 
   @HiveField(1)
-  final DateTime date;
+   DateTime date;
 
   @HiveField(2)
-  final CategoryType type;
+   CategoryType type;
 
   @HiveField(3)
-  final CategoryModal category;
+   CategoryModal category;
 
   @HiveField(4)
   String? id;
@@ -27,5 +27,12 @@ class TransactionModal {
     required this.category,
   }) {
     id = DateTime.now().millisecondsSinceEpoch.toString();
+  }
+  updateTranscation(TransactionModal t){
+    amount = t.amount;
+    date = t.date;
+    type = t.type;
+    category = t.category;
+    save();
   }
 }

@@ -489,8 +489,7 @@ class _AddTransactionState extends State<AddTransaction> {
     );
 
     visiblity == false
-        ? TransactionDb.instance
-            .updateTransactionDb(index: widget.index, value: model)
+        ? widget.modal!.updateTranscation(model)
         : TransactionDb.instance.addTransactionDb(model);
     Get.offAll(
       () => const BottomNav(),
