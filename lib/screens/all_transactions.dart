@@ -86,7 +86,7 @@ class _AllTransactionState extends State<AllTransaction> {
           ],
         ),
         SizedBox(
-          height: height * 0.0657,
+          height: height * 0.0517,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -211,7 +211,7 @@ class _AllTransactionState extends State<AllTransaction> {
           shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
             width: width * 0.86,
-            height: height * 0.618,
+            height: height * 0.588,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(21),
               gradient: colorsobj.colorsdark(),

@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/all_transactions.dart';
 import 'package:cup_cake/screens/graph.dart';
@@ -61,18 +62,21 @@ class _BottomNavState extends State<BottomNav> {
             bottom: 15,
           ),
           child: SafeArea(
-            child: LayoutBuilder(
-              builder:
-                  (BuildContext context, BoxConstraints viewportConstraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
+            child: ScrollConfiguration(
+              behavior: MyBehavior(),
+              child: LayoutBuilder(
+                builder:
+                    (BuildContext context, BoxConstraints viewportConstraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: viewportConstraints.maxHeight,
+                      ),
+                      child: screens[currentindex],
                     ),
-                    child: screens[currentindex],
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ),
