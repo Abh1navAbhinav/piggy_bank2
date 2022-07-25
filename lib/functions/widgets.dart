@@ -12,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../modals/category_modal.dart';
+import '../screens/homepage.dart';
 import 'colors_and_style.dart';
 
 ValueNotifier<CategoryType> selectedCategoryNotifier =
@@ -38,7 +39,7 @@ class Widgets {
         children: [
           Material(
             elevation: 20,
-            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+            shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(50),
             child: Container(
               height: 45,
@@ -62,7 +63,7 @@ class Widgets {
           Material(
             elevation: 20,
             borderRadius: BorderRadius.circular(10),
-            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+            shadowColor: const Color.fromARGB(255, 187, 251, 247),
             child: Container(
               height: 50,
               width: 200,
@@ -205,7 +206,7 @@ class Widgets {
         Material(
           elevation: 20,
           borderRadius: BorderRadius.circular(50),
-          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+          shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
             height: 50,
             width: 50,
@@ -225,7 +226,7 @@ class Widgets {
         Material(
           elevation: 20,
           borderRadius: BorderRadius.circular(20),
-          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+          shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
             height: 60,
             width: 250,
@@ -260,7 +261,7 @@ class Widgets {
     return Material(
       elevation: 8,
       color: Colors.transparent,
-      shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+      shadowColor: const Color.fromARGB(255, 187, 251, 247),
       borderRadius: const BorderRadius.all(
         Radius.circular(30),
       ),
@@ -306,8 +307,12 @@ class Widgets {
                 child: FittedBox(
                   child: Text(
                     flag == true
-                        ? (totalIncome == 0 ? '₹ 0.00' : '₹ $totalIncome')
-                        : (totalExpense == 0 ? '₹ 0.00' : '₹ $totalExpense'),
+                        ? (totalIncome == 0
+                            ? '₹ 0.00'
+                            : '₹ ${formatter.format(totalIncome)}')
+                        : (totalExpense == 0
+                            ? '₹ 0.00'
+                            : '₹ ${formatter.format(totalExpense)}'),
                     style: colorsobj.styles(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,

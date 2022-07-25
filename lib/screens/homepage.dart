@@ -14,6 +14,8 @@ import '../db/transaction_db.dart';
 import '../functions/colors_and_style.dart';
 import 'bottom_navigation.dart';
 
+var formatter = NumberFormat('#,##,000');
+
 class Homespages extends StatefulWidget {
   const Homespages({Key? key, a}) : super(key: key);
 
@@ -120,7 +122,7 @@ class _HomespagesState extends State<Homespages> {
                           height: 30,
                           child: FittedBox(
                             child: Text(
-                              totalBalance == 0 ? '₹0.00' : '₹ $totalBalance',
+                              totalBalance == 0 ? '₹0.00' : '₹ ${formatter.format(totalBalance)}',
                               style: colorsobj.styles(
                                 fontSize: 23,
                                 fontWeight: FontWeight.w500,
@@ -220,5 +222,8 @@ class _HomespagesState extends State<Homespages> {
 
   String parseDate(DateTime date) {
     return DateFormat.MMMd().format(date);
+    
   }
+  
+   
 }
