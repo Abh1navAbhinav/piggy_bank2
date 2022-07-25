@@ -2,6 +2,7 @@ import 'package:cup_cake/functions/popups.dart';
 import 'package:cup_cake/functions/uri_functions.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/about.dart';
+import 'package:cup_cake/screens/bottom_navigation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -35,6 +36,7 @@ class _SettingsState extends State<Settings> {
   }
 
   void listennotification() => NotificationApi.onNotification;
+  onclikednotification()=>Get.to(()=>const BottomNav());
 
   @override
   Widget build(BuildContext context) {
@@ -116,9 +118,9 @@ class _SettingsState extends State<Settings> {
               if (pickedtime == null) return;
               setState(() {
                 NotificationApi.showShedulednotification(
-                  title: 'Hi Bilal',
-                  body: 'Add your transaction',
-                  payload: 'payload bilal',
+                  title: 'Hi Abhinav',
+                  body: 'Click on the notification to add transaction',
+                  payload: 'payload Abhinav',
                   sheduleddatetime: Time(
                     pickedtime.hour,
                     pickedtime.minute,
