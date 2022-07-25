@@ -218,6 +218,7 @@ class _SigninPageState extends State<SigninPage> {
       final username = _usernameController.text.trim();
       final modal = UsernameModal(username: username);
       await addUsername(modal);
+      getUserName();
     }
   }
 }

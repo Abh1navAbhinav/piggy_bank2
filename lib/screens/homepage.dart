@@ -29,6 +29,7 @@ class _HomespagesState extends State<Homespages> {
   final colorsobj = Colours();
   final funtionsobj = Functions();
 
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -54,7 +55,7 @@ class _HomespagesState extends State<Homespages> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      funtionsobj.editUserName(context,'change user Name');
+                      funtionsobj.editUserName(context, 'change user Name');
                     },
                     child: Text(
                       userListNotifier.value,

@@ -139,33 +139,37 @@ class Functions {
         await Hive.openBox<TransactionModal>(transactionDbName);
     transactiondB.clear();
     TransactionDb.instance.refresh();
-     final userNamedb =await Hive.openBox<UsernameModal>(userNamedbName);
+    final userNamedb = await Hive.openBox<UsernameModal>(userNamedbName);
     userNamedb.clear();
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-String greeting() {
-  var hour = DateTime.now().hour;
-  if (hour < 12) {
-    return 'Good Morning';
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    }
+    if (hour < 17) {
+      return 'Good Afternoon';
+    }
+    return 'Good Evening';
   }
-  if (hour < 17) {
-    return 'Good Afternoon';
-  }
-  return 'Good Evening';
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-  editUserName(context, String text, ) {
+  editUserName(
+    context,
+    String text,
+  ) {
     final usernamecontroller = TextEditingController();
+    usernamecontroller.text = userListNotifier.value.toString();
     return showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           content: TextFormField(
-            maxLength: 10,
+            maxLength: 15,
             controller: usernamecontroller,
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -173,6 +177,9 @@ String greeting() {
               ),
               hintText: text,
               hintStyle: colorsobj.styles(color: Colors.grey),
+            ),
+            style: colorsobj.styles(
+              color: Colors.red,
             ),
           ),
           actions: [
@@ -182,7 +189,7 @@ String greeting() {
               ),
               child: IconButton(
                 onPressed: () {
-                 
+                  Get.back();
                 },
                 icon: const Icon(
                   Icons.check_circle_outline_rounded,
@@ -196,6 +203,4 @@ String greeting() {
       },
     );
   }
-
-
 }
