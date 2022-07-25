@@ -17,6 +17,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../db/transaction_db.dart';
 import '../functions/colors_and_style.dart';
 
+
+
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
 
@@ -35,13 +37,15 @@ class _SigninPageState extends State<SigninPage> {
 
   final obj = Widgets();
   final colorsobj = Colours();
-  
 
   final _usernameController = TextEditingController();
   final formkey = GlobalKey<FormState>();
+  
 
   @override
   Widget build(BuildContext context) {
+    double width =MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
         gradient: colorsobj.colorslight(),
@@ -59,22 +63,22 @@ class _SigninPageState extends State<SigninPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 35,
+                      SizedBox(
+                        height: height * 0.046,
                       ),
                       obj.elevate(
                         elevations: 5,
                         radius: 5,
-                        width: 291,
-                        height: 49,
+                        width: width*0.81,
+                        height: height*0.064,
                         gradient: colorsobj.colorsdark(),
                         text: 'Welcome  to   Piggy Bank',
                         tpadding: 13,
                         lpadding: 17,
                       ),
                       SizedBox(
-                        height: 300,
-                        width: 500,
+                        height: height*0.39,
+                        width: width,
                         child: Lottie.asset(
                           'assets/images/lottie/107642-lost-in-the-metaverse.json',
                         ),
@@ -82,11 +86,12 @@ class _SigninPageState extends State<SigninPage> {
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Material(
-                          elevation: 20,
+                          elevation: 10,
+                          shadowColor: Colors.blue,
                           borderRadius: BorderRadius.circular(50),
                           child: Container(
-                            height: 150,
-                            width: 400,
+                            height: height*0.197,
+                            width: width,
                             decoration: BoxDecoration(
                               gradient: colorsobj.colorsdark(),
                               borderRadius: BorderRadius.circular(50),
@@ -160,8 +165,8 @@ class _SigninPageState extends State<SigninPage> {
                             elevation: 20,
                             borderRadius: BorderRadius.circular(30),
                             child: Container(
-                              height: 50,
-                              width: 100,
+                              height: height*0.065,
+                              width: width*0.28,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: colorsobj.colorsdark(),
@@ -179,8 +184,8 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 10,
+                           SizedBox(
+                            width: width*0.028,
                           )
                         ],
                       ),
@@ -205,7 +210,5 @@ class _SigninPageState extends State<SigninPage> {
       final modal = UsernameModal(username: username);
       addUsername(modal);
     }
-
   }
-
 }

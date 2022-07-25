@@ -135,6 +135,7 @@ class Widgets {
     return Material(
       elevation: elevations,
       color: Colors.transparent,
+      shadowColor: Colors.blue,
       borderRadius: BorderRadius.circular(radius),
       child: Container(
         width: width,
