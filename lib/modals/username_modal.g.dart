@@ -18,15 +18,17 @@ class UsernameModalAdapter extends TypeAdapter<UsernameModal> {
     };
     return UsernameModal(
       username: fields[0] as String,
-    );
+    )..id = fields[1] as String?;
   }
 
   @override
   void write(BinaryWriter writer, UsernameModal obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.username);
+      ..write(obj.username)
+      ..writeByte(1)
+      ..write(obj.id);
   }
 
   @override

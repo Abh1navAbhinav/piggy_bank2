@@ -158,4 +158,44 @@ String greeting() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
+  editUserName(context, String text, ) {
+    final usernamecontroller = TextEditingController();
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: TextFormField(
+            maxLength: 10,
+            controller: usernamecontroller,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              hintText: text,
+              hintStyle: colorsobj.styles(color: Colors.grey),
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 200,
+              ),
+              child: IconButton(
+                onPressed: () {
+                 
+                },
+                icon: const Icon(
+                  Icons.check_circle_outline_rounded,
+                  size: 30,
+                  color: Colors.green,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
 }

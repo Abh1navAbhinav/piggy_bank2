@@ -31,7 +31,6 @@ class _HomespagesState extends State<Homespages> {
 
   @override
   Widget build(BuildContext context) {
-   
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Column(
@@ -53,10 +52,15 @@ class _HomespagesState extends State<Homespages> {
                       fontSize: 18,
                     ),
                   ),
-                  Text(
-                 userListNotifier.value ,
-                    style: colorsobj.styles(
-                      color: Colors.pink,
+                  GestureDetector(
+                    onTap: () {
+                      funtionsobj.editUserName(context,'change user Name');
+                    },
+                    child: Text(
+                      userListNotifier.value,
+                      style: colorsobj.styles(
+                        color: Colors.pink,
+                      ),
                     ),
                   ),
                 ],
@@ -78,7 +82,6 @@ class _HomespagesState extends State<Homespages> {
             shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(20),
             child: Container(
-            
               width: width * 0.888,
               decoration: BoxDecoration(
                 gradient: colorsobj.colorsdark(),
@@ -180,7 +183,9 @@ class _HomespagesState extends State<Homespages> {
             ),
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Material(
           elevation: 8,
           color: Colors.transparent,
