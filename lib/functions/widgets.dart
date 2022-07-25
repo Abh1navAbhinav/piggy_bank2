@@ -1,17 +1,21 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member, prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:cup_cake/db/category_db.dart';
+import 'package:cup_cake/db/transaction_db.dart';
 
 import 'package:cup_cake/functions/function.dart';
+import 'package:cup_cake/functions/popups.dart';
 import 'package:cup_cake/functions/uri_functions.dart';
 import 'package:cup_cake/screens/about.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../modals/category_modal.dart';
+import '../modals/transaction_modal.dart';
 import '../screens/homepage.dart';
 import 'colors_and_style.dart';
 
@@ -21,6 +25,7 @@ final categorydbs = CategoryDb();
 final funtionsobj = Functions();
 final colorsobj = Colours();
 final urifunctionobj = Urifunction();
+final popupsobj = Popups();
 
 class Widgets {
   Widget listTiles({
@@ -441,6 +446,81 @@ class Widgets {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+  showbottomsheeetDelete({required BuildContext context}) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (builder) {
+        return Container(
+          height: 200,
+          color: Colors.transparent,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: colorsobj.colorslight(),
+              // color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
+              ),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'D e l e t e',
+                    style: colorsobj.styles(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(
+                    onPressed: () async {
+                      popupsobj.deleteAllTransactionPopup(
+                        context: context,
+                        text: 'All transactions will be deleted permanently.',
+                        snackbarText: 'Transactions deleted succesfuly ✓',
+                        db: await Hive.openBox<TransactionModal>(
+                            transactionDbName),
+                      );
+                    },
+                    child: Text(
+                      'All Transactions',
+                      style: colorsobj.styles(),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(
+                    onPressed: () async {
+                      popupsobj.deleteAllTransactionPopup(
+                        context: context,
+                        text: 'All Categories will be deleted permanently.',
+                        snackbarText: 'Categories deleted succesfuly ✓',
+                        db: await Hive.openBox<CategoryModal>(
+                          categoryDbName,
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'All Categories',
+                      style: colorsobj.styles(),
                     ),
                   ),
                 ),

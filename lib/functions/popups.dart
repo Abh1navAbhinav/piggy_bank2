@@ -1,3 +1,4 @@
+import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -142,6 +143,10 @@ class Popups {
 
   deleteAllTransactionPopup({
     required context,
+    required String text,
+  
+    required String snackbarText,
+    required Box db,
   }) {
     return showDialog(
       context: context,
@@ -152,7 +157,7 @@ class Popups {
             style: colorsobj.styles(),
           ),
           content: Text(
-            'All transaction will delete permanently',
+            text,
             style: colorsobj.styles(
               fontSize: 15,
               fontWeight: FontWeight.w500,
@@ -174,14 +179,15 @@ class Popups {
             ),
             TextButton(
               onPressed: () async {
-                final dB =
-                    await Hive.openBox<TransactionModal>(transactionDbName);
+                 final dB =
+                   db;
                 await dB.clear();
                 Get.back();
                 TransactionDb.instance.refresh();
+                CategoryDb.instance.refreshUi();
                 funtionsobj.showSnackbarSuccess(
                   context: context,
-                  text: "Transactions deleted succefully  ✓",
+                  text: /* "Transactions deleted succefully  ✓" */ snackbarText,
                   color: Colors.white,
                   textcolor: Colors.green,
                   visibility: false,

@@ -48,21 +48,6 @@ class Settings extends StatelessWidget {
           ),
           obj.settingsitems(
             function: () {
-              popupsobj.deleteAllTransactionPopup(
-                context: context,
-              );
-            },
-            icon: const Icon(
-              Icons.delete_outline,
-              color: Color.fromARGB(255, 27, 88, 83),
-            ),
-            text: 'Delete all Transaction',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          obj.settingsitems(
-            function: () {
               popupsobj.resetAppPopup(context: context);
             },
             icon: const Icon(
@@ -107,6 +92,23 @@ class Settings extends StatelessWidget {
               color: Color.fromARGB(255, 27, 88, 83),
             ),
             text: 'Remainder',
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          obj.settingsitems(
+            function: () {
+
+              /* popupsobj.deleteAllTransactionPopup(
+                context: context,
+              ); */
+              widgetsobj.showbottomsheeetDelete(context: context);
+            },
+            icon: const Icon(
+              Icons.delete_outline,
+              color: Color.fromARGB(255, 27, 88, 83),
+            ),
+            text: 'Delete',
           ),
           const SizedBox(
             height: 30,
