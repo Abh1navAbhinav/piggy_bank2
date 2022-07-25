@@ -11,7 +11,6 @@ import 'package:cup_cake/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-
 import '../db/transaction_db.dart';
 
 import '../functions/colors_and_style.dart';
@@ -37,15 +36,13 @@ class _BottomNavState extends State<BottomNav> {
   int currentindex = 0;
   final screens = [
     const Homespages(),
-     const AllTransaction(),
+    const AllTransaction(),
     const Graphs(),
     const Settings(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
-    
     getTotalBalance();
     return Container(
       decoration: BoxDecoration(
@@ -56,10 +53,10 @@ class _BottomNavState extends State<BottomNav> {
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: const EdgeInsets.only(
-            top: 3,
+            // top: 3,
             left: 15,
             right: 15,
-            bottom: 15,
+            // bottom: 15,
           ),
           child: SafeArea(
             child: ScrollConfiguration(
@@ -81,12 +78,11 @@ class _BottomNavState extends State<BottomNav> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-         
           backgroundColor: const Color.fromARGB(255, 147, 232, 225),
           elevation: 10,
           onPressed: () {
             Get.to(
-               AddTransaction(),
+              AddTransaction(),
               transition: Transition.zoom,
               duration: const Duration(
                 milliseconds: 500,
@@ -105,7 +101,7 @@ class _BottomNavState extends State<BottomNav> {
             borderRadius: BorderRadius.circular(100),
             boxShadow: const [
               BoxShadow(
-                color:Color.fromARGB(255, 187, 251, 247),
+                color: Color.fromARGB(255, 187, 251, 247),
                 blurRadius: 10.0,
                 offset: Offset(0, 0),
               )

@@ -59,31 +59,33 @@ class _HomespagesState extends State<Homespages> {
                   ),
                 ],
               ),
-               SizedBox(
-                width: width*0.208,
+              SizedBox(
+                width: width * 0.208,
               ),
               obj.appLogo(),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 30, bottom: 20),
+          padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.0294,
+              bottom: MediaQuery.of(context).size.height * 0.026),
           child: Material(
             elevation: 5,
             color: Colors.transparent,
             shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              height: height*0.197,
-              width: width*0.888,
+            
+              width: width * 0.888,
               decoration: BoxDecoration(
                 gradient: colorsobj.colorsdark(),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
                 children: [
-                   SizedBox(
-                    height: height*0.0407,
+                  SizedBox(
+                    height: height * 0.0407,
                   ),
                   Text(
                     'Total Balance',
@@ -100,30 +102,30 @@ class _HomespagesState extends State<Homespages> {
                     child: Row(
                       children: [
                         totalBalance >= 0
-                            ?  SizedBox(
-                                height: height*0.0657,
-                                width: width*0.138,
+                            ? SizedBox(
+                                height: height * 0.0657,
+                                width: width * 0.138,
                                 child: const Image(
                                   image: AssetImage(
                                     'assets/images/piggy balance.png',
                                   ),
                                 ),
                               )
-                            :  SizedBox(
-                                height: height*0.0526,
-                                width: width*0.11,
+                            : SizedBox(
+                                height: height * 0.0526,
+                                width: width * 0.11,
                                 child: const Image(
                                   image: AssetImage(
                                     'assets/images/icons/piggy-bank (2).png',
                                   ),
                                 ),
                               ),
-                         SizedBox(
-                          width: width*0.0416,
+                        SizedBox(
+                          width: width * 0.0416,
                         ),
                         SizedBox(
-                          width: width*0.277,
-                          height: height*0.0394,
+                          width: width * 0.277,
+                          height: height * 0.0394,
                           child: FittedBox(
                             child: Text(
                               totalBalance == 0
@@ -151,7 +153,7 @@ class _HomespagesState extends State<Homespages> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             obj.incomeAndExpense(
-              context: context,
+                context: context,
                 flag: true,
                 totalExpense: totalExpense,
                 totalIncome: totalIncome),
@@ -163,26 +165,28 @@ class _HomespagesState extends State<Homespages> {
             ),
           ],
         ),
-         SizedBox(
-          height: height*0.045,
+        SizedBox(
+          height: height * 0.045,
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 150, bottom: 5),
-          child: Text(
-            'Recent Transactions',
-            style: colorsobj.styles(
-              color: const Color.fromARGB(255, 27, 88, 83),
+        Row(
+          children: [
+            Text(
+              'Recent Transactions',
+              style: colorsobj.styles(
+                color: const Color.fromARGB(255, 27, 88, 83),
+              ),
             ),
-          ),
+          ],
         ),
+        const SizedBox(height: 10,),
         Material(
           elevation: 8,
           color: Colors.transparent,
           shadowColor: const Color.fromARGB(255, 187, 251, 247),
           borderRadius: BorderRadius.circular(40),
           child: Container(
-            height: height*0.355,
-            width: width*0.866,
+            height: height * 0.343,
+            width: width * 0.866,
             decoration: BoxDecoration(
               gradient: colorsobj.colorsdark(),
               borderRadius: BorderRadius.circular(40),
