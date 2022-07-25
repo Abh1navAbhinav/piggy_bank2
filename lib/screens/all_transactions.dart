@@ -42,10 +42,12 @@ class _AllTransactionState extends State<AllTransaction> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        const SizedBox(
-          height: 15,
+        SizedBox(
+          height: height * 0.0197,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,8 +57,8 @@ class _AllTransactionState extends State<AllTransaction> {
               shadowColor: const Color.fromARGB(255, 187, 251, 247),
               elevation: 8,
               child: Container(
-                width: 250,
-                height: 50,
+                width: width * 0.694,
+                height: height * 0.0657,
                 decoration: BoxDecoration(
                   gradient: colorsobj.colorsdark(),
                   borderRadius: BorderRadius.circular(50),
@@ -83,8 +85,8 @@ class _AllTransactionState extends State<AllTransaction> {
             obj.appLogo(),
           ],
         ),
-        const SizedBox(
-          height: 50,
+        SizedBox(
+          height: height * 0.0657,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -98,8 +100,8 @@ class _AllTransactionState extends State<AllTransaction> {
                 borderRadius: BorderRadius.circular(18),
                 elevation: 10,
                 child: Container(
-                  height: 50,
-                  width: 130,
+                  height: height * 0.0657,
+                  width: width * 0.36,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     gradient: colorsobj.colorsdark(),
@@ -153,8 +155,8 @@ class _AllTransactionState extends State<AllTransaction> {
                 borderRadius: BorderRadius.circular(18),
                 elevation: 10,
                 child: Container(
-                  height: 50,
-                  width: 130,
+                  height: height * 0.0657,
+                  width: width * 0.36,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     gradient: colorsobj.colorsdark(),
@@ -206,13 +208,12 @@ class _AllTransactionState extends State<AllTransaction> {
         Material(
           elevation: 10,
           borderRadius: BorderRadius.circular(21),
-          shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+          shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
-            width: 312,
-            height: 470,
+            width: width * 0.86,
+            height: height * 0.618,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(21),
-              
               gradient: colorsobj.colorsdark(),
             ),
             child: ValueListenableBuilder(

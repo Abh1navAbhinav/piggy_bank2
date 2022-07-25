@@ -38,12 +38,13 @@ class _BottomNavState extends State<BottomNav> {
     const Homespages(),
      const AllTransaction(),
     const Graphs(),
-    Settings(),
+    const Settings(),
   ];
 
 
   @override
   Widget build(BuildContext context) {
+    
     getTotalBalance();
     return Container(
       decoration: BoxDecoration(
