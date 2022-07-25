@@ -27,7 +27,6 @@ final colorsobj = Colours();
 final urifunctionobj = Urifunction();
 final popupsobj = Popups();
 
-
 class Widgets {
   Widget listTiles({
     required Image image,
@@ -35,6 +34,7 @@ class Widgets {
     required String subtitle,
     required String amount,
     required Color amountColor,
+    required BuildContext context,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -48,8 +48,8 @@ class Widgets {
             shadowColor: const Color.fromARGB(255, 187, 251, 247),
             borderRadius: BorderRadius.circular(50),
             child: Container(
-              height: 45,
-              width: 45,
+              height: MediaQuery.of(context).size.height * 0.0592,
+              width: MediaQuery.of(context).size.width * 0.125,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 // color:  const Color.fromARGB(255, 196, 245, 235),
@@ -63,16 +63,16 @@ class Widgets {
               ),
             ),
           ),
-          const SizedBox(
-            width: 15,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.0416,
           ),
           Material(
             elevation: 20,
             borderRadius: BorderRadius.circular(10),
             shadowColor: const Color.fromARGB(255, 187, 251, 247),
             child: Container(
-              height: 50,
-              width: 200,
+              height: MediaQuery.of(context).size.height * 0.0657,
+              width: MediaQuery.of(context).size.width * 0.55,
               decoration: BoxDecoration(
                 // color:  const Color.fromARGB(255, 196, 245, 235),
                 gradient: colorsobj.colorslight(),
@@ -207,7 +207,12 @@ class Widgets {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  Widget settingsitems({required String text, required Icon icon, function}) {
+  Widget settingsitems({
+    required String text,
+    required Icon icon,
+    function,
+    required BuildContext context,
+  }) {
     return Row(
       children: [
         Material(
@@ -215,8 +220,8 @@ class Widgets {
           borderRadius: BorderRadius.circular(50),
           shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
-            height: 50,
-            width: 50,
+            height: MediaQuery.of(context).size.height * 0.0657,
+            width: MediaQuery.of(context).size.width * 0.138,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               gradient: colorsobj.colorsdark(),
@@ -227,16 +232,16 @@ class Widgets {
             ),
           ),
         ),
-        const SizedBox(
-          width: 20,
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.05,
         ),
         Material(
           elevation: 20,
           borderRadius: BorderRadius.circular(20),
           shadowColor: const Color.fromARGB(255, 187, 251, 247),
           child: Container(
-            height: 60,
-            width: 250,
+            height: MediaQuery.of(context).size.height * 0.0789,
+            width: MediaQuery.of(context).size.width * 0.694,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               gradient: colorsobj.colorsdark(),
@@ -264,8 +269,7 @@ class Widgets {
     required int totalIncome,
     required int totalExpense,
     required bool flag,
-   required BuildContext context,
-  
+    required BuildContext context,
   }) {
     return Material(
       elevation: 8,
@@ -275,8 +279,8 @@ class Widgets {
         Radius.circular(30),
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height*0.0723,
-        width: MediaQuery.of(context).size.width*0.416,
+        height: MediaQuery.of(context).size.height * 0.0723,
+        width: MediaQuery.of(context).size.width * 0.416,
         decoration: BoxDecoration(
           gradient: colorsobj.colorsdark(),
           borderRadius: const BorderRadius.all(
@@ -286,8 +290,8 @@ class Widgets {
         child: Row(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height*0.059,
-              width: MediaQuery.of(context).size.width*0.125,
+              height: MediaQuery.of(context).size.height * 0.059,
+              width: MediaQuery.of(context).size.width * 0.125,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(30),
@@ -309,8 +313,8 @@ class Widgets {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.0986,
-              width: MediaQuery.of(context).size.width*0.277,
+              height: MediaQuery.of(context).size.height * 0.0986,
+              width: MediaQuery.of(context).size.width * 0.277,
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: FittedBox(
@@ -343,7 +347,7 @@ class Widgets {
       context: context,
       builder: (builder) {
         return Container(
-          height: 200,
+          height: MediaQuery.of(context).size.height * 0.263,
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
@@ -375,8 +379,8 @@ class Widgets {
                             'assets/images/socialMedia/photo-1611944212129-29977ae1398c.jpg',
                           ),
                         ),
-                        const SizedBox(
-                          width: 20,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
                         ),
                         Text(
                           '@LinkedIn',
@@ -407,8 +411,8 @@ class Widgets {
                             'assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg',
                           ),
                         ),
-                        const SizedBox(
-                          width: 20,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
                         ),
                         Text(
                           '@FaceBook',
@@ -439,8 +443,8 @@ class Widgets {
                             'assets/images/socialMedia/instagram-6970242_960_720.jpg',
                           ),
                         ),
-                        const SizedBox(
-                          width: 20,
+                         SizedBox(
+                          width: MediaQuery.of(context).size.width*0.05,
                         ),
                         Text(
                           '@Instagram',
@@ -467,7 +471,7 @@ class Widgets {
       context: context,
       builder: (builder) {
         return Container(
-          height: 200,
+          height: MediaQuery.of(context).size.height*0.263,
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(

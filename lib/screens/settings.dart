@@ -73,6 +73,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.0657,
           ),
           obj.settingsitems(
+            context: context,
             function: () {
               popupsobj.resetAppPopup(context: context);
             },
@@ -86,6 +87,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.039,
           ),
           obj.settingsitems(
+             context: context,
             function: () {
               widgetsobj.showbottomsheeet(context: context);
             },
@@ -99,6 +101,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.039,
           ),
           obj.settingsitems(
+             context: context,
             function: () {
               urifunctionsobj.emailUriFunction();
             },
@@ -112,6 +115,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.039,
           ),
           obj.settingsitems(
+             context: context,
             function: () async {
               final TimeOfDay? pickedtime = await showTimePicker(
                   initialEntryMode: TimePickerEntryMode.input,
@@ -142,6 +146,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.039,
           ),
           obj.settingsitems(
+             context: context,
             function: () {
               /* popupsobj.deleteAllTransactionPopup(
                 context: context,
@@ -158,6 +163,7 @@ class _SettingsState extends State<Settings> {
             height: height*0.039,
           ),
           obj.settingsitems(
+             context: context,
             function: () {
               Get.to(
                 () => const About(),

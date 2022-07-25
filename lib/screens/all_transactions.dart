@@ -270,6 +270,7 @@ class _AllTransactionState extends State<AllTransaction> {
                                 ],
                               ),
                               child: obj.listTiles(
+                                context: context,
                                 amountColor: values.type == CategoryType.expense
                                     ? Colors.red
                                     : Colors.green,

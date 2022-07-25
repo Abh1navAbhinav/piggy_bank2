@@ -204,6 +204,7 @@ class _HomespagesState extends State<Homespages> {
                             itemBuilder: (BuildContext context, index) {
                               final values = newlist[index];
                               return obj.listTiles(
+                                context: context,
                                 amountColor: values.type == CategoryType.expense
                                     ? Colors.red
                                     : Colors.green,
