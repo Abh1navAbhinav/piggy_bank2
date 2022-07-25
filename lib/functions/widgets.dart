@@ -443,8 +443,8 @@ class Widgets {
                             'assets/images/socialMedia/instagram-6970242_960_720.jpg',
                           ),
                         ),
-                         SizedBox(
-                          width: MediaQuery.of(context).size.width*0.05,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.05,
                         ),
                         Text(
                           '@Instagram',
@@ -471,7 +471,7 @@ class Widgets {
       context: context,
       builder: (builder) {
         return Container(
-          height: MediaQuery.of(context).size.height*0.263,
+          height: MediaQuery.of(context).size.height * 0.253,
           color: Colors.transparent,
           child: Container(
             decoration: BoxDecoration(
@@ -486,17 +486,6 @@ class Widgets {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'D e l e t e',
-                    style: colorsobj.styles(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.red,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
                   child: TextButton(
                     onPressed: () async {
                       popupsobj.deleteAllTransactionPopup(
@@ -507,9 +496,19 @@ class Widgets {
                             transactionDbName),
                       );
                     },
-                    child: Text(
-                      'All Transactions',
-                      style: colorsobj.styles(),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Delete:',
+                          style: colorsobj.styles(
+                            color: Colors.red,
+                          ),
+                        ),
+                        Text(
+                          '  All Transactions',
+                          style: colorsobj.styles(),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -526,9 +525,19 @@ class Widgets {
                         ),
                       );
                     },
-                    child: Text(
-                      'All Categories',
-                      style: colorsobj.styles(),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Delete:',
+                          style: colorsobj.styles(
+                            color: Colors.red,
+                          ),
+                        ),
+                        Text(
+                          '  All Categories',
+                          style: colorsobj.styles(),
+                        ),
+                      ],
                     ),
                   ),
                 ),

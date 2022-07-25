@@ -7,7 +7,7 @@ const userNamedbName = 'usernameDbName';
 Future<void> addUsername(UsernameModal obj) async {
   final db = await Hive.openBox<UsernameModal>(userNamedbName);
   db.add(obj);
-  await getUserName();
+ 
 }
 
  getUserName() async {

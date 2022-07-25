@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db/category_db.dart';
 import '../db/transaction_db.dart';
+import '../db/username_db.dart';
 import '../functions/widgets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     CategoryDb.instance.refreshUi();
     TransactionDb.instance.refresh();
+    getUserName();
 
     super.initState();
   }
