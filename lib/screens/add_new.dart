@@ -59,6 +59,8 @@ class _AddTransactionState extends State<AddTransaction> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
         gradient: colorsobj.colorslight(),
@@ -103,8 +105,8 @@ class _AddTransactionState extends State<AddTransaction> {
                             obj.appLogo(),
                           ],
                         ),
-                        const SizedBox(
-                          height: 100,
+                        SizedBox(
+                          height: height * 0.1315,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -116,16 +118,16 @@ class _AddTransactionState extends State<AddTransaction> {
                             shadowColor:
                                 const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
-                              height: 100,
-                              width: 306,
+                              height: height * 0.1315,
+                              width: width * 0.85,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: colorsobj.colorsdark(),
                               ),
                               child: Row(
                                 children: [
-                                  const SizedBox(
-                                    width: 10,
+                                  SizedBox(
+                                    width: width * 0.027,
                                   ),
                                   Material(
                                     borderRadius: BorderRadius.circular(18),
@@ -171,8 +173,8 @@ class _AddTransactionState extends State<AddTransaction> {
                                       top: 20,
                                     ),
                                     child: SizedBox(
-                                      width: 170,
-                                      height: 65,
+                                      width: width * 0.472,
+                                      height: height * 0.085,
                                       child: TextFormField(
                                         maxLength: 6,
                                         controller: amountController,
@@ -213,26 +215,28 @@ class _AddTransactionState extends State<AddTransaction> {
                           child: Material(
                             elevation: 15,
                             borderRadius: BorderRadius.circular(30),
-                            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+                            shadowColor:
+                                const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
-                              height: 250,
-                              width: 306,
+                              height: height * 0.3289,
+                              width: width * 0.85,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: colorsobj.colorsdark(),
                               ),
                               child: Column(
                                 children: [
-                                  const SizedBox(
-                                    height: 40,
+                                  SizedBox(
+                                    height: height * 0.0526,
                                   ),
                                   Material(
                                     borderRadius: BorderRadius.circular(18),
-                                    shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+                                    shadowColor: const Color.fromARGB(
+                                        255, 187, 251, 247),
                                     elevation: 5,
                                     child: Container(
-                                      height: 60,
-                                      width: 270,
+                                      height: height * 0.0789,
+                                      width: width * 0.75,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(18),
                                         gradient: colorsobj.colorslight(),
@@ -300,11 +304,12 @@ class _AddTransactionState extends State<AddTransaction> {
                                     ),
                                     child: Material(
                                       borderRadius: BorderRadius.circular(18),
-                                      shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+                                      shadowColor: const Color.fromARGB(
+                                          255, 187, 251, 247),
                                       elevation: 5,
                                       child: Container(
-                                        height: 60,
-                                        width: 270,
+                                        height: height * 0.0789,
+                                        width: width * 0.75,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(18),
@@ -389,10 +394,11 @@ class _AddTransactionState extends State<AddTransaction> {
                           child: Material(
                             elevation: 5,
                             borderRadius: BorderRadius.circular(20),
-                            shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+                            shadowColor:
+                                const Color.fromARGB(255, 187, 251, 247),
                             child: Container(
-                              height: 50,
-                              width: 120,
+                              height: height * 0.0657,
+                              width: width * 0.33,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 gradient: colorsobj.colorsdark(),
@@ -463,7 +469,7 @@ class _AddTransactionState extends State<AddTransaction> {
         text: 'enter the amount',
       );
     }
-     if (amountText == '0' ) {
+    if (amountText == '0') {
       return functionsogj.showSnackbarSuccess(
         context: context,
         text: 'amount column is "0"',
