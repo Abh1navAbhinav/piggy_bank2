@@ -43,7 +43,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     ),
                     Text(
                       'A b o u t',
-                      style: colorsobj.styles(fontSize: 25,fontWeight: FontWeight.w500),
+                      style: colorsobj.styles(
+                          fontSize: 25, fontWeight: FontWeight.w500),
                     ),
                     obj.appLogo(),
                   ],
@@ -77,6 +78,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   ),
                   child: Material(
                     borderRadius: BorderRadius.circular(20),
+                    shadowColor: Colors.blue,
                     elevation: 10,
                     child: Container(
                       padding: const EdgeInsets.all(
@@ -94,14 +96,16 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           controller: tabController,
                           children: [
                             Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                              'Hi userName,\n\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.[you can delete and edit your transaction by simply sliding the transaction tile on second page].We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 15,
+                                letterSpacing: 0.5,
+                                wordSpacing: 2,
                               ),
                             ),
                             Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                              'Hi userName,\n\n\nI am Abhinav. Expertised in UI Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping ${'Contact Me'} on the settings.Once of all thank you for supporting me.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 15,

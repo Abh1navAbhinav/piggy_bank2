@@ -24,11 +24,15 @@ class Colours {
     Color color = Colors.black,
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.bold,
+    double letterSpacing = 0,
+    double wordSpacing = 0,
   }) {
     return GoogleFonts.roboto(
+      letterSpacing:letterSpacing ,
       fontSize: fontSize,
       fontWeight: fontWeight,
       color: color,
+      wordSpacing: wordSpacing,
     );
   }
 }
