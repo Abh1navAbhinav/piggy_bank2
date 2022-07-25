@@ -98,7 +98,7 @@ class Widgets {
                       ],
                     ),
                     Text(
-                      '₹ $amount',
+                      '₹ ${formatter.format(int.parse(amount))}',
                       style: colorsobj.styles(
                         color: amountColor,
                       ),
