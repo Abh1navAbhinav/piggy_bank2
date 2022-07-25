@@ -26,17 +26,19 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     TabController tabController = TabController(length: 2, vsync: this);
     return Column(
       children: [
-        const SizedBox(
-          height: 15,
+         SizedBox(
+          height: height*0.0197,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(
-              width: 20,
+             SizedBox(
+              width: width*0.055
             ),
             Text(
               'Transaction  Statistics',
@@ -45,8 +47,8 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
             obj.appLogo(),
           ],
         ),
-        const SizedBox(
-          height: 30,
+         SizedBox(
+          height: height*0.039,
         ),
         Padding(
           padding: const EdgeInsets.only(
@@ -57,8 +59,8 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
             borderRadius: BorderRadius.circular(18),
             elevation: 10,
             child: Container(
-              height: 50,
-              width: 300,
+              height: height*0.0657,
+              width: width*0.83,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 gradient: colorsobj.colorsdark(),
@@ -103,12 +105,12 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
             ),
           ],
         ),
-        const SizedBox(
-          height: 20,
+         SizedBox(
+          height: height*0.0263,
         ),
         SizedBox(
           width: double.maxFinite,
-          height: 400,
+          height: height*0.526,
           child: TabBarView(
             controller: tabController,
             children: [
