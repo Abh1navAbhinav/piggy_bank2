@@ -4,6 +4,7 @@ import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:lottie/lottie.dart';
 
 import '../functions/colors_and_style.dart';
 import '../modals/category_modal.dart';
@@ -102,76 +103,82 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                 categorydbs.incomeCategoryListNotifier,
                             builder: (BuildContext ctx,
                                 List<CategoryModal> newlist, Widget? _) {
-                              return GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                ),
-                                itemBuilder: (
-                                  BuildContext context,
-                                  index,
-                                ) {
-                                  return ListTile(
-                                    title: GestureDetector(
-                                      onDoubleTap: () {
-                                        popupsobj.deleteCategoryPopUp(
-                                          context: context,
-                                          list: newlist[index],
+                              return newlist.isEmpty
+                                  ? Lottie.asset(
+                                      'assets/images/lottie/43191-no-data-error.json')
+                                  : GridView.builder(
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3,
+                                      ),
+                                      itemBuilder: (
+                                        BuildContext context,
+                                        index,
+                                      ) {
+                                        return ListTile(
+                                          title: GestureDetector(
+                                            onDoubleTap: () {
+                                              popupsobj.deleteCategoryPopUp(
+                                                context: context,
+                                                list: newlist[index],
+                                              );
+                                            },
+                                            child: TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                newlist[index].name,
+                                                style: colorsobj.styles(
+                                                  color: const Color.fromARGB(
+                                                      255, 27, 88, 83),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         );
                                       },
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          newlist[index].name,
-                                          style: colorsobj.styles(
-                                            color: const Color.fromARGB(
-                                                255, 27, 88, 83),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                itemCount: newlist.length,
-                              );
+                                      itemCount: newlist.length,
+                                    );
                             },
                           ),
                           ValueListenableBuilder(
                             valueListenable: categorydbs.expenseCategoryList,
                             builder: (BuildContext ctx,
                                 List<CategoryModal> newlist, Widget? _) {
-                              return GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                ),
-                                itemBuilder: (
-                                  BuildContext context,
-                                  index,
-                                ) {
-                                  return ListTile(
-                                    title: GestureDetector(
-                                      onDoubleTap: () {
-                                        popupsobj.deleteCategoryPopUp(
-                                          context: context,
-                                          list: newlist[index],
+                              return newlist.isEmpty
+                                  ? Lottie.asset(
+                                      'assets/images/lottie/43191-no-data-error.json')
+                                  : GridView.builder(
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3,
+                                      ),
+                                      itemBuilder: (
+                                        BuildContext context,
+                                        index,
+                                      ) {
+                                        return ListTile(
+                                          title: GestureDetector(
+                                            onDoubleTap: () {
+                                              popupsobj.deleteCategoryPopUp(
+                                                context: context,
+                                                list: newlist[index],
+                                              );
+                                            },
+                                            child: TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                newlist[index].name,
+                                                style: colorsobj.styles(
+                                                  color: const Color.fromARGB(
+                                                      255, 27, 88, 83),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         );
                                       },
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          newlist[index].name,
-                                          style: colorsobj.styles(
-                                            color: const Color.fromARGB(
-                                                255, 27, 88, 83),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                itemCount: newlist.length,
-                              );
+                                      itemCount: newlist.length,
+                                    );
                             },
                           ),
                         ],
@@ -187,7 +194,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                   child: Material(
                     elevation: 5,
                     borderRadius: BorderRadius.circular(30),
-                    shadowColor:  const Color.fromARGB(255, 187, 251, 247),
+                    shadowColor: const Color.fromARGB(255, 187, 251, 247),
                     child: Container(
                       height: 50,
                       width: 135,

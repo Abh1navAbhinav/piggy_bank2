@@ -486,7 +486,7 @@ class _AddTransactionState extends State<AddTransaction> {
         ? TransactionDb.instance
             .updateTransactionDb(index: widget.index, value: model)
         : TransactionDb.instance.addTransactionDb(model);
-    Get.off(
+    Get.offAll(
       () => const BottomNav(),
       transition: Transition.zoom,
       duration: const Duration(
