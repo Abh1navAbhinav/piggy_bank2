@@ -56,6 +56,7 @@ class TransactionDb implements TransactionDbFunctions {
   Future<void> updateTransactionDb({required index,required value}) async{
    final dB = await Hive.openBox<TransactionModal>(transactionDbName);
    await dB.putAt(index,value );
+   refresh();
   }
   
 

@@ -4,15 +4,37 @@ import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/about.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
-class Settings extends StatelessWidget {
-  Settings({Key? key}) : super(key: key);
+import 'notification.dart';
 
+class Settings extends StatefulWidget {
+  const Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
   final obj = Widgets();
+
   final popupsobj = Popups();
+
   final urifunctionsobj = Urifunction();
+
   final widgetsobj = Widgets();
+
+  TimeOfDay time = TimeOfDay.now();
+
+  @override
+  void initState() {
+    super.initState();
+    NotificationApi.init(initSheduled: true);
+    listennotification();
+  }
+
+  void listennotification() => NotificationApi.onNotification;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +108,26 @@ class Settings extends StatelessWidget {
             height: 30,
           ),
           obj.settingsitems(
-            function: () {},
+            function: () async {
+              final TimeOfDay? pickedtime = await showTimePicker(
+                  initialEntryMode: TimePickerEntryMode.input,
+                  context: context,
+                  initialTime: time);
+              if (pickedtime == null) return;
+              setState(() {
+                NotificationApi.showShedulednotification(
+                  title: 'Hi Bilal',
+                  body: 'Add your transaction',
+                  payload: 'payload bilal',
+                  sheduleddatetime: Time(
+                    pickedtime.hour,
+                    pickedtime.minute,
+                    0,
+                  ),
+                );
+                time = pickedtime;
+              });
+            },
             icon: const Icon(
               Icons.notifications_active_outlined,
               color: Color.fromARGB(255, 27, 88, 83),
@@ -98,7 +139,6 @@ class Settings extends StatelessWidget {
           ),
           obj.settingsitems(
             function: () {
-
               /* popupsobj.deleteAllTransactionPopup(
                 context: context,
               ); */
