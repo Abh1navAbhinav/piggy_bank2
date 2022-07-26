@@ -28,8 +28,8 @@ class _AllTransactionState extends State<AllTransaction> {
   final popupsobj = Popups();
   final colorsobj = Colours();
 
-  String categoryId1 = 'All';
-  String categoryId2 = 'All';
+  String categoryId1 = 'Type (all)';
+  String categoryId2 = 'Date (all)';
 
   var currentselecteditem1;
   var currentselecteditem2;
@@ -123,7 +123,7 @@ class _AllTransactionState extends State<AllTransaction> {
                           ),
                           value: categoryId1,
                           items: <String>[
-                            'All',
+                            'Type (all)',
                             'Income',
                             'Expense',
                           ]
@@ -178,11 +178,11 @@ class _AllTransactionState extends State<AllTransaction> {
                           ),
                           value: categoryId2,
                           items: <String>[
-                            'All',
+                            'Date (all)',
                             'Today',
                             'Yesterday',
-                            'Lastweek',
-                            'Lastmonth',
+                            'This week',
+                            'This month',
                           ]
                               .map(
                                 (e) => DropdownMenuItem(
@@ -303,35 +303,35 @@ class _AllTransactionState extends State<AllTransaction> {
   }
 
   listenFunction() {
-    if (categoryId1 == 'All' && categoryId2 == 'All') {
+    if (categoryId1 == 'Type (all)' && categoryId2 == 'Date (all)') {
       return transactionListNotifier;
-    } else if (categoryId1 == 'All' && categoryId2 == 'Today') {
+    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'Today') {
       return todayNotifier;
-    } else if (categoryId1 == 'All' && categoryId2 == 'Yesterday') {
+    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'Yesterday') {
       return yesterdayNotifier;
-    } else if (categoryId1 == 'Income' && categoryId2 == 'All') {
+    } else if (categoryId1 == 'Income' && categoryId2 == 'Date (all)') {
       return incomeNotifier;
     } else if (categoryId1 == 'Income' && categoryId2 == 'Today') {
       return incomeTodayNotifier;
     } else if (categoryId1 == 'Income' && categoryId2 == 'Yesterday') {
       return incomeYesterdayNotifier;
-    } else if (categoryId1 == 'Expense' && categoryId2 == 'All') {
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'Date (all)') {
       return expenseNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'Today') {
       return expenseTodayNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'Yesterday') {
       return expenseYesterdayNotifier;
-    } else if (categoryId1 == 'All' && categoryId2 == 'Lastweek') {
+    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'This week') {
       return lastWeekNotifier;
-    } else if (categoryId1 == 'Expense' && categoryId2 == 'Lastweek') {
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'This week') {
       return expenseLastWeekNotifier;
-    } else if (categoryId1 == 'Income' && categoryId2 == 'Lastweek') {
+    } else if (categoryId1 == 'Income' && categoryId2 == 'This week') {
       return incomeLastWeekNotifier;
-    } else if (categoryId1 == 'All' && categoryId2 == 'Lastmonth') {
+    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'This month') {
       return lastMonthNotifier;
-    } else if (categoryId1 == 'Expense' && categoryId2 == 'Lastmonth') {
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'This month') {
       return expenseLastMonthNotifier;
-    } else if (categoryId1 == 'Income' && categoryId2 == 'Lastmonth') {
+    } else if (categoryId1 == 'Income' && categoryId2 == 'This month') {
       return incomeLastMonthNotifier;
     }
   }
