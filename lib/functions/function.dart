@@ -189,7 +189,8 @@ class Functions {
               ),
               child: IconButton(
                 onPressed: () async {
-                 userListNotifier.value.updateusername(usernamecontroller.text);
+                 userListNotifier.value.updateusername(usernamecontroller.text.trim());
+                 getUserName();
                   Get.back();
                 },
                 icon: const Icon(
