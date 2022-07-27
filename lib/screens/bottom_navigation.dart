@@ -4,7 +4,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/all_transactions.dart';
-import 'package:cup_cake/screens/graph.dart';
+import 'package:cup_cake/graphfiles/graph.dart';
 import 'package:cup_cake/screens/homepage.dart';
 import 'package:cup_cake/screens/settings.dart';
 

@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+/* // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
 
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
@@ -61,3 +61,4 @@ class _DropDownButtonsState extends State<DropDownButtons> {
   }
 }
 
+ */
