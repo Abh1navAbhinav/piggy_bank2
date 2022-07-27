@@ -52,8 +52,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     obj.appLogo(),
                   ],
                 ),
-                 SizedBox(
-                  height: height*0.131,
+                SizedBox(
+                  height: height * 0.131,
                 ),
                 TabBar(
                   indicator: const UnderlineTabIndicator(
@@ -72,8 +72,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
-                 SizedBox(
-                  height: height*0.0263,
+                SizedBox(
+                  height: height * 0.0263,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(
@@ -92,14 +92,14 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       width: double.maxFinite,
-                      height: height*0.526,
+                      height: height * 0.526,
                       child: ScrollConfiguration(
                         behavior: MyBehavior(),
                         child: TabBarView(
                           controller: tabController,
                           children: [
                             Text(
-                              'Hi ${userListNotifier.value},\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.[you can delete and edit your transaction by simply sliding the transaction tile on second page].We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
+                              'Hi ${userListNotifier.value.username},\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.[you can delete and edit your transaction by simply sliding the transaction tile on second page].We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 17,
@@ -108,7 +108,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               ),
                             ),
                             Text(
-                              'Hi ${userListNotifier.value},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
+                              'Hi ${userListNotifier.value.username},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 17,

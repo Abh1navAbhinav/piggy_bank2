@@ -49,19 +49,7 @@ String yesterday = DateFormat.yMd().format(
     const Duration(days: 1),
   ),
 );
-/* 
-String lastWeek = DateFormat.yMd().format(
-  DateTime.now().subtract(
-    const Duration(days: 7),
-  ),
-);
 
-String lastMonth = DateFormat.yMd().format(
-  DateTime.now().subtract(
-    const Duration(days: 30),
-  ),
-);
- */
 filterFunction() async {
   final list = await transactiondObj.getAllTransactions();
 

@@ -60,6 +60,7 @@ class _HomespagesState extends State<Homespages> {
                     child: Text(
                       userListNotifier.value.username,
                       style: colorsobj.styles(
+                        fontSize: 22,
                         color: Colors.pink,
                       ),
                     ),

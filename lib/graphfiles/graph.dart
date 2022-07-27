@@ -35,10 +35,8 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
     "Ionic": 2,
   };
 
-
   @override
   Widget build(BuildContext context) {
-    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TabController tabController = TabController(length: 3, vsync: this);
@@ -157,7 +155,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                     PieSeries<ChartData, String>(
                       dataLabelSettings:
                           const DataLabelSettings(isVisible: true),
-                      dataSource: chartdivertFunction(),
+                      dataSource: chartdivertFunctionAll(),
                       xValueMapper: (ChartData data, _) => data.categories,
                       yValueMapper: (ChartData data, _) => data.amount,
                       explode: true,
@@ -175,7 +173,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                     PieSeries<ChartData, String>(
                       dataLabelSettings:
                           const DataLabelSettings(isVisible: true),
-                      dataSource: dataIncome,
+                      dataSource: chartdivertFunctionIncome(),
                       xValueMapper: (ChartData data, _) => data.categories,
                       yValueMapper: (ChartData data, _) => data.amount,
                       explode: true,
@@ -193,7 +191,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                     PieSeries<ChartData, String>(
                       dataLabelSettings:
                           const DataLabelSettings(isVisible: true),
-                      dataSource: data,
+                      dataSource: chartdivertFunctionExpense(),
                       xValueMapper: (ChartData data, _) => data.categories,
                       yValueMapper: (ChartData data, _) => data.amount,
                       explode: true,
@@ -208,9 +206,45 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
     );
   }
 
-  chartdivertFunction() {
+  chartdivertFunctionAll() {
     if (categoryId2 == 'Date-all') {
       return overall;
+    }
+    if (categoryId2 == 'Today') {
+      return today;
+    }
+    if (categoryId2 == 'Yesterday') {
+      return yesterday;
+    }
+    if (categoryId2 == 'This week') {
+      return week;
+    }
+    if (categoryId2 == 'This month') {
+      return month;
+    }
+  }
+
+  chartdivertFunctionIncome() {
+    if (categoryId2 == 'Date-all') {
+      return dataIncome;
+    }
+    if (categoryId2 == 'Today') {
+      return today;
+    }
+    if (categoryId2 == 'Yesterday') {
+      return yesterday;
+    }
+    if (categoryId2 == 'This week') {
+      return week;
+    }
+    if (categoryId2 == 'This month') {
+      return month;
+    }
+  }
+
+  chartdivertFunctionExpense() {
+    if (categoryId2 == 'Date-all') {
+      return data;
     }
     if (categoryId2 == 'Today') {
       return today;
