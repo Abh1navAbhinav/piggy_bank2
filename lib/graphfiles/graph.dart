@@ -35,7 +35,6 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
     "Ionic": 2,
   };
 
-  
 
   @override
   Widget build(BuildContext context) {
