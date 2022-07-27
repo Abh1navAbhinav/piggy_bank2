@@ -28,8 +28,8 @@ class _AllTransactionState extends State<AllTransaction> {
   final popupsobj = Popups();
   final colorsobj = Colours();
 
-  String categoryId1 = 'Type (all)';
-  String categoryId2 = 'Date (all)';
+  String categoryId1 = 'Type-all';
+  String categoryId2 = 'Date-all';
 
   var currentselecteditem1;
   var currentselecteditem2;
@@ -118,12 +118,12 @@ class _AllTransactionState extends State<AllTransaction> {
                             color: Colors.transparent,
                           ),
                           style: colorsobj.styles(
-                            fontSize: 20,
+                            fontSize: 17,
                             fontWeight: FontWeight.w400,
                           ),
                           value: categoryId1,
                           items: <String>[
-                            'Type (all)',
+                            'Type-all',
                             'Income',
                             'Expense',
                           ]
@@ -173,12 +173,12 @@ class _AllTransactionState extends State<AllTransaction> {
                             color: Colors.transparent,
                           ),
                           style: colorsobj.styles(
-                            fontSize: 20,
+                            fontSize: 17,
                             fontWeight: FontWeight.w400,
                           ),
                           value: categoryId2,
                           items: <String>[
-                            'Date (all)',
+                            'Date-all',
                             'Today',
                             'Yesterday',
                             'This week',
@@ -303,31 +303,31 @@ class _AllTransactionState extends State<AllTransaction> {
   }
 
   listenFunction() {
-    if (categoryId1 == 'Type (all)' && categoryId2 == 'Date (all)') {
+    if (categoryId1 == 'Type-all' && categoryId2 == 'Date-all') {
       return transactionListNotifier;
-    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'Today') {
+    } else if (categoryId1 == 'Type-all' && categoryId2 == 'Today') {
       return todayNotifier;
-    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'Yesterday') {
+    } else if (categoryId1 == 'Type-all' && categoryId2 == 'Yesterday') {
       return yesterdayNotifier;
-    } else if (categoryId1 == 'Income' && categoryId2 == 'Date (all)') {
+    } else if (categoryId1 == 'Income' && categoryId2 == 'Date-all') {
       return incomeNotifier;
     } else if (categoryId1 == 'Income' && categoryId2 == 'Today') {
       return incomeTodayNotifier;
     } else if (categoryId1 == 'Income' && categoryId2 == 'Yesterday') {
       return incomeYesterdayNotifier;
-    } else if (categoryId1 == 'Expense' && categoryId2 == 'Date (all)') {
+    } else if (categoryId1 == 'Expense' && categoryId2 == 'Date-all') {
       return expenseNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'Today') {
       return expenseTodayNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'Yesterday') {
       return expenseYesterdayNotifier;
-    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'This week') {
+    } else if (categoryId1 == 'Type-all' && categoryId2 == 'This week') {
       return lastWeekNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'This week') {
       return expenseLastWeekNotifier;
     } else if (categoryId1 == 'Income' && categoryId2 == 'This week') {
       return incomeLastWeekNotifier;
-    } else if (categoryId1 == 'Type (all)' && categoryId2 == 'This month') {
+    } else if (categoryId1 == 'Type-all' && categoryId2 == 'This month') {
       return lastMonthNotifier;
     } else if (categoryId1 == 'Expense' && categoryId2 == 'This month') {
       return expenseLastMonthNotifier;
