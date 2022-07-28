@@ -51,7 +51,7 @@ class Functions {
                   }
                   categorydbs.insertCategory(category);
                   showSnackbarSuccess(
-                    elevation: 16,
+                      elevation: 16,
                       context: context,
                       text: "Category added succefully  ✓",
                       color: Colors.white,
@@ -76,15 +76,13 @@ class Functions {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
   showSnackbarSuccess({
-    
     required BuildContext context,
     required String text,
-   required double elevation,
+    required double elevation,
     Color color = Colors.white,
     Color textcolor = Colors.black,
     bool visibility = true,
     FontWeight fontWeight = FontWeight.w400,
-   
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -161,6 +159,7 @@ class Functions {
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+  final formkey = GlobalKey<FormState>();
 
   editUserName(
     context,
@@ -172,18 +171,27 @@ class Functions {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          content: TextFormField(
-            maxLength: 15,
-            controller: usernamecontroller,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+          content: Form(
+            key: formkey,
+            child: TextFormField(
+              maxLength: 15,
+              controller: usernamecontroller,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'User name should not be empty';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                hintText: text,
+                hintStyle: colorsobj.styles(color: Colors.grey),
               ),
-              hintText: text,
-              hintStyle: colorsobj.styles(color: Colors.grey),
-            ),
-            style: colorsobj.styles(
-              color: Colors.red,
+              style: colorsobj.styles(
+                color: Colors.red,
+              ),
             ),
           ),
           actions: [
@@ -193,9 +201,21 @@ class Functions {
               ),
               child: IconButton(
                 onPressed: () async {
-                 userListNotifier.value.updateusername(usernamecontroller.text.trim());
-                 getUserName();
-                  Get.back();
+                  if (formkey.currentState!.validate()) {
+                    userListNotifier.value
+                        .updateusername(usernamecontroller.text.trim());
+                    getUserName();
+                    Get.back();
+                    showSnackbarSuccess(
+                      elevation: 3,
+                      context: context,
+                      text: "username updated succefully  ✓",
+                      color: Colors.white,
+                      textcolor: Colors.green,
+                      visibility: false,
+                      fontWeight: FontWeight.bold,
+                    );
+                  }
                 },
                 icon: const Icon(
                   Icons.check_circle_outline_rounded,
