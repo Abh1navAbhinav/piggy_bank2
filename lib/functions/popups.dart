@@ -144,7 +144,6 @@ class Popups {
   deleteAllTransactionPopup({
     required context,
     required String text,
-  
     required String snackbarText,
     required Box db,
   }) {
@@ -179,9 +178,9 @@ class Popups {
             ),
             TextButton(
               onPressed: () async {
-                 final dB =
-                   db;
+                final dB = db;
                 await dB.clear();
+                Get.back();
                 Get.back();
                 TransactionDb.instance.refresh();
                 CategoryDb.instance.refreshUi();

@@ -3,6 +3,7 @@ import 'package:cup_cake/functions/filteration.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/graphfiles/pie_data.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../functions/colors_and_style.dart';
@@ -22,6 +23,14 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   List<ChartData> today = chartLogic(todayNotifier.value);
   List<ChartData> month = chartLogic(lastMonthNotifier.value);
   List<ChartData> week = chartLogic(lastWeekNotifier.value);
+  List<ChartData> todayIncome = chartLogic(incomeTodayNotifier.value);
+  List<ChartData> incomeYesterday = chartLogic(incomeYesterdayNotifier.value);
+  List<ChartData> incomeweek = chartLogic(incomeLastWeekNotifier.value);
+  List<ChartData> incomemonth = chartLogic(incomeLastMonthNotifier.value);
+  List<ChartData> todayExpense = chartLogic(expenseTodayNotifier.value);
+  List<ChartData> expenseYesterday = chartLogic(expenseYesterdayNotifier.value);
+  List<ChartData> expenseweek = chartLogic(expenseLastWeekNotifier.value);
+  List<ChartData> expensemonth = chartLogic(expenseLastMonthNotifier.value);
 
   String categoryId2 = 'Date-all';
 
@@ -149,55 +158,72 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: SfCircularChart(
-                  legend: Legend(isVisible: true),
-                  series: <CircularSeries>[
-                    PieSeries<ChartData, String>(
-                      dataLabelSettings:
-                          const DataLabelSettings(isVisible: true),
-                      dataSource: chartdivertFunctionAll(),
-                      xValueMapper: (ChartData data, _) => data.categories,
-                      yValueMapper: (ChartData data, _) => data.amount,
-                      explode: true,
-                    )
-                  ],
-                ),
+                child: overall.isEmpty
+                    ? Center(
+                        child: Lottie.asset(
+                            'assets/images/lottie/90992-graph4.json'))
+                    : SfCircularChart(
+                        legend: Legend(isVisible: true),
+                        series: <CircularSeries>[
+                          PieSeries<ChartData, String>(
+                            dataLabelSettings:
+                                const DataLabelSettings(isVisible: true),
+                            dataSource: chartdivertFunctionAll(),
+                            xValueMapper: (ChartData data, _) =>
+                                data.categories,
+                            yValueMapper: (ChartData data, _) => data.amount,
+                            explode: true,
+                          )
+                        ],
+                      ),
               ),
               Padding(
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: SfCircularChart(
-                  legend: Legend(isVisible: true),
-                  series: <CircularSeries>[
-                    PieSeries<ChartData, String>(
-                      dataLabelSettings:
-                          const DataLabelSettings(isVisible: true),
-                      dataSource: chartdivertFunctionIncome(),
-                      xValueMapper: (ChartData data, _) => data.categories,
-                      yValueMapper: (ChartData data, _) => data.amount,
-                      explode: true,
-                    )
-                  ],
-                ),
+                child: dataIncome.isEmpty
+                    ? Center(
+                        child: Center(
+                            child: Lottie.asset(
+                                'assets/images/lottie/90992-graph4.json')))
+                    : SfCircularChart(
+                        legend: Legend(isVisible: true),
+                        series: <CircularSeries>[
+                          PieSeries<ChartData, String>(
+                            dataLabelSettings:
+                                const DataLabelSettings(isVisible: true),
+                            dataSource: chartdivertFunctionIncome(),
+                            xValueMapper: (ChartData data, _) =>
+                                data.categories,
+                            yValueMapper: (ChartData data, _) => data.amount,
+                            explode: true,
+                          )
+                        ],
+                      ),
               ),
               Padding(
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: SfCircularChart(
-                  legend: Legend(isVisible: true),
-                  series: <CircularSeries>[
-                    PieSeries<ChartData, String>(
-                      dataLabelSettings:
-                          const DataLabelSettings(isVisible: true),
-                      dataSource: chartdivertFunctionExpense(),
-                      xValueMapper: (ChartData data, _) => data.categories,
-                      yValueMapper: (ChartData data, _) => data.amount,
-                      explode: true,
-                    )
-                  ],
-                ),
+                child: data.isEmpty
+                    ? Center(
+                        child: Center(
+                            child: Lottie.asset(
+                                'assets/images/lottie/90992-graph4.json')))
+                    : SfCircularChart(
+                        legend: Legend(isVisible: true),
+                        series: <CircularSeries>[
+                          PieSeries<ChartData, String>(
+                            dataLabelSettings:
+                                const DataLabelSettings(isVisible: true),
+                            dataSource: chartdivertFunctionExpense(),
+                            xValueMapper: (ChartData data, _) =>
+                                data.categories,
+                            yValueMapper: (ChartData data, _) => data.amount,
+                            explode: true,
+                          )
+                        ],
+                      ),
               ),
             ],
           ),
@@ -229,16 +255,16 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
       return dataIncome;
     }
     if (categoryId2 == 'Today') {
-      return today;
+      return todayIncome;
     }
     if (categoryId2 == 'Yesterday') {
-      return yesterday;
+      return incomeYesterday;
     }
     if (categoryId2 == 'This week') {
-      return week;
+      return incomeweek;
     }
     if (categoryId2 == 'This month') {
-      return month;
+      return incomemonth;
     }
   }
 
@@ -247,16 +273,16 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
       return data;
     }
     if (categoryId2 == 'Today') {
-      return today;
+      return todayExpense;
     }
     if (categoryId2 == 'Yesterday') {
-      return yesterday;
+      return expenseYesterday;
     }
     if (categoryId2 == 'This week') {
-      return week;
+      return expenseweek;
     }
     if (categoryId2 == 'This month') {
-      return month;
+      return expensemonth;
     }
   }
 }

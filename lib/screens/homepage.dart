@@ -29,7 +29,6 @@ class _HomespagesState extends State<Homespages> {
   final colorsobj = Colours();
   final funtionsobj = Functions();
 
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -95,10 +94,10 @@ class _HomespagesState extends State<Homespages> {
                     height: height * 0.0407,
                   ),
                   Text(
-                    'Total Balance',
+                 totalBalance < 0?'Oops! you don\'t have any balance':  'Total Balance',
                     style: GoogleFonts.roboto(
                       fontWeight: FontWeight.w500,
-                      fontSize: 35,
+                      fontSize: totalBalance < 0?20: 35,
                     ),
                   ),
                   Padding(
