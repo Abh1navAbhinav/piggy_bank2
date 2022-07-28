@@ -158,7 +158,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: overall.isEmpty
+                child: overall.isEmpty||today.isEmpty||yesterday.isEmpty||week.isEmpty||month.isEmpty
                     ? Center(
                         child: Lottie.asset(
                             'assets/images/lottie/90992-graph4.json'))

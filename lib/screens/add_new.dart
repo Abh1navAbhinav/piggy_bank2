@@ -53,6 +53,8 @@ class _AddTransactionState extends State<AddTransaction> {
 
       selectedDate = widget.modal!.date;
       selectedCategoryType = widget.modal!.type;
+      
+      
     }
     super.initState();
   }
@@ -485,7 +487,7 @@ class _AddTransactionState extends State<AddTransaction> {
       amount: parsedAmount,
       date: selectedDate ?? DateTime.now(),
       type: selectedCategoryType!,
-      category: selectedCategoryModal!,
+      category:selectedCategoryModal!
     );
 
     visiblity == false
