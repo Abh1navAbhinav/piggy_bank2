@@ -7,12 +7,14 @@ import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 
 import '../db/transaction_db.dart';
 import '../functions/colors_and_style.dart';
+import 'add_new.dart';
 import 'bottom_navigation.dart';
 
 var formatter = NumberFormat('#,##,000');
@@ -215,21 +217,38 @@ class _HomespagesState extends State<Homespages> {
                         : ListView.builder(
                             itemBuilder: (BuildContext context, index) {
                               final values = newlist[index];
-                              return obj.listTiles(
-                                context: context,
-                                amountColor: values.type == CategoryType.expense
-                                    ? Colors.red
-                                    : Colors.green,
-                                image: Image(
-                                  image: AssetImage(
-                                    values.type == CategoryType.income
-                                        ? 'assets/images/icons/piggy-bank (1).png'
-                                        : 'assets/images/icons/bankruptcy.png',
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                        visiblity = false;
+                                        Get.to(
+                                          AddTransaction(
+                                            index: index,
+                                            modal: values,
+                                          ),
+                                          transition: Transition.zoom,
+                                          duration: const Duration(
+                                            milliseconds: 500,
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: obj.listTiles(
+                                  context: context,
+                                  amountColor: values.type == CategoryType.expense
+                                      ? Colors.red
+                                      : Colors.green,
+                                  image: Image(
+                                    image: AssetImage(
+                                      values.type == CategoryType.income
+                                          ? 'assets/images/icons/piggy-bank (1).png'
+                                          : 'assets/images/icons/bankruptcy.png',
+                                    ),
                                   ),
+                                  title: values.category.name,
+                                  subtitle: parseDate(values.date),
+                                  amount: values.amount.toString(),
                                 ),
-                                title: values.category.name,
-                                subtitle: parseDate(values.date),
-                                amount: values.amount.toString(),
                               );
                             },
                             itemCount: newlist.length > 3 ? 3 : newlist.length,
