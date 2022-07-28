@@ -327,7 +327,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                             children: [
                                               DropdownButton<String>(
                                                 hint: Text(
-                                                  'Items',
+                                              visiblity==false?    widget.modal!.category.name:'Items',
                                                   style: colorsobj.styles(
                                                     color: Colors.grey,
                                                   ),
@@ -478,8 +478,9 @@ class _AddTransactionState extends State<AddTransaction> {
       );
     }
     if (selectedCategoryModal == null || categoryId == null) {
-      return functionsogj.showSnackbarSuccess(
-        context: context,
+   visiblity == false?  selectedCategoryModal=widget.modal!.category:
+       functionsogj.showSnackbarSuccess(
+       context: context,
         text: 'choose the item',
       );
     }
