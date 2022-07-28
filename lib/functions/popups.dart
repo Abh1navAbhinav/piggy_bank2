@@ -48,6 +48,7 @@ class Popups {
               onPressed: () {
                 categorydbs.deleteCategory(list!.id);
                 funtionsobj.showSnackbarSuccess(
+                  elevation: 16,
                   context: context,
                   text: "Category deleted succefully  ✓",
                   color: Colors.white,
@@ -114,6 +115,7 @@ class Popups {
                   list.id!,
                 );
                 funtionsobj.showSnackbarSuccess(
+                  elevation: 3,
                   context: context,
                   text: "Transaction deleted succefully  ✓",
                   color: Colors.white,
@@ -185,6 +187,7 @@ class Popups {
                 TransactionDb.instance.refresh();
                 CategoryDb.instance.refreshUi();
                 funtionsobj.showSnackbarSuccess(
+                  elevation: 3,
                   context: context,
                   text: /* "Transactions deleted succefully  ✓" */ snackbarText,
                   color: Colors.white,

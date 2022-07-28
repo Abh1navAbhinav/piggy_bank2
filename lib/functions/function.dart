@@ -51,6 +51,7 @@ class Functions {
                   }
                   categorydbs.insertCategory(category);
                   showSnackbarSuccess(
+                    elevation: 16,
                       context: context,
                       text: "Category added succefully  ✓",
                       color: Colors.white,
@@ -75,17 +76,20 @@ class Functions {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
   showSnackbarSuccess({
+    
     required BuildContext context,
     required String text,
+   required double elevation,
     Color color = Colors.white,
     Color textcolor = Colors.black,
     bool visibility = true,
     FontWeight fontWeight = FontWeight.w400,
+   
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
-        elevation: 16,
+        elevation: elevation,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: color,
         duration: const Duration(seconds: 2),

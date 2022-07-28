@@ -474,12 +474,14 @@ class _AddTransactionState extends State<AddTransaction> {
 
     if (amountText.isEmpty || parsedAmount == null) {
       return functionsogj.showSnackbarSuccess(
+        elevation: 16,
         context: context,
         text: 'enter the amount',
       );
     }
     if (amountText == '0') {
       return functionsogj.showSnackbarSuccess(
+        elevation: 16,
         context: context,
         text: 'amount column is "0"',
       );
@@ -488,6 +490,7 @@ class _AddTransactionState extends State<AddTransaction> {
       visiblity == false
           ? selectedCategoryModal = widget.modal!.category
           : functionsogj.showSnackbarSuccess(
+            elevation: 16,
               context: context,
               text: 'choose the item',
             );
@@ -504,7 +507,7 @@ class _AddTransactionState extends State<AddTransaction> {
         : TransactionDb.instance.addTransactionDb(model);
     Get.offAll(
       () => const BottomNav(),
-      transition: Transition.zoom,
+      transition: Transition.fade,
       duration: const Duration(
         milliseconds: 500,
       ),
@@ -514,6 +517,7 @@ class _AddTransactionState extends State<AddTransaction> {
     });
 
     functionsogj.showSnackbarSuccess(
+      elevation: 3,
       context: context,
       text: visiblity == false
           ? "Transaction updated succefully  ✓"
