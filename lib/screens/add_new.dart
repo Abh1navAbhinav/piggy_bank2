@@ -35,7 +35,7 @@ class _AddTransactionState extends State<AddTransaction> {
   final obj = Widgets();
   final functionsogj = Functions();
   final colorsobj = Colours();
-  Color colorgrey = Colors.grey;
+  Color colorgrey = Colors.black;
 
   var categoryId;
 
@@ -336,7 +336,8 @@ class _AddTransactionState extends State<AddTransaction> {
                                                       ? selectedCategoryitem!
                                                       : 'Items',
                                                   style: colorsobj.styles(
-                                                    color:colorgrey,
+                                                    color:visiblity == true?Colors.grey: colorgrey,
+                                                  
                                                   ),
                                                 ),
                                                 value: categoryId,
@@ -344,8 +345,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                                   color: Colors.transparent,
                                                 ),
                                                 style: colorsobj.styles(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w400,
+                                                
                                                 ),
                                                 items: (selectedCategoryType ==
                                                             CategoryType.income
