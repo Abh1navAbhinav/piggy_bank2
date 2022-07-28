@@ -4,8 +4,6 @@ import 'package:cup_cake/db/category_db.dart';
 import 'package:cup_cake/db/transaction_db.dart';
 import 'package:cup_cake/functions/function.dart';
 import 'package:cup_cake/functions/widgets.dart';
-import 'package:cup_cake/screens/bottom_navigation.dart';
-import 'package:cup_cake/screens/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,6 +13,8 @@ import 'package:intl/intl.dart';
 import '../functions/colors_and_style.dart';
 import '../modals/category_modal.dart';
 import '../modals/transaction_modal.dart';
+import 'bottom_navigation.dart';
+import 'categories.dart';
 
 bool visiblity = true;
 
@@ -35,13 +35,14 @@ class _AddTransactionState extends State<AddTransaction> {
   final obj = Widgets();
   final functionsogj = Functions();
   final colorsobj = Colours();
+  Color colorgrey = Colors.grey;
 
   var categoryId;
 
   DateTime? selectedDate;
   CategoryModal? selectedCategoryModal;
   CategoryType? selectedCategoryType;
-
+  String? selectedCategoryitem;
   final amountController = TextEditingController();
 
   @override
@@ -53,8 +54,7 @@ class _AddTransactionState extends State<AddTransaction> {
 
       selectedDate = widget.modal!.date;
       selectedCategoryType = widget.modal!.type;
-      
-      
+      selectedCategoryitem = widget.modal!.category.name;
     }
     super.initState();
   }
@@ -262,6 +262,8 @@ class _AddTransactionState extends State<AddTransaction> {
                                                       selectedCategoryType =
                                                           CategoryType.income;
                                                       categoryId = null;
+                                                      selectedCategoryitem =
+                                                          'Items';
                                                     });
                                                   },
                                                 ),
@@ -285,6 +287,9 @@ class _AddTransactionState extends State<AddTransaction> {
                                                       selectedCategoryType =
                                                           CategoryType.expense;
                                                       categoryId = null;
+                                                      selectedCategoryitem =
+                                                          'Items';
+                                                          colorgrey =Colors.red;
                                                     });
                                                   },
                                                 ),
@@ -327,9 +332,11 @@ class _AddTransactionState extends State<AddTransaction> {
                                             children: [
                                               DropdownButton<String>(
                                                 hint: Text(
-                                              visiblity==false?    widget.modal!.category.name:'Items',
+                                                  visiblity == false
+                                                      ? selectedCategoryitem!
+                                                      : 'Items',
                                                   style: colorsobj.styles(
-                                                    color: Colors.grey,
+                                                    color:colorgrey,
                                                   ),
                                                 ),
                                                 value: categoryId,
@@ -478,18 +485,19 @@ class _AddTransactionState extends State<AddTransaction> {
       );
     }
     if (selectedCategoryModal == null || categoryId == null) {
-   visiblity == false?  selectedCategoryModal=widget.modal!.category:
-       functionsogj.showSnackbarSuccess(
-       context: context,
-        text: 'choose the item',
-      );
+      visiblity == false
+          ? selectedCategoryModal = widget.modal!.category
+          : functionsogj.showSnackbarSuccess(
+              context: context,
+              text: 'choose the item',
+            );
     }
+
     final model = TransactionModal(
-      amount: parsedAmount,
-      date: selectedDate ?? DateTime.now(),
-      type: selectedCategoryType!,
-      category:selectedCategoryModal!
-    );
+        amount: parsedAmount,
+        date: selectedDate ?? DateTime.now(),
+        type: selectedCategoryType!,
+        category: selectedCategoryModal!);
 
     visiblity == false
         ? widget.modal!.updateTranscation(model)
