@@ -158,10 +158,20 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: overall.isEmpty||today.isEmpty||yesterday.isEmpty||week.isEmpty||month.isEmpty
-                    ? Center(
-                        child: Lottie.asset(
-                            'assets/images/lottie/90992-graph4.json'))
+                child: overall.isEmpty
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: Lottie.asset(
+                              'assets/images/lottie/90992-graph4.json',
+                            ),
+                          ),
+                          const Text(
+                            'There is no enough data to display the graph.',
+                          ),
+                        ],
+                      )
                     : SfCircularChart(
                         legend: Legend(isVisible: true),
                         series: <CircularSeries>[
@@ -182,10 +192,19 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                   16,
                 ),
                 child: dataIncome.isEmpty
-                    ? Center(
-                        child: Center(
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
                             child: Lottie.asset(
-                                'assets/images/lottie/90992-graph4.json')))
+                              'assets/images/lottie/90992-graph4.json',
+                            ),
+                          ),
+                          const Text(
+                            'There is no enough data to display the graph.',
+                          ),
+                        ],
+                      )
                     : SfCircularChart(
                         legend: Legend(isVisible: true),
                         series: <CircularSeries>[
@@ -206,10 +225,19 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                   16,
                 ),
                 child: data.isEmpty
-                    ? Center(
-                        child: Center(
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
                             child: Lottie.asset(
-                                'assets/images/lottie/90992-graph4.json')))
+                              'assets/images/lottie/90992-graph4.json',
+                            ),
+                          ),
+                          const Text(
+                            'There is no enough data to display the graph.',
+                          ),
+                        ],
+                      )
                     : SfCircularChart(
                         legend: Legend(isVisible: true),
                         series: <CircularSeries>[
@@ -252,6 +280,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
 
   chartdivertFunctionIncome() {
     if (categoryId2 == 'Date-all') {
+     
       return dataIncome;
     }
     if (categoryId2 == 'Today') {
