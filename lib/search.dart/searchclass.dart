@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: colorsobj.colorsdark(),
+        gradient: colorsobj.colorsearch(),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -83,40 +83,43 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: 20,
                 ),
                 Expanded(
-                    child: foundTransaction.isNotEmpty
-                        ? ListView.builder(
-                            itemCount: foundTransaction.length,
-                            itemBuilder: (context, index) => Card(
-                              key: ValueKey(foundTransaction[index].id),
-                              color: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                              elevation: 4,
-                              margin: const EdgeInsets.symmetric(vertical: 10),
-                              child: obj.listTiles(
-                                context: context,
-                                amountColor: foundTransaction[index].type ==
-                                        CategoryType.expense
-                                    ? Colors.red
-                                    : Colors.green,
-                                image: Image(
-                                  image: AssetImage(
-                                    foundTransaction[index].type ==
-                                            CategoryType.income
-                                        ? 'assets/images/icons/piggy-bank (1).png'
-                                        : 'assets/images/icons/bankruptcy.png',
-                                  ),
-                                ),
-                                title: foundTransaction[index].category.name,
-                                subtitle:
-                                    parseDate(foundTransaction[index].date),
-                                amount:
-                                    foundTransaction[index].amount.toString(),
-                              ),
+                  child: foundTransaction.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: foundTransaction.length,
+                          itemBuilder: (context, index) => Card(
+                            key: ValueKey(
+                              foundTransaction[index].id,
                             ),
-                          )
-                        : Lottie.asset(
-                            'assets/images/lottie/43191-no-data-error.json',
-                          )),
+                            color: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            elevation: 4,
+                            margin: const EdgeInsets.symmetric(
+                              vertical: 10,
+                            ),
+                            child: obj.listTiles(
+                              context: context,
+                              amountColor: foundTransaction[index].type ==
+                                      CategoryType.expense
+                                  ? Colors.red
+                                  : Colors.green,
+                              image: Image(
+                                image: AssetImage(
+                                  foundTransaction[index].type ==
+                                          CategoryType.income
+                                      ? 'assets/images/icons/piggy-bank (1).png'
+                                      : 'assets/images/icons/bankruptcy.png',
+                                ),
+                              ),
+                              title: foundTransaction[index].category.name,
+                              subtitle: parseDate(foundTransaction[index].date),
+                              amount: foundTransaction[index].amount.toString(),
+                            ),
+                          ),
+                        )
+                      : Lottie.asset(
+                          'assets/images/lottie/lf20_iav9wojz.json',
+                        ),
+                ),
               ],
             ),
           ),

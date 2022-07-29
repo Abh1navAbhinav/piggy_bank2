@@ -88,6 +88,7 @@ flutter:
     - assets/images/socialMedia/instagram-6970242_960_720.jpg
     - assets/images/socialMedia/facebook-icon-logo-white-background-editable-vector-illustration-facebook-icon-logo-141051712.jpg
     - assets/images/lottie/90992-graph4.json
+    - assets/images/lottie/lf20_iav9wojz.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

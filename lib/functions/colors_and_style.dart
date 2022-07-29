@@ -19,6 +19,14 @@ class Colours {
       ],
     );
   }
+    colorsearch() {
+    return const LinearGradient(
+      colors: <Color>[
+        Color.fromARGB(255, 209, 252, 249),
+        Color.fromARGB(255, 243, 211, 220),
+      ],
+    );
+  }
 
   styles({
     Color color = Colors.black,
