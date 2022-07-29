@@ -289,7 +289,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                                       categoryId = null;
                                                       selectedCategoryitem =
                                                           'Items';
-                                                          colorgrey =Colors.red;
+                                                      colorgrey = Colors.red;
                                                     });
                                                   },
                                                 ),
@@ -336,17 +336,16 @@ class _AddTransactionState extends State<AddTransaction> {
                                                       ? selectedCategoryitem!
                                                       : 'Items',
                                                   style: colorsobj.styles(
-                                                    color:visiblity == true?Colors.grey: colorgrey,
-                                                  
+                                                    color: visiblity == true
+                                                        ? Colors.grey
+                                                        : colorgrey,
                                                   ),
                                                 ),
                                                 value: categoryId,
                                                 underline: const Divider(
                                                   color: Colors.transparent,
                                                 ),
-                                                style: colorsobj.styles(
-                                                
-                                                ),
+                                                style: colorsobj.styles(),
                                                 items: (selectedCategoryType ==
                                                             CategoryType.income
                                                         ? CategoryDb()
@@ -473,11 +472,11 @@ class _AddTransactionState extends State<AddTransaction> {
     final parsedAmount = int.tryParse(amountText);
 
     if (amountText.isEmpty || parsedAmount == null) {
-      return functionsogj.showSnackbarSuccess(
+      return visiblity == true? functionsogj.showSnackbarSuccess(
         elevation: 16,
         context: context,
         text: 'enter the amount',
-      );
+      ):null;
     }
     if (amountText == '0') {
       return functionsogj.showSnackbarSuccess(
@@ -487,20 +486,19 @@ class _AddTransactionState extends State<AddTransaction> {
       );
     }
     if (selectedCategoryModal == null || categoryId == null) {
-      visiblity == false
-          ? selectedCategoryModal = widget.modal!.category
-          : functionsogj.showSnackbarSuccess(
-            elevation: 16,
+    visiblity == true? functionsogj.showSnackbarSuccess(
+              elevation: 16,
               context: context,
               text: 'choose the item',
-            );
+            ):null;
     }
 
     final model = TransactionModal(
-        amount: parsedAmount,
-        date: selectedDate ?? DateTime.now(),
-        type: selectedCategoryType!,
-        category: selectedCategoryModal!);
+      amount: parsedAmount,
+      date: selectedDate ?? DateTime.now(),
+      type: selectedCategoryType!,
+      category:visiblity == false? selectedCategoryModal = widget.modal!.category:selectedCategoryModal!,
+    );
 
     visiblity == false
         ? widget.modal!.updateTranscation(model)
