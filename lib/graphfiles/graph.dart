@@ -43,7 +43,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    TabController tabController = TabController(length: 3, vsync: this);
+    TabController tabController = TabController(length: 2, vsync: this);
     return Column(
       children: [
         SizedBox(
@@ -90,7 +90,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                         color: Colors.transparent,
                       ),
                       style: colorsobj.styles(
-                        fontSize: 20,
+                        fontSize: 17,
                         fontWeight: FontWeight.w400,
                       ),
                       value: categoryId2,
@@ -129,9 +129,9 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
           labelColor: const Color.fromARGB(255, 27, 88, 83),
           unselectedLabelColor: Colors.grey,
           tabs: const [
-            Tab(
+           /*  Tab(
               text: 'Overall',
-            ),
+            ), */
             Tab(
               text: 'Income',
             ),
@@ -149,7 +149,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
           child: TabBarView(
             controller: tabController,
             children: [
-              Padding(
+             /*  Padding(
                 padding: const EdgeInsets.all(
                   16,
                 ),
@@ -181,7 +181,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                           )
                         ],
                       ),
-              ),
+              ), */
               Padding(
                 padding: const EdgeInsets.all(
                   16,
@@ -254,7 +254,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
       ],
     );
   }
-
+/* 
   chartdivertFunctionAll() {
     if (categoryId2 == 'Date-all') {
       return overall;
@@ -271,7 +271,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
     if (categoryId2 == 'This month') {
       return month;
     }
-  }
+  } */
 
   chartdivertFunctionIncome() {
     if (categoryId2 == 'Date-all') {
