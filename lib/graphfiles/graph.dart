@@ -37,12 +37,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   final obj = Widgets();
   final colorsobj = Colours();
   int touchIndex = 1;
-  Map<String, double> dataMap = {
-    "Flutter": 5,
-    "React": 3,
-    "Xamarin": 2,
-    "Ionic": 2,
-  };
+
 
   @override
   Widget build(BuildContext context) {
