@@ -69,8 +69,8 @@ class _AllTransactionState extends State<AllTransaction> {
                     left: 20,
                   ),
                   child: TextFormField(
-                        readOnly: true,
-                    onTap: () => Get.to(()=>const SearchScreen()),
+                    readOnly: true,
+                    onTap: () => Get.to(() => const SearchScreen()),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'search Items',
@@ -225,7 +225,8 @@ class _AllTransactionState extends State<AllTransaction> {
                   Widget? _) {
                 return newlist.isEmpty
                     ? Lottie.asset(
-                        'assets/images/lottie/43191-no-data-error.json')
+                        'assets/images/lottie/43191-no-data-error.json',
+                      )
                     : ScrollConfiguration(
                         behavior: MyBehavior(),
                         child: ListView.builder(
