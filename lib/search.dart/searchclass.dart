@@ -57,7 +57,7 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               TextFormField(
-            
+            autofocus: true,
                 onChanged: (value) => _runFilter(value),
                 decoration: InputDecoration(
 
