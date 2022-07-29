@@ -345,7 +345,10 @@ class _AddTransactionState extends State<AddTransaction> {
                                                 underline: const Divider(
                                                   color: Colors.transparent,
                                                 ),
-                                                style: colorsobj.styles(),
+                                                style: colorsobj.styles(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                                 items: (selectedCategoryType ==
                                                             CategoryType.income
                                                         ? CategoryDb()
@@ -472,11 +475,13 @@ class _AddTransactionState extends State<AddTransaction> {
     final parsedAmount = int.tryParse(amountText);
 
     if (amountText.isEmpty || parsedAmount == null) {
-      return visiblity == true? functionsogj.showSnackbarSuccess(
-        elevation: 16,
-        context: context,
-        text: 'enter the amount',
-      ):null;
+      return visiblity == true
+          ? functionsogj.showSnackbarSuccess(
+              elevation: 16,
+              context: context,
+              text: 'enter the amount',
+            )
+          : null;
     }
     if (amountText == '0') {
       return functionsogj.showSnackbarSuccess(
@@ -486,18 +491,22 @@ class _AddTransactionState extends State<AddTransaction> {
       );
     }
     if (selectedCategoryModal == null || categoryId == null) {
-    visiblity == true? functionsogj.showSnackbarSuccess(
+      visiblity == true
+          ? functionsogj.showSnackbarSuccess(
               elevation: 16,
               context: context,
               text: 'choose the item',
-            ):null;
+            )
+          : null;
     }
 
     final model = TransactionModal(
       amount: parsedAmount,
       date: selectedDate ?? DateTime.now(),
       type: selectedCategoryType!,
-      category:visiblity == false? selectedCategoryModal = widget.modal!.category:selectedCategoryModal!,
+      category: visiblity == false
+          ? selectedCategoryModal = widget.modal!.category
+          : selectedCategoryModal!,
     );
 
     visiblity == false
