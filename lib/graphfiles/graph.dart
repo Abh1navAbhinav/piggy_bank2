@@ -41,6 +41,8 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+  
+    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     TabController tabController = TabController(length: 2, vsync: this);
@@ -275,7 +277,6 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
 
   chartdivertFunctionIncome() {
     if (categoryId2 == 'Date-all') {
-     
       return dataIncome;
     }
     if (categoryId2 == 'Today') {
