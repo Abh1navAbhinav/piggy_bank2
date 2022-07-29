@@ -7,6 +7,7 @@ import 'package:hive_flutter/adapters.dart';
 const transactionDbName = 'transaction-db';
 ValueNotifier<List<TransactionModal>> transactionListNotifier =
     ValueNotifier([]);
+    List<TransactionModal> searchList = [];
 
 abstract class TransactionDbFunctions {
   Future<void> addTransactionDb(TransactionModal obj);
@@ -37,6 +38,11 @@ class TransactionDb implements TransactionDbFunctions {
     transactionListNotifier.value.clear();
     transactionListNotifier.value.addAll(list);
     transactionListNotifier.notifyListeners();
+
+    //searchAddList
+    searchList.clear();
+    searchList.addAll(list);
+
   }
 
   @override

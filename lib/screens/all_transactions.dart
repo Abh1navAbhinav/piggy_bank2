@@ -7,6 +7,7 @@ import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:cup_cake/screens/add_new.dart';
+import 'package:cup_cake/search.dart/searchclass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/route_manager.dart';
@@ -68,6 +69,8 @@ class _AllTransactionState extends State<AllTransaction> {
                     left: 20,
                   ),
                   child: TextFormField(
+                        readOnly: true,
+                    onTap: () => Get.to(()=>const SearchScreen()),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'search Items',
