@@ -17,6 +17,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  final TextEditingController textcontrollerSearch = TextEditingController();
   final obj = Widgets();
   final List<TransactionModal> allTransaction = searchList;
   List<TransactionModal> foundTransaction = [];
@@ -28,6 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void _runFilter(String enteredKeyword) {
     List<TransactionModal> results = [];
+
     if (enteredKeyword.isEmpty) {
       results = allTransaction;
     } else {
@@ -59,8 +61,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: TextFormField(
+                    controller: textcontrollerSearch,
                     // readOnly: foundTransaction.isEmpty ? true : false,
-                    autofocus: foundTransaction.length < 2 ? false : true,
+                    autofocus: foundTransaction.length < 3 ? false : true,
                     onChanged: (value) => _runFilter(value),
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
