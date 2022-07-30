@@ -2,7 +2,9 @@
 
 import 'package:cup_cake/db/transaction_db.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
+import 'package:cup_cake/screens/add_new.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 
@@ -51,76 +53,115 @@ class _SearchScreenState extends State<SearchScreen> {
       decoration: BoxDecoration(
         gradient: colorsobj.colorsearch(),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: TextFormField(
-                    controller: textcontrollerSearch,
-                    // readOnly: foundTransaction.isEmpty ? true : false,
-                    autofocus: foundTransaction.length < 3 ? false : true,
-                    onChanged: (value) => _runFilter(value),
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        labelText: foundTransaction.isEmpty
-                            ? 'There is no transaction to search'
-                            : 'Type an Item Name',
-                        labelStyle: colorsobj.styles(
-                            fontSize: 17, fontWeight: FontWeight.w500),
-                        suffixIcon: IconButton(
-                            onPressed: () => Navigator.pop(context),
-                            icon: const Icon(Icons.close))),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: TextFormField(
+                      controller: textcontrollerSearch,
+                      // readOnly: foundTransaction.isEmpty ? true : false,
+                      autofocus: foundTransaction.length < 3 ? false : true,
+                      onChanged: (value) => _runFilter(value),
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          labelText: foundTransaction.isEmpty
+                              ? 'There is no transaction to search'
+                              : 'Type an Item Name',
+                          labelStyle: colorsobj.styles(
+                              fontSize: 17, fontWeight: FontWeight.w500),
+                          suffixIcon: IconButton(
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(Icons.close))),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Expanded(
-                  child: foundTransaction.isNotEmpty
-                      ? ListView.builder(
-                          itemCount: foundTransaction.length,
-                          itemBuilder: (context, index) => Card(
-                            key: ValueKey(
-                              foundTransaction[index].id,
-                            ),
-                            color: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            elevation: 4,
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 10,
-                            ),
-                            child: obj.listTiles(
-                              context: context,
-                              amountColor: foundTransaction[index].type ==
-                                      CategoryType.expense
-                                  ? Colors.red
-                                  : Colors.green,
-                              image: Image(
-                                image: AssetImage(
-                                  foundTransaction[index].type ==
-                                          CategoryType.income
-                                      ? 'assets/images/icons/piggy-bank (1).png'
-                                      : 'assets/images/icons/bankruptcy.png',
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: foundTransaction.isNotEmpty
+                        ? ListView.builder(
+                            itemCount: foundTransaction.length,
+                            itemBuilder: (context, index) => Card(
+                              key: ValueKey(
+                                foundTransaction[index].id,
+                              ),
+                              color: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              elevation: 4,
+                              margin: const EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    visiblity = false;
+                                    Get.to(
+                                      () => AddTransaction(
+                                        index: index,
+                                        modal: foundTransaction[index],
+                                      ),
+                                      transition: Transition.zoom,
+                                      duration: const Duration(
+                                        milliseconds: 500,
+                                      ),
+                                    );
+                                  });
+                                },
+                                /*  onPressed: (ctx) {
+                                        setState(() {
+                                          visiblity = false;
+                                          Get.to(
+                                            AddTransaction(
+                                              index: index,
+                                              modal: values,
+                                            ),
+                                            transition: Transition.zoom,
+                                            duration: const Duration(
+                                              milliseconds: 500,
+                                            ),
+                                          );
+                                        });
+                                      }, */
+                                child: obj.listTiles(
+                                  context: context,
+                                  amountColor: foundTransaction[index].type ==
+                                          CategoryType.expense
+                                      ? Colors.red
+                                      : Colors.green,
+                                  image: Image(
+                                    image: AssetImage(
+                                      foundTransaction[index].type ==
+                                              CategoryType.income
+                                          ? 'assets/images/icons/piggy-bank (1).png'
+                                          : 'assets/images/icons/bankruptcy.png',
+                                    ),
+                                  ),
+                                  title: foundTransaction[index].category.name,
+                                  subtitle:
+                                      parseDate(foundTransaction[index].date),
+                                  amount:
+                                      foundTransaction[index].amount.toString(),
                                 ),
                               ),
-                              title: foundTransaction[index].category.name,
-                              subtitle: parseDate(foundTransaction[index].date),
-                              amount: foundTransaction[index].amount.toString(),
                             ),
+                          )
+                        : Lottie.asset(
+                            'assets/images/lottie/lf20_iav9wojz.json',
                           ),
-                        )
-                      : Lottie.asset(
-                          'assets/images/lottie/lf20_iav9wojz.json',
-                        ),
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
