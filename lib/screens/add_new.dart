@@ -528,7 +528,7 @@ class _AddTransactionState extends State<AddTransaction> {
       () => const BottomNav(),
       transition: Transition.fade,
       duration: const Duration(
-        milliseconds: 500,
+        milliseconds: 800,
       ),
     );
     setState(() {
