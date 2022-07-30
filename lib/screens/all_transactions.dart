@@ -70,7 +70,13 @@ class _AllTransactionState extends State<AllTransaction> {
                   ),
                   child: TextFormField(
                     readOnly: true,
-                    onTap: () => Get.to(() => const SearchScreen()),
+                    onTap: () => Get.to(
+                      () => const SearchScreen(),
+                      transition: Transition.fade,
+                      duration: const Duration(
+                        milliseconds: 200,
+                      ),
+                    ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'search Items',
