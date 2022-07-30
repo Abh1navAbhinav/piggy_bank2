@@ -1,4 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
+import 'package:cup_cake/functions/colors_and_style.dart';
 import 'package:cup_cake/main.dart';
 import 'package:cup_cake/screens/bottom_navigation.dart';
 import 'package:cup_cake/screens/signin_page.dart';
@@ -19,6 +20,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final colorsobj = Colours();
   @override
   void initState() {
     checkUserLoggedIn();
@@ -33,40 +35,18 @@ class _SplashScreenState extends State<SplashScreen> {
   final obj = Widgets();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Welcome to Piggy Bank.',
-              style: colorsobj.styles(
-                fontSize: 30,
-                fontWeight: FontWeight.w400,
-              ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: colorsobj.colorslight(),
+      ),
+      child: const Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: Center(
+            child: Image(
+              image: AssetImage('assets/images/splashscreen/splashorg.png'),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 40,
-                    right: 10,
-                  ),
-                  child: obj.appLogo(
-                    radius: 20,
-                  ),
-                ),
-                Text(
-                  'Piggy Bank',
-                  style: colorsobj.styles(),
-                )
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );
