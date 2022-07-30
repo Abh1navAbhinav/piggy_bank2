@@ -104,7 +104,9 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
+
                                   setState(() {
+                                    FocusManager.instance.primaryFocus!.unfocus();
                                     visiblity = false;
                                     Get.to(
                                       () => AddTransaction(
