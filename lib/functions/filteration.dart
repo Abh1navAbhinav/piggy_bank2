@@ -41,7 +41,6 @@ ValueNotifier<List<TransactionModal>> incomeLastMonthNotifier =
 ValueNotifier<List<TransactionModal>> expenseLastMonthNotifier =
     ValueNotifier([]);
 
-    ValueNotifier<List<TransactionModal>> emptyListData = ValueNotifier([]);
 
 String today = DateFormat.yMd().format(
   DateTime.now(),

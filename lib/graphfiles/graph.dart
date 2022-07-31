@@ -31,7 +31,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   List<ChartData> expenseYesterday = chartLogic(expenseYesterdayNotifier.value);
   List<ChartData> expenseweek = chartLogic(expenseLastWeekNotifier.value);
   List<ChartData> expensemonth = chartLogic(expenseLastMonthNotifier.value);
-  List<ChartData> emptyList = chartLogic(emptyListData.value);
+
 
   
   
@@ -282,10 +282,10 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   chartdivertFunctionIncome() {
     if (categoryId2 == 'Date-all') {
 
-      return dataIncome.isEmpty?'no data':dataIncome;
+      return dataIncome;
     }
     if (categoryId2 == 'Today') {
-      return todayIncome.isEmpty?'no data':todayIncome;
+      return todayIncome;
     }
     if (categoryId2 == 'Yesterday') {
       return incomeYesterday;
