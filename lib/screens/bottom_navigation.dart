@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:cup_cake/functions/filteration.dart';
 import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/all_transactions.dart';
@@ -31,6 +32,12 @@ class BottomNav extends StatefulWidget {
 class _BottomNavState extends State<BottomNav> {
   final obj = Widgets();
   final colorsobj = Colours();
+
+  @override
+  void initState() {
+    filterFunction();
+    super.initState();
+  }
 
   String userName = 'user';
   int currentindex = 0;

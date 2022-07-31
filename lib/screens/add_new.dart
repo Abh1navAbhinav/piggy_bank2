@@ -449,6 +449,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                   child: TextButton.icon(
                                     onPressed: () {
                                       addTransactionFunction();
+                                      // await filterFunction();
 
                                       TransactionDb.instance.refresh();
                                     },
