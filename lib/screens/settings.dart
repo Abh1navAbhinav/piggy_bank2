@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
+import '../db/username_db.dart';
 import 'notification.dart';
 
 class Settings extends StatefulWidget {
@@ -36,11 +37,10 @@ class _SettingsState extends State<Settings> {
   }
 
   void listennotification() => NotificationApi.onNotification;
-  onclikednotification()=>Get.to(()=>const BottomNav());
+  onclikednotification() => Get.to(() => const BottomNav());
 
   @override
   Widget build(BuildContext context) {
-  
     double height = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -67,12 +67,11 @@ class _SettingsState extends State<Settings> {
                   ),
                 ],
               ),
-               
               obj.appLogo(),
             ],
           ),
-           SizedBox(
-            height: height*0.0657,
+          SizedBox(
+            height: height * 0.0657,
           ),
           obj.settingsitems(
             context: context,
@@ -85,11 +84,11 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Reset Piggy Bank',
           ),
-           SizedBox(
-            height: height*0.039,
+          SizedBox(
+            height: height * 0.039,
           ),
           obj.settingsitems(
-             context: context,
+            context: context,
             function: () {
               widgetsobj.showbottomsheeet(context: context);
             },
@@ -99,11 +98,11 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Contact Me',
           ),
-           SizedBox(
-            height: height*0.039,
+          SizedBox(
+            height: height * 0.039,
           ),
           obj.settingsitems(
-             context: context,
+            context: context,
             function: () {
               urifunctionsobj.emailUriFunction();
             },
@@ -113,11 +112,11 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Feed Back',
           ),
-           SizedBox(
-            height: height*0.039,
+          SizedBox(
+            height: height * 0.039,
           ),
           obj.settingsitems(
-             context: context,
+            context: context,
             function: () async {
               final TimeOfDay? pickedtime = await showTimePicker(
                   initialEntryMode: TimePickerEntryMode.input,
@@ -126,9 +125,9 @@ class _SettingsState extends State<Settings> {
               if (pickedtime == null) return;
               setState(() {
                 NotificationApi.showShedulednotification(
-                  title: 'Hi Abhinav',
+                  title: 'Hi ${userListNotifier.value.username}',
                   body: 'Click on the notification to add transaction',
-                  payload: 'payload Abhinav',
+                  payload: 'payload ${userListNotifier.value.username}',
                   sheduleddatetime: Time(
                     pickedtime.hour,
                     pickedtime.minute,
@@ -144,11 +143,11 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Remainder',
           ),
-           SizedBox(
-            height: height*0.039,
+          SizedBox(
+            height: height * 0.039,
           ),
           obj.settingsitems(
-             context: context,
+            context: context,
             function: () {
               /* popupsobj.deleteAllTransactionPopup(
                 context: context,
@@ -161,11 +160,11 @@ class _SettingsState extends State<Settings> {
             ),
             text: 'Delete',
           ),
-           SizedBox(
-            height: height*0.039,
+          SizedBox(
+            height: height * 0.039,
           ),
           obj.settingsitems(
-             context: context,
+            context: context,
             function: () {
               Get.to(
                 () => const About(),
