@@ -115,29 +115,33 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 3,
+                                          crossAxisCount: 1,
+                                          mainAxisSpacing: 10,
+                                          mainAxisExtent: 50,
                                         ),
                                         itemBuilder: (
                                           BuildContext context,
                                           index,
                                         ) {
+                                          /*   */
                                           return ListTile(
-                                            title: GestureDetector(
-                                              onDoubleTap: () {
+                                            leading: Text(
+                                              newlist[index].name,
+                                              style: colorsobj.styles(
+                                                color: const Color.fromARGB(
+                                                    255, 27, 88, 83),
+                                              ),
+                                            ),
+                                            trailing: IconButton(
+                                              onPressed: () {
                                                 popupsobj.deleteCategoryPopUp(
                                                   context: context,
                                                   list: newlist[index],
                                                 );
                                               },
-                                              child: TextButton(
-                                                onPressed: () {},
-                                                child: Text(
-                                                  newlist[index].name,
-                                                  style: colorsobj.styles(
-                                                    color: const Color.fromARGB(
-                                                        255, 27, 88, 83),
-                                                  ),
-                                                ),
+                                              icon: const Icon(
+                                                Icons.delete_outline,
+                                                color: Colors.red,
                                               ),
                                             ),
                                           );
@@ -156,29 +160,32 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 3,
+                                          crossAxisCount: 1,
+                                          mainAxisSpacing: 10,
+                                          mainAxisExtent: 50,
                                         ),
                                         itemBuilder: (
                                           BuildContext context,
                                           index,
                                         ) {
                                           return ListTile(
-                                            title: GestureDetector(
-                                              onDoubleTap: () {
+                                            title: Text(
+                                              newlist[index].name,
+                                              style: colorsobj.styles(
+                                                color: const Color.fromARGB(
+                                                    255, 27, 88, 83),
+                                              ),
+                                            ),
+                                            trailing: IconButton(
+                                              onPressed: () {
                                                 popupsobj.deleteCategoryPopUp(
                                                   context: context,
                                                   list: newlist[index],
                                                 );
                                               },
-                                              child: TextButton(
-                                                onPressed: () {},
-                                                child: Text(
-                                                  newlist[index].name,
-                                                  style: colorsobj.styles(
-                                                    color: const Color.fromARGB(
-                                                        255, 27, 88, 83),
-                                                  ),
-                                                ),
+                                              icon: const Icon(
+                                                Icons.delete_outline,
+                                                color: Colors.red,
                                               ),
                                             ),
                                           );
