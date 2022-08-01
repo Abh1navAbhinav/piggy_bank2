@@ -192,7 +192,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: dataIncome.isEmpty
+                child: chartdivertFunctionIncome().isEmpty
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -225,7 +225,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(
                   16,
                 ),
-                child: data.isEmpty
+                child: chartdivertFunctionExpense().isEmpty
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
