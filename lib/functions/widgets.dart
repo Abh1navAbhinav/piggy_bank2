@@ -39,7 +39,7 @@ class Widgets {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 14,
+        vertical: 13,
       ),
       child: Row(
         children: [
@@ -99,6 +99,7 @@ class Widgets {
                           subtitle,
                           style: colorsobj.styles(
                             fontSize: 15,
+                            color: Colors.black54,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

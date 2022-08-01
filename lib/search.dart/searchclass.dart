@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:cup_cake/db/transaction_db.dart';
+import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:cup_cake/screens/add_new.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     padding: const EdgeInsets.all(18.0),
                     child: TextFormField(
                       controller: textcontrollerSearch,
-                      // readOnly: foundTransaction.isEmpty ? true : false,
+                  
                       autofocus: foundTransaction.length < 3 ? false : true,
                       onChanged: (value) => _runFilter(value),
                       decoration: InputDecoration(
@@ -91,65 +92,68 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   Expanded(
                     child: foundTransaction.isNotEmpty
-                        ? ListView.builder(
-                            itemCount: foundTransaction.length,
-                            itemBuilder: (context, index) => Card(
-                              key: ValueKey(
-                                foundTransaction[index].id,
-                              ),
-                              color: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                              elevation: 4,
-                              margin: const EdgeInsets.symmetric(
-                                vertical: 10,
-                              ),
-                              child: GestureDetector(
-                                onTap: () {
-
-                                  setState(() {
-                                    FocusManager.instance.primaryFocus!.unfocus();
-                                    visiblity = false;
-                                    Get.to(
-                                      () => AddTransaction(
-                                        index: index,
-                                        modal: foundTransaction[index],
-                                      ),
-                                      transition: Transition.zoom,
-                                      duration: const Duration(
-                                        milliseconds: 500,
-                                      ),
-                                    );
-                                  });
-                                },
-                                onLongPress: () {
-                                    popupsobj.deleteTransactionPopup(
-                                      context: context,
-                                      list: foundTransaction[index],
-                                    );
+                        ? ScrollConfiguration(
+                          behavior: MyBehavior(),
+                          child: ListView.builder(
+                              itemCount: foundTransaction.length,
+                              itemBuilder: (context, index) => Card(
+                                key: ValueKey(
+                                  foundTransaction[index].id,
+                                ),
+                                color: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                elevation: 4,
+                                margin: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {
+                        
+                                    setState(() {
+                                      FocusManager.instance.primaryFocus!.unfocus();
+                                      visiblity = false;
+                                      Get.to(
+                                        () => AddTransaction(
+                                          index: index,
+                                          modal: foundTransaction[index],
+                                        ),
+                                        transition: Transition.zoom,
+                                        duration: const Duration(
+                                          milliseconds: 500,
+                                        ),
+                                      );
+                                    });
                                   },
-                                child: obj.listTiles(
-                                  context: context,
-                                  amountColor: foundTransaction[index].type ==
-                                          CategoryType.expense
-                                      ? Colors.red
-                                      : Colors.green,
-                                  image: Image(
-                                    image: AssetImage(
-                                      foundTransaction[index].type ==
-                                              CategoryType.income
-                                          ? 'assets/images/icons/piggy-bank (1).png'
-                                          : 'assets/images/icons/bankruptcy.png',
+                                  onLongPress: () {
+                                      popupsobj.deleteTransactionPopup(
+                                        context: context,
+                                        list: foundTransaction[index],
+                                      );
+                                    },
+                                  child: obj.listTiles(
+                                    context: context,
+                                    amountColor: foundTransaction[index].type ==
+                                            CategoryType.expense
+                                        ? Colors.red
+                                        : Colors.green,
+                                    image: Image(
+                                      image: AssetImage(
+                                        foundTransaction[index].type ==
+                                                CategoryType.income
+                                            ? 'assets/images/icons/piggy-bank (1).png'
+                                            : 'assets/images/icons/bankruptcy.png',
+                                      ),
                                     ),
+                                    title: foundTransaction[index].category.name,
+                                    subtitle:
+                                        parseDate(foundTransaction[index].date),
+                                    amount:
+                                        foundTransaction[index].amount.toString(),
                                   ),
-                                  title: foundTransaction[index].category.name,
-                                  subtitle:
-                                      parseDate(foundTransaction[index].date),
-                                  amount:
-                                      foundTransaction[index].amount.toString(),
                                 ),
                               ),
                             ),
-                          )
+                        )
                         : Lottie.asset(
                             'assets/images/lottie/lf20_iav9wojz.json',
                           ),
