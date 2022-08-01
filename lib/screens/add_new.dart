@@ -516,7 +516,7 @@ class _AddTransactionState extends State<AddTransaction> {
       date: selectedDate ?? DateTime.now(),
       type: selectedCategoryType!,
       category: visiblity == false
-          ? selectedCategoryModal = widget.modal!.category
+          ? selectedCategoryModal ?? widget.modal!.category
           : selectedCategoryModal!,
     );
 
