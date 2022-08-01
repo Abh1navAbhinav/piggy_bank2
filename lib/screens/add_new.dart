@@ -522,29 +522,55 @@ class _AddTransactionState extends State<AddTransaction> {
 
     visiblity == false
         ? widget.modal!.updateTranscation(model)
-        : TransactionDb.instance.addTransactionDb(model);
-    Get.offAll(
-      () => const BottomNav(),
-      transition: Transition.fade,
-      duration: const Duration(
-        milliseconds: 800,
-      ),
-    );
-   /*  setState(() {
+        : (categoryId == null
+            ? null
+            : TransactionDb.instance.addTransactionDb(model));
+    visiblity == false
+        ? Get.offAll(
+            () => const BottomNav(),
+            transition: Transition.fade,
+            duration: const Duration(
+              milliseconds: 800,
+            ),
+          )
+        : (categoryId == null
+            ? null
+            : Get.offAll(
+                () => const BottomNav(),
+                transition: Transition.fade,
+                duration: const Duration(
+                  milliseconds: 800,
+                ),
+              ));
+    /*  setState(() {
       visiblity = true;
     }); */
 
-    functionsogj.showSnackbarSuccess(
-      elevation: 3,
-      context: context,
-      text: visiblity == false
-          ? "Transaction updated succefully  ✓"
-          : "Transaction added succefully  ✓",
-      color: Colors.white,
-      textcolor: Colors.green,
-      visibility: false,
-      fontWeight: FontWeight.bold,
-    );
+    visiblity == false
+        ? functionsogj.showSnackbarSuccess(
+            elevation: 3,
+            context: context,
+            text: visiblity == false
+                ? "Transaction updated succefully  ✓"
+                : "Transaction added succefully  ✓",
+            color: Colors.white,
+            textcolor: Colors.green,
+            visibility: false,
+            fontWeight: FontWeight.bold,
+          )
+        : (categoryId == null
+            ? null
+            : functionsogj.showSnackbarSuccess(
+                elevation: 3,
+                context: context,
+                text: visiblity == false
+                    ? "Transaction updated succefully  ✓"
+                    : "Transaction added succefully  ✓",
+                color: Colors.white,
+                textcolor: Colors.green,
+                visibility: false,
+                fontWeight: FontWeight.bold,
+              ));
   }
 
   String parseDate(DateTime date) {
