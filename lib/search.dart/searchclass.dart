@@ -26,6 +26,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   initState() {
     foundTransaction = allTransaction;
+    TransactionDb.instance.refresh();
     super.initState();
   }
 
