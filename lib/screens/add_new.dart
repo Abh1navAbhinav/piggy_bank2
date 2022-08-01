@@ -296,7 +296,6 @@ class _AddTransactionState extends State<AddTransaction> {
                                                         categoryId = null;
                                                         selectedCategoryitem =
                                                             'Items';
-                                                        colorgrey = Colors.red;
                                                       });
                                                     },
                                                   ),
@@ -344,9 +343,26 @@ class _AddTransactionState extends State<AddTransaction> {
                                                         ? selectedCategoryitem!
                                                         : 'Items',
                                                     style: colorsobj.styles(
-                                                      color: visiblity == true
-                                                          ? Colors.grey
-                                                          : colorgrey,
+                                                      color: (visiblity == false
+                                                          ? selectedCategoryitem ==
+                                                                  "Items"
+                                                              ? Colors.grey
+                                                              : Colors.black
+                                                          : Colors.grey),
+                                                      fontSize: (visiblity ==
+                                                              false
+                                                          ? selectedCategoryitem !=
+                                                                  "Items"
+                                                              ? 17
+                                                              : 20
+                                                          : 20),
+                                                      fontWeight: (visiblity ==
+                                                              false
+                                                          ? selectedCategoryitem !=
+                                                                  "Items"
+                                                              ? FontWeight.w500
+                                                              : FontWeight.bold
+                                                          : FontWeight.bold),
                                                     ),
                                                   ),
                                                   value: categoryId,
@@ -378,6 +394,8 @@ class _AddTransactionState extends State<AddTransaction> {
                                                   onChanged: (value) {
                                                     setState(() {
                                                       categoryId = value;
+                                                      selectedCategoryitem =
+                                                          value;
                                                     });
                                                   },
                                                 ),
@@ -508,7 +526,13 @@ class _AddTransactionState extends State<AddTransaction> {
               context: context,
               text: 'choose the item',
             )
-          : null;
+          : (selectedCategoryitem == "Items"
+              ? functionsogj.showSnackbarSuccess(
+                  elevation: 16,
+                  context: context,
+                  text: 'choose the item',
+                )
+              : null);
     }
 
     final model = TransactionModal(
@@ -521,18 +545,22 @@ class _AddTransactionState extends State<AddTransaction> {
     );
 
     visiblity == false
-        ? widget.modal!.updateTranscation(model)
+        ? (selectedCategoryitem == 'Items'
+            ? null
+            : widget.modal!.updateTranscation(model))
         : (categoryId == null
             ? null
             : TransactionDb.instance.addTransactionDb(model));
     visiblity == false
-        ? Get.offAll(
-            () => const BottomNav(),
-            transition: Transition.fade,
-            duration: const Duration(
-              milliseconds: 800,
-            ),
-          )
+        ? (selectedCategoryitem == 'Items'
+            ? null
+            : Get.offAll(
+                () => const BottomNav(),
+                transition: Transition.fade,
+                duration: const Duration(
+                  milliseconds: 800,
+                ),
+              ))
         : (categoryId == null
             ? null
             : Get.offAll(
@@ -547,17 +575,19 @@ class _AddTransactionState extends State<AddTransaction> {
     }); */
 
     visiblity == false
-        ? functionsogj.showSnackbarSuccess(
-            elevation: 3,
-            context: context,
-            text: visiblity == false
-                ? "Transaction updated succefully  ✓"
-                : "Transaction added succefully  ✓",
-            color: Colors.white,
-            textcolor: Colors.green,
-            visibility: false,
-            fontWeight: FontWeight.bold,
-          )
+        ? (selectedCategoryitem == "Items"
+            ? null
+            : functionsogj.showSnackbarSuccess(
+                elevation: 3,
+                context: context,
+                text: visiblity == false
+                    ? "Transaction updated succefully  ✓"
+                    : "Transaction added succefully  ✓",
+                color: Colors.white,
+                textcolor: Colors.green,
+                visibility: false,
+                fontWeight: FontWeight.bold,
+              ))
         : (categoryId == null
             ? null
             : functionsogj.showSnackbarSuccess(
