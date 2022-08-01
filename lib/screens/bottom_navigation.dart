@@ -88,6 +88,9 @@ class _BottomNavState extends State<BottomNav> {
           backgroundColor: const Color.fromARGB(255, 147, 232, 225),
           elevation: 10,
           onPressed: () {
+            setState(() {
+              visiblity = true;
+            });
             Get.to(
               AddTransaction(),
               transition: Transition.zoom,
@@ -95,6 +98,7 @@ class _BottomNavState extends State<BottomNav> {
                 milliseconds: 500,
               ),
             );
+
           },
           child: const Icon(
             Icons.add,

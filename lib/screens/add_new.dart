@@ -467,6 +467,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                   child: TextButton.icon(
                                     onPressed: () {
                                       addTransactionFunction();
+
                                       // await filterFunction();
 
                                       TransactionDb.instance.refresh();
@@ -570,9 +571,12 @@ class _AddTransactionState extends State<AddTransaction> {
                   milliseconds: 800,
                 ),
               ));
-    /*  setState(() {
+
+//////////////// null check update and edit
+
+    setState(() {
       visiblity = true;
-    }); */
+    });
 
     visiblity == false
         ? (selectedCategoryitem == "Items"
