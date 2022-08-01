@@ -488,15 +488,13 @@ class _AddTransactionState extends State<AddTransaction> {
     final parsedAmount = int.tryParse(amountText);
 
     if (amountText.isEmpty || parsedAmount == null) {
-      return visiblity == true
-          ? functionsogj.showSnackbarSuccess(
-              elevation: 16,
-              context: context,
-              text: 'enter the amount',
-            )
-          : null;
+      return functionsogj.showSnackbarSuccess(
+        elevation: 16,
+        context: context,
+        text: 'enter the amount',
+      );
     }
-    if (amountText == '0') {
+    if (parsedAmount == 0) {
       return functionsogj.showSnackbarSuccess(
         elevation: 16,
         context: context,

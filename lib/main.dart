@@ -2,10 +2,10 @@ import 'package:cup_cake/modals/category_modal.dart';
 import 'package:cup_cake/modals/transaction_modal.dart';
 import 'package:cup_cake/modals/username_modal.dart';
 
-
 import 'package:cup_cake/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/services.dart';
+import 'package:get/route_manager.dart';
 import 'package:hive_flutter/adapters.dart';
 
 const saveKeyName = 'User logged in';
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Theme.of(context).copyWith(
