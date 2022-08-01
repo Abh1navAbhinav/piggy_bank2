@@ -94,6 +94,7 @@ class Widgets {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
+                        const SizedBox(height: 3,),
                         Text(
                           subtitle,
                           style: colorsobj.styles(
