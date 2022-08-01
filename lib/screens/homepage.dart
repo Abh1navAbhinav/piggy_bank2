@@ -239,7 +239,7 @@ class _HomespagesState extends State<Homespages> {
                                       );
                                     });
                                   },
-                                  onLongPress: () {
+                                  onDoubleTap: () {
                                     popupsobj.deleteTransactionPopup(
                                       context: context,
                                       list: values,

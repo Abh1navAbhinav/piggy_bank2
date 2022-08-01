@@ -530,9 +530,9 @@ class _AddTransactionState extends State<AddTransaction> {
         milliseconds: 800,
       ),
     );
-    setState(() {
+   /*  setState(() {
       visiblity = true;
-    });
+    }); */
 
     functionsogj.showSnackbarSuccess(
       elevation: 3,
