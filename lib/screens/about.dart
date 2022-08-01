@@ -18,7 +18,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
   final colorsobj = Colours();
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 2, vsync: this);
+    TabController tabController = TabController(length: 3, vsync: this);
 
     double height = MediaQuery.of(context).size.height;
 
@@ -56,19 +56,23 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   height: height * 0.131,
                 ),
                 TabBar(
+                  
                   indicator: const UnderlineTabIndicator(
                     borderSide: BorderSide.none,
                   ),
                   controller: tabController,
-                  labelStyle: colorsobj.styles(),
+                  labelStyle: colorsobj.styles(fontSize: 18),
                   labelColor: const Color.fromARGB(255, 27, 88, 83),
                   unselectedLabelColor: Colors.grey[400],
                   tabs: const [
                     Tab(
-                      text: 'PiggyBank',
+                      text: 'App',
                     ),
                     Tab(
                       text: 'Developer',
+                    ),
+                     Tab(
+                      text: 'Read Me',
                     ),
                   ],
                 ),
@@ -108,6 +112,13 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               ),
                             ),
                             Text(
+                              'Hi ${userListNotifier.value.username},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
+                              style: colorsobj.styles(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 17,
+                              ),
+                            ),
+                             Text(
                               'Hi ${userListNotifier.value.username},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
                               style: colorsobj.styles(
                                 fontWeight: FontWeight.w400,

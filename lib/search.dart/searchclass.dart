@@ -120,21 +120,12 @@ class _SearchScreenState extends State<SearchScreen> {
                                     );
                                   });
                                 },
-                                /*  onPressed: (ctx) {
-                                        setState(() {
-                                          visiblity = false;
-                                          Get.to(
-                                            AddTransaction(
-                                              index: index,
-                                              modal: values,
-                                            ),
-                                            transition: Transition.zoom,
-                                            duration: const Duration(
-                                              milliseconds: 500,
-                                            ),
-                                          );
-                                        });
-                                      }, */
+                                onLongPress: () {
+                                    popupsobj.deleteTransactionPopup(
+                                      context: context,
+                                      list: foundTransaction[index],
+                                    );
+                                  },
                                 child: obj.listTiles(
                                   context: context,
                                   amountColor: foundTransaction[index].type ==

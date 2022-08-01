@@ -239,6 +239,12 @@ class _HomespagesState extends State<Homespages> {
                                       );
                                     });
                                   },
+                                  onLongPress: () {
+                                    popupsobj.deleteTransactionPopup(
+                                      context: context,
+                                      list: values,
+                                    );
+                                  },
                                   child: obj.listTiles(
                                     context: context,
                                     amountColor:

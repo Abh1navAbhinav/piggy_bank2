@@ -246,7 +246,9 @@ class _AllTransactionState extends State<AllTransaction> {
                                   SlidableAction(
                                     onPressed: (ctx) {
                                       popupsobj.deleteTransactionPopup(
-                                          context: ctx, list: values);
+                                        context: ctx,
+                                        list: values,
+                                      );
                                     },
                                     icon: Icons.delete,
                                     foregroundColor: Colors.black,
