@@ -147,7 +147,7 @@ class _AddTransactionState extends State<AddTransaction> {
                                             context: context,
                                             initialDate: DateTime.now(),
                                             firstDate: DateTime.now().subtract(
-                                              const Duration(days: 30),
+                                              const Duration(days: 30000),
                                             ),
                                             lastDate: DateTime.now(),
                                           );
