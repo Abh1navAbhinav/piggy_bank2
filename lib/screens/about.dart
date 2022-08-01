@@ -56,7 +56,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   height: height * 0.131,
                 ),
                 TabBar(
-                  
                   indicator: const UnderlineTabIndicator(
                     borderSide: BorderSide.none,
                   ),
@@ -71,7 +70,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     Tab(
                       text: 'Developer',
                     ),
-                     Tab(
+                    Tab(
                       text: 'Read Me',
                     ),
                   ],
@@ -102,27 +101,37 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         child: TabBarView(
                           controller: tabController,
                           children: [
-                            Text(
-                              'Hi ${userListNotifier.value.username},\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.[you can delete and edit your transaction by simply sliding (Horizontaly) the transaction tile on All Transaction page ].We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
-                              style: colorsobj.styles(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                                // letterSpacing: 0.5,
-                                // wordSpacing: 2,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Hi ${userListNotifier.value.username},\n\nwelcome to piggy bank. Piggy bank will help you take your budget, money and finance under control and won\'t take much time. you won\'t need to dig through your wallet or check your bank account to be aware of your financial circumstances. Piggy bank is very easy to use: you can quickly add a transaction with just a couple of clicks.We are trying to improve our app, If you have any suggestions, you can inform me by clicking the feed back section in settings, We will try to make piggy bank more better, Thank you.',
+                                  style: colorsobj.styles(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 17,
+                                    // letterSpacing: 0.5,
+                                    // wordSpacing: 2,
+                                  ),
+                                ),
+                                const Text('version 1.0.0')
+                              ],
+                            ),
+                            Center(
+                              child: Text(
+                                'I am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
+                                style: colorsobj.styles(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17,
+                                ),
                               ),
                             ),
-                            Text(
-                              'Hi ${userListNotifier.value.username},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
-                              style: colorsobj.styles(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                              ),
-                            ),
-                             Text(
-                              'Hi ${userListNotifier.value.username},\n\nI am Abhinav. Expertised in UI/UX Designing and Flutter development based on Kerala, If you have any queries related to piggy bank or about me you can contact me by taping \'Contact Me\' on the settings.Once of all thank you for supporting me.',
-                              style: colorsobj.styles(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
+                            Center(
+                              child: Text(
+                                'There are some features that you may not know.\n\n\n\n1. Tap on the app icons to navigate to About.\n\n2. Click on your name in HomePage to edit your name.\n\n3. Tap on the transaction to edit & longpress to delete (on HomePage & Search screen)\n\n4. Slide to left or right to edit and delete (on AllTransaction).',
+                                style: colorsobj.styles(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17,
+                                ),
                               ),
                             ),
                           ],
