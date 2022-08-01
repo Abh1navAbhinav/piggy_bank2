@@ -87,9 +87,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               icon: const Icon(Icons.close))),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+               
                   Expanded(
                     child: foundTransaction.isNotEmpty
                         ? ScrollConfiguration(
@@ -103,9 +101,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 color: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 elevation: 4,
-                                margin: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                ),
+                               
                                 child: GestureDetector(
                                   onTap: () {
                         
