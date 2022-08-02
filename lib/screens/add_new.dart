@@ -572,12 +572,6 @@ class _AddTransactionState extends State<AddTransaction> {
                 ),
               ));
 
-//////////////// null check update and edit
-
-    setState(() {
-      visiblity = true;
-    });
-
     visiblity == false
         ? (selectedCategoryitem == "Items"
             ? null
@@ -605,6 +599,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 visibility: false,
                 fontWeight: FontWeight.bold,
               ));
+
   }
 
   String parseDate(DateTime date) {

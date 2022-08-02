@@ -115,9 +115,10 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 1,
+                                          crossAxisCount: 2,
                                           mainAxisSpacing: 10,
                                           mainAxisExtent: 50,
+                                          crossAxisSpacing: 10,
                                         ),
                                         itemBuilder: (
                                           BuildContext context,
@@ -160,16 +161,17 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 1,
+                                          crossAxisCount: 2,
                                           mainAxisSpacing: 10,
                                           mainAxisExtent: 50,
+                                          crossAxisSpacing: 10,
                                         ),
                                         itemBuilder: (
                                           BuildContext context,
                                           index,
                                         ) {
                                           return ListTile(
-                                            title: Text(
+                                            leading: Text(
                                               newlist[index].name,
                                               style: colorsobj.styles(
                                                 color: const Color.fromARGB(
