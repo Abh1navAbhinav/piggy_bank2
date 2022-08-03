@@ -22,6 +22,7 @@ class Functions {
       builder: (BuildContext context) {
         return AlertDialog(
           content: TextFormField(
+            autofocus: true,
             maxLength: 10,
             controller: textcontroller,
             decoration: InputDecoration(

@@ -47,7 +47,9 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     Text(
                       'A b o u t',
                       style: colorsobj.styles(
-                          fontSize: 25, fontWeight: FontWeight.w500),
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     obj.appLogo(),
                   ],
