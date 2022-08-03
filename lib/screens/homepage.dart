@@ -104,7 +104,7 @@ class _HomespagesState extends State<Homespages> {
                           ? 'Total Debt'
                           : 'Total Balance',
                       style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                         fontSize: 35,
                       ),
                     ),
