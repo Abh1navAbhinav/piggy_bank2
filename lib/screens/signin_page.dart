@@ -72,9 +72,8 @@ class _SigninPageState extends State<SigninPage> {
                         height: height * 0.064,
                         gradient: colorsobj.colorsdark(),
                         text: 'Welcome  to   Piggy Bank',
-                        tpadding: MediaQuery.of(context).size.height*0.017,
+                        tpadding: MediaQuery.of(context).size.height * 0.017,
                         lpadding: 17,
-                        
                       ),
                       SizedBox(
                         height: height * 0.39,
@@ -90,7 +89,6 @@ class _SigninPageState extends State<SigninPage> {
                           shadowColor: Colors.blue,
                           borderRadius: BorderRadius.circular(50),
                           child: Container(
-                           
                             width: width,
                             decoration: BoxDecoration(
                               gradient: colorsobj.colorsdark(),
@@ -156,7 +154,9 @@ class _SigninPageState extends State<SigninPage> {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(height: 20,)
+                                  const SizedBox(
+                                    height: 20,
+                                  )
                                 ],
                               ),
                             ),

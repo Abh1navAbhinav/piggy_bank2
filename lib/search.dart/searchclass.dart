@@ -70,7 +70,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     padding: const EdgeInsets.all(18.0),
                     child: TextFormField(
                       controller: textcontrollerSearch,
-                  
                       autofocus: foundTransaction.length < 3 ? false : true,
                       onChanged: (value) => _runFilter(value),
                       decoration: InputDecoration(
@@ -87,12 +86,11 @@ class _SearchScreenState extends State<SearchScreen> {
                               icon: const Icon(Icons.close))),
                     ),
                   ),
-               
                   Expanded(
                     child: foundTransaction.isNotEmpty
                         ? ScrollConfiguration(
-                          behavior: MyBehavior(),
-                          child: ListView.builder(
+                            behavior: MyBehavior(),
+                            child: ListView.builder(
                               itemCount: foundTransaction.length,
                               itemBuilder: (context, index) => Card(
                                 key: ValueKey(
@@ -101,12 +99,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                 color: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 elevation: 4,
-                               
                                 child: GestureDetector(
                                   onTap: () {
-                        
                                     setState(() {
-                                      FocusManager.instance.primaryFocus!.unfocus();
+                                      FocusManager.instance.primaryFocus!
+                                          .unfocus();
                                       visiblity = false;
                                       Get.to(
                                         () => AddTransaction(
@@ -120,13 +117,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                       );
                                     });
                                   },
-                                  onLongPress: () {
+                                  /*  onLongPress: () {
                                       popupsobj.deleteTransactionPopup(
                                         context: context,
                                         list: foundTransaction[index],
                                       );
                                       
-                                    },
+                                    }, */
                                   child: obj.listTiles(
                                     context: context,
                                     amountColor: foundTransaction[index].type ==
@@ -141,16 +138,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                             : 'assets/images/icons/bankruptcy.png',
                                       ),
                                     ),
-                                    title: foundTransaction[index].category.name,
+                                    title:
+                                        foundTransaction[index].category.name,
                                     subtitle:
                                         parseDate(foundTransaction[index].date),
-                                    amount:
-                                        foundTransaction[index].amount.toString(),
+                                    amount: foundTransaction[index]
+                                        .amount
+                                        .toString(),
                                   ),
                                 ),
                               ),
                             ),
-                        )
+                          )
                         : Lottie.asset(
                             'assets/images/lottie/lf20_iav9wojz.json',
                           ),
