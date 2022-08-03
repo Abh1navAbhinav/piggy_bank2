@@ -1,4 +1,5 @@
 import 'package:cup_cake/db/category_db.dart';
+import 'package:cup_cake/functions/filteration.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -9,6 +10,7 @@ import '../modals/category_modal.dart';
 import '../modals/transaction_modal.dart';
 
 final stylesobj = Widgets();
+
 
 class Popups {
   deleteCategoryPopUp({
@@ -114,6 +116,7 @@ class Popups {
                 TransactionDb.instance.deleteTransaction(
                   list.id!,
                 );
+                filterFunction();
                 funtionsobj.showSnackbarSuccess(
                   elevation: 3,
                   context: context,

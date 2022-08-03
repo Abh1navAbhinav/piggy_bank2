@@ -125,6 +125,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                         context: context,
                                         list: foundTransaction[index],
                                       );
+                                      
                                     },
                                   child: obj.listTiles(
                                     context: context,
