@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share/share.dart';
 
-
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
 
@@ -114,9 +113,9 @@ class _SettingsState extends State<Settings> {
           ),
           obj.settingsitems(
             context: context,
-            function: ()  {
+            function: () {
               Share.share('Piggy bank');
-             /*  final TimeOfDay? pickedtime = await showTimePicker(
+              /*  final TimeOfDay? pickedtime = await showTimePicker(
                   initialEntryMode: TimePickerEntryMode.input,
                   context: context,
                   initialTime: time);
@@ -136,7 +135,7 @@ class _SettingsState extends State<Settings> {
               }); */
             },
             icon: const Icon(
-              Icons.share_rounded,
+              Icons.share_outlined,
               color: Color.fromARGB(255, 27, 88, 83),
             ),
             text: 'Share',
