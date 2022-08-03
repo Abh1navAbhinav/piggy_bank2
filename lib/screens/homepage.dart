@@ -101,11 +101,11 @@ class _HomespagesState extends State<Homespages> {
                     ),
                     Text(
                       totalBalance < 0
-                          ? 'Oops! you don\'t have any balance'
+                          ? 'Total Debt'
                           : 'Total Balance',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w500,
-                        fontSize: totalBalance < 0 ? 20 : 35,
+                        fontSize: 35,
                       ),
                     ),
                     Padding(
@@ -144,7 +144,7 @@ class _HomespagesState extends State<Homespages> {
                               child: Text(
                                 totalBalance == 0
                                     ? '₹0.00'
-                                    : '₹ ${formatter.format(totalBalance)}',
+                                    : '₹ ${formatter.format(totalBalance.abs())}',
                                 style: colorsobj.styles(
                                   fontSize: 23,
                                   fontWeight: FontWeight.w500,
