@@ -31,10 +31,13 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   List<ChartData> expenseYesterday = chartLogic(expenseYesterdayNotifier.value);
   List<ChartData> expenseweek = chartLogic(expenseLastWeekNotifier.value);
   List<ChartData> expensemonth = chartLogic(expenseLastMonthNotifier.value);
+  late TabController tabController;
 
-
-  
-  
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
 
   String categoryId2 = 'Date-all';
 
@@ -42,14 +45,11 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
   final colorsobj = Colours();
   int touchIndex = 1;
 
-
   @override
   Widget build(BuildContext context) {
-  
-    
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    TabController tabController = TabController(length: 2, vsync: this);
+
     return Column(
       children: [
         SizedBox(
@@ -135,7 +135,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
           labelColor: const Color.fromARGB(255, 27, 88, 83),
           unselectedLabelColor: Colors.grey,
           tabs: const [
-           /*  Tab(
+            /*  Tab(
               text: 'Overall',
             ), */
             Tab(
@@ -155,7 +155,7 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
           child: TabBarView(
             controller: tabController,
             children: [
-             /*  Padding(
+              /*  Padding(
                 padding: const EdgeInsets.all(
                   16,
                 ),
@@ -281,7 +281,6 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
 
   chartdivertFunctionIncome() {
     if (categoryId2 == 'Date-all') {
-
       return dataIncome;
     }
     if (categoryId2 == 'Today') {

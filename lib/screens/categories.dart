@@ -18,12 +18,14 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
   final obj = Widgets();
+  late TabController tabController;
   final functionsobj = Functions();
   final popupsobj = Popups();
   final colorsobj = Colours();
   @override
   void initState() {
     categorydbs.refreshUi();
+    tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
 
@@ -31,7 +33,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    TabController tabController = TabController(length: 2, vsync: this);
+
     return Container(
       decoration: BoxDecoration(
         gradient: colorsobj.colorslight(),

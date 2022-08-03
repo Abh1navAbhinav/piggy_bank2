@@ -2,14 +2,11 @@ import 'package:cup_cake/functions/popups.dart';
 import 'package:cup_cake/functions/uri_functions.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/screens/about.dart';
-import 'package:cup_cake/screens/bottom_navigation.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:share/share.dart';
 
-import '../db/username_db.dart';
-import 'notification.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -28,7 +25,7 @@ class _SettingsState extends State<Settings> {
   final widgetsobj = Widgets();
 
   TimeOfDay time = TimeOfDay.now();
-
+/* 
   @override
   void initState() {
     super.initState();
@@ -38,7 +35,7 @@ class _SettingsState extends State<Settings> {
 
   void listennotification() => NotificationApi.onNotification;
   onclikednotification() => Get.to(() => const BottomNav());
-
+ */
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -117,8 +114,9 @@ class _SettingsState extends State<Settings> {
           ),
           obj.settingsitems(
             context: context,
-            function: () async {
-              final TimeOfDay? pickedtime = await showTimePicker(
+            function: ()  {
+              Share.share('Piggy bank');
+             /*  final TimeOfDay? pickedtime = await showTimePicker(
                   initialEntryMode: TimePickerEntryMode.input,
                   context: context,
                   initialTime: time);
@@ -135,13 +133,13 @@ class _SettingsState extends State<Settings> {
                   ),
                 );
                 time = pickedtime;
-              });
+              }); */
             },
             icon: const Icon(
-              Icons.notifications_active_outlined,
+              Icons.share_rounded,
               color: Color.fromARGB(255, 27, 88, 83),
             ),
-            text: 'Remainder',
+            text: 'Share',
           ),
           SizedBox(
             height: height * 0.039,
