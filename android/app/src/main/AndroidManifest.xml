@@ -20,7 +20,7 @@
 
 
    <application
-        android:label="piggy_bank2"
+        android:label="Piggy Bank"
         android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
