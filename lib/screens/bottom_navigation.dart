@@ -51,94 +51,105 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     getTotalBalance();
-    return Container(
-      decoration: BoxDecoration(
-        gradient: colorsobj.colorslight(),
-      ),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: const EdgeInsets.only(
-            // top: 3,
-            left: 15,
-            right: 15,
-            // bottom: 15,
-          ),
-          child: SafeArea(
-            child: ScrollConfiguration(
-              behavior: MyBehavior(),
-              child: LayoutBuilder(
-                builder:
-                    (BuildContext context, BoxConstraints viewportConstraints) {
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: viewportConstraints.maxHeight,
+    return WillPopScope(
+       onWillPop: () async {
+        if (currentindex != 0) {
+        setState(() {
+            currentindex=0;
+          });
+          return false;
+        }
+        return true;
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: colorsobj.colorslight(),
+        ),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: const EdgeInsets.only(
+              // top: 3,
+              left: 15,
+              right: 15,
+              // bottom: 15,
+            ),
+            child: SafeArea(
+              child: ScrollConfiguration(
+                behavior: MyBehavior(),
+                child: LayoutBuilder(
+                  builder:
+                      (BuildContext context, BoxConstraints viewportConstraints) {
+                    return SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: viewportConstraints.maxHeight,
+                        ),
+                        child: screens[currentindex],
                       ),
-                      child: screens[currentindex],
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color.fromARGB(255, 147, 232, 225),
-          elevation: 10,
-          onPressed: () {
-            setState(() {
-              visiblity = true;
-            });
-            Get.to(
-              AddTransaction(),
-              transition: Transition.zoom,
-              duration: const Duration(
-                milliseconds: 500,
-              ),
-            );
-
-          },
-          child: const Icon(
-            Icons.add,
-            size: 30,
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-            gradient: colorsobj.colorsdark(),
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: const [
-              BoxShadow(
-                color: Color.fromARGB(255, 187, 251, 247),
-                blurRadius: 10.0,
-                offset: Offset(0, 0),
-              )
-            ],
-          ),
-          child: AnimatedBottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            activeColor: const Color.fromARGB(255, 219, 145, 201),
-            inactiveColor: const Color.fromARGB(255, 27, 88, 83),
-            icons: const [
-              Icons.home_outlined,
-              Icons.format_list_bulleted_rounded,
-              Icons.pie_chart_outline,
-              Icons.settings_outlined,
-            ],
-            activeIndex: currentindex,
-            gapLocation: GapLocation.center,
-            leftCornerRadius: 50,
-            rightCornerRadius: 50,
-            onTap: (index) {
-              setState(
-                () {
-                  currentindex = index;
-                },
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: const Color.fromARGB(255, 147, 232, 225),
+            elevation: 10,
+            onPressed: () {
+              setState(() {
+                visiblity = true;
+              });
+              Get.to(
+                AddTransaction(),
+                transition: Transition.zoom,
+                duration: const Duration(
+                  milliseconds: 500,
+                ),
               );
+    
             },
+            child: const Icon(
+              Icons.add,
+              size: 30,
+            ),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              gradient: colorsobj.colorsdark(),
+              borderRadius: BorderRadius.circular(100),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color.fromARGB(255, 187, 251, 247),
+                  blurRadius: 10.0,
+                  offset: Offset(0, 0),
+                )
+              ],
+            ),
+            child: AnimatedBottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              activeColor: const Color.fromARGB(255, 219, 145, 201),
+              inactiveColor: const Color.fromARGB(255, 27, 88, 83),
+              icons: const [
+                Icons.home_outlined,
+                Icons.format_list_bulleted_rounded,
+                Icons.pie_chart_outline,
+                Icons.settings_outlined,
+              ],
+              activeIndex: currentindex,
+              gapLocation: GapLocation.center,
+              leftCornerRadius: 50,
+              rightCornerRadius: 50,
+              onTap: (index) {
+                setState(
+                  () {
+                    currentindex = index;
+                  },
+                );
+              },
+            ),
           ),
         ),
       ),
