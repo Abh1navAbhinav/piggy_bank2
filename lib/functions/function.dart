@@ -175,6 +175,7 @@ class Functions {
           content: Form(
             key: formkey,
             child: TextFormField(
+              autofocus: true,
               maxLength: 15,
               controller: usernamecontroller,
               validator: (value) {
