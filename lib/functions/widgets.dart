@@ -197,7 +197,7 @@ class Widgets {
             child: CircleAvatar(
               radius: radius,
               backgroundImage: const AssetImage(
-                'assets/images/Screenshot piggyBankLogo.png',
+                'assets/images/logoWithoutBackground.png',
               ),
               backgroundColor:  const Color.fromARGB(255, 235, 237, 238),
             ),
