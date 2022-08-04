@@ -114,7 +114,13 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                     // wordSpacing: 2,
                                   ),
                                 ),
-                                const Text('version 1.0.0')
+                                const Expanded(
+                                  child: Center(
+                                    child: Text(
+                                      'version 1.0.0',
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                             Center(
