@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:cup_cake/db/category_db.dart';
+import 'package:cup_cake/functions/carousel_slider.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:cup_cake/main.dart';
 import 'package:cup_cake/modals/username_modal.dart';
@@ -10,7 +11,6 @@ import 'package:cup_cake/screens/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db/transaction_db.dart';
@@ -78,9 +78,10 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       SizedBox(
                         height: height * 0.39,
-                        width: width,
-                        child: Lottie.asset(
-                          'assets/images/lottie/107642-lost-in-the-metaverse.json',
+                        width: width*0.9,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left:20),
+                          child: CarouselSliderClass(),
                         ),
                       ),
                       Padding(
@@ -98,22 +99,25 @@ class _SigninPageState extends State<SigninPage> {
                             child: Center(
                               child: Column(
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: MediaQuery.of(context).size.height *
-                                          0.026,
-                                      bottom:
-                                          MediaQuery.of(context).size.height *
-                                              0.013,
-                                    ),
-                                    child: Text(
-                                      'Enter your Name',
-                                      style: colorsobj.styles(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.06,
-                                      ),
-                                    ),
+                                  // Padding(
+                                  //   padding: EdgeInsets.only(
+                                  //     top: MediaQuery.of(context).size.height *
+                                  //         0.026,
+                                  //     bottom:
+                                  //         MediaQuery.of(context).size.height *
+                                  //             0.013,
+                                  //   ),
+                                  //   child: Text(
+                                  //     'Enter your Name',
+                                  //     style: colorsobj.styles(
+                                  //       fontSize:
+                                  //           MediaQuery.of(context).size.width *
+                                  //               0.06,
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                   const SizedBox(
+                                    height: 40,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
@@ -145,7 +149,7 @@ class _SigninPageState extends State<SigninPage> {
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
-                                            hintText: 'Name',
+                                            hintText: 'Name:',
                                             hintStyle: colorsobj.styles(
                                               color: Colors.grey,
                                             ),

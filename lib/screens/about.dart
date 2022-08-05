@@ -129,7 +129,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                               child: ListView(
                                 children: [
                                   Text(
-                                    'There are some features that you may not know.\n\n\n\n1. Tap on the app icons to navigate to About.\n\n2. Click on your name in HomePage to edit your name.\n\n3. Tap on the transaction to edit (on HomePage & Search Screen)\n\n4. Slide to left or right to edit and delete (on AllTransaction).',
+                                    'There are some features that you may not know.\n\n\n\n1. Tap on the app icons to navigate to About.\n\n2. Click on your name in HomePage to edit your name.\n\n3. Tap on the transaction to edit (on HomePage & Search Screen)\n\n4. Slide to left or right to edit and delete (on Second Page).',
                                     style: colorsobj.styles(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 17,
