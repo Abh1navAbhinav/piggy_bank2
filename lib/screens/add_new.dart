@@ -181,32 +181,34 @@ class _AddTransactionState extends State<AddTransaction> {
                                       child: SizedBox(
                                         width: width * 0.472,
                                         height: height * 0.085,
-                                        child: TextFormField(
-                                          maxLength: 6,
-                                          controller: amountController,
-                                          keyboardType: TextInputType.number,
-                                          decoration: InputDecoration(
-                                            contentPadding:
-                                                const EdgeInsets.all(10),
-                                            filled: true,
-                                            fillColor: const Color.fromARGB(
-                                                255, 234, 247, 248),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(18),
+                                        child: Center(
+                                          child: TextFormField(
+                                            maxLength: 6,
+                                            controller: amountController,
+                                            keyboardType: TextInputType.number,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  const EdgeInsets.all(10),
+                                              filled: true,
+                                              fillColor: const Color.fromARGB(
+                                                  255, 234, 247, 248),
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(18),
+                                              ),
+                                              hintText: 'Amount:',
+                                              hintStyle: colorsobj.styles(
+                                                color: Colors.grey,
+                                              ),
                                             ),
-                                            hintText: 'Amount:',
-                                            hintStyle: colorsobj.styles(
-                                              color: Colors.grey,
+                                            style: colorsobj.styles(
+                                              fontWeight: FontWeight.w400,
                                             ),
+                                            inputFormatters: [
+                                              FilteringTextInputFormatter
+                                                  .digitsOnly
+                                            ],
                                           ),
-                                          style: colorsobj.styles(
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          inputFormatters: [
-                                            FilteringTextInputFormatter
-                                                .digitsOnly
-                                          ],
                                         ),
                                       ),
                                     ),
