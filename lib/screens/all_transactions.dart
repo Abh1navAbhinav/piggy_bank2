@@ -68,23 +68,25 @@ class _AllTransactionState extends State<AllTransaction> {
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
-                  child: TextFormField(
-                    readOnly: true,
-                    onTap: () => Get.to(
-                      () => const SearchScreen(),
-                      transition: Transition.fade,
-                      duration: const Duration(
-                        milliseconds: 200,
+                  child: Center(
+                    child: TextFormField(
+                      readOnly: true,
+                      onTap: () => Get.to(
+                        () => const SearchScreen(),
+                        transition: Transition.fade,
+                        duration: const Duration(
+                          milliseconds: 200,
+                        ),
                       ),
-                    ),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'search Items',
-                      hintStyle: colorsobj.styles(
-                        color: Colors.grey,
-                      ),
-                      icon: const Icon(
-                        Icons.search,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'search Items',
+                        hintStyle: colorsobj.styles(
+                          color: Colors.grey,
+                        ),
+                        icon: const Icon(
+                          Icons.search,
+                        ),
                       ),
                     ),
                   ),
