@@ -198,11 +198,11 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                         children: [
                           Center(
                             child: Lottie.asset(
-                              'assets/images/lottie/90992-graph4.json',
+                              'assets/images/lottie/97568-graph.json',
                             ),
                           ),
                           const Text(
-                            'There is no enough data to display the graph.',
+                            'There is no enough income categories to display the graph.',
                           ),
                         ],
                       )
@@ -231,11 +231,11 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                         children: [
                           Center(
                             child: Lottie.asset(
-                              'assets/images/lottie/90992-graph4.json',
+                              'assets/images/lottie/97568-graph.json',
                             ),
                           ),
                           const Text(
-                            'There is no enough data to display the graph.',
+                            'There is no enough expense categories to display the graph.',
                           ),
                         ],
                       )
