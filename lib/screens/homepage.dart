@@ -178,7 +178,7 @@ class _HomespagesState extends State<Homespages> {
             ],
           ),
           SizedBox(
-            height: height * 0.045,
+            height: height * 0.075,
           ),
           Row(
             children: [
@@ -254,22 +254,25 @@ class _HomespagesState extends State<Homespages> {
                                       );
                                     });
                                   },
-                                  child: obj.listTiles(
-                                    context: context,
-                                    amountColor:
-                                        values.type == CategoryType.expense
-                                            ? Colors.red
-                                            : Colors.green,
-                                    image: Image(
-                                      image: AssetImage(
-                                        values.type == CategoryType.income
-                                            ? 'assets/images/icons/piggy-bank (1).png'
-                                            : 'assets/images/icons/bankruptcy.png',
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical:5),
+                                    child: obj.listTiles(
+                                      context: context,
+                                      amountColor:
+                                          values.type == CategoryType.expense
+                                              ? Colors.red
+                                              : Colors.green,
+                                      image: Image(
+                                        image: AssetImage(
+                                          values.type == CategoryType.income
+                                              ? 'assets/images/icons/piggy-bank (1).png'
+                                              : 'assets/images/icons/bankruptcy.png',
+                                        ),
                                       ),
+                                      title: values.category.name,
+                                      subtitle: parseDate(values.date),
+                                      amount: values.amount.toString(),
                                     ),
-                                    title: values.category.name,
-                                    subtitle: parseDate(values.date),
-                                    amount: values.amount.toString(),
                                   ),
                                 );
                               },
