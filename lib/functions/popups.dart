@@ -187,6 +187,7 @@ class Popups {
                 await dB.clear();
                 Get.back();
                 Get.back();
+                filterFunction();
                 TransactionDb.instance.refresh();
                 CategoryDb.instance.refreshUi();
                 funtionsobj.showSnackbarSuccess(

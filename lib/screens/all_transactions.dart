@@ -11,6 +11,7 @@ import 'package:cup_cake/search.dart/searchclass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/route_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 
@@ -232,8 +233,24 @@ class _AllTransactionState extends State<AllTransaction> {
               builder: (BuildContext context, List<TransactionModal> newlist,
                   Widget? _) {
                 return newlist.isEmpty
-                    ? Lottie.asset(
-                        'assets/images/lottie/43191-no-data-error.json',
+                    ? Stack(
+                        children: [
+                          Center(
+                            child: Text(
+                              'No Transactions Available',
+                              style: GoogleFonts.anton(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 27, 88, 83),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Lottie.asset(
+                              'assets/images/lottie/lf20_jyguxb6d.json',
+                            ),
+                          ),
+                        ],
                       )
                     : ScrollConfiguration(
                         behavior: MyBehavior(),

@@ -4,6 +4,7 @@ import 'package:cup_cake/functions/scroll_behaviour.dart';
 import 'package:cup_cake/functions/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 import '../functions/colors_and_style.dart';
@@ -112,8 +113,26 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                               builder: (BuildContext ctx,
                                   List<CategoryModal> newlist, Widget? _) {
                                 return newlist.isEmpty
-                                    ? Lottie.asset(
-                                        'assets/images/lottie/43191-no-data-error.json')
+                                    ? Stack(
+                                        children: [
+                                          Center(
+                                            child: Text(
+                                              'No Categories Available',
+                                              style: GoogleFonts.anton(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w500,
+                                                color: const Color.fromARGB(
+                                                    255, 27, 88, 83),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Lottie.asset(
+                                              'assets/images/lottie/lf20_jyguxb6d.json',
+                                            ),
+                                          ),
+                                        ],
+                                      )
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(
@@ -158,8 +177,26 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                               builder: (BuildContext ctx,
                                   List<CategoryModal> newlist, Widget? _) {
                                 return newlist.isEmpty
-                                    ? Lottie.asset(
-                                        'assets/images/lottie/43191-no-data-error.json')
+                                    ? Stack(
+                                        children: [
+                                          Center(
+                                            child: Text(
+                                              'No Categories Available',
+                                              style: GoogleFonts.anton(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w500,
+                                                color: const Color.fromARGB(
+                                                    255, 27, 88, 83),
+                                              ),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Lottie.asset(
+                                              'assets/images/lottie/lf20_jyguxb6d.json',
+                                            ),
+                                          ),
+                                        ],
+                                      )
                                     : GridView.builder(
                                         gridDelegate:
                                             const SliverGridDelegateWithFixedCrossAxisCount(

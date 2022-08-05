@@ -100,9 +100,7 @@ class _HomespagesState extends State<Homespages> {
                       height: height * 0.0407,
                     ),
                     Text(
-                      totalBalance < 0
-                          ? 'Total Debt'
-                          : 'Total Balance',
+                      totalBalance < 0 ? 'Total Debt' : 'Total Balance',
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w400,
                         fontSize: 35,
@@ -218,8 +216,25 @@ class _HomespagesState extends State<Homespages> {
                     builder: (BuildContext context,
                         List<TransactionModal> newlist, Widget? _) {
                       return newlist.isEmpty
-                          ? Lottie.asset(
-                              'assets/images/lottie/43191-no-data-error.json')
+                          ? Stack(
+                        children: [
+                          Center(
+                            child: Text(
+                              'No Transactions Available',
+                              style: GoogleFonts.anton(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: const Color.fromARGB(255, 27, 88, 83),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Lottie.asset(
+                              'assets/images/lottie/lf20_jyguxb6d.json',
+                            ),
+                          ),
+                        ],
+                      )
                           : ListView.builder(
                               itemBuilder: (BuildContext context, index) {
                                 final values = newlist[index];
@@ -239,7 +254,6 @@ class _HomespagesState extends State<Homespages> {
                                       );
                                     });
                                   },
-                                  
                                   child: obj.listTiles(
                                     context: context,
                                     amountColor:
