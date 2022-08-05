@@ -65,7 +65,8 @@ class CarouselSliderClass extends StatelessWidget {
           '" $quote "',
           textAlign: TextAlign.center,
           style: GoogleFonts.allura(
-            fontSize: 30,
+            fontSize: 33,
+            fontWeight: FontWeight.bold,
             foreground: Paint()
               ..shader = const LinearGradient(
                 colors: <Color>[
@@ -84,7 +85,9 @@ class CarouselSliderClass extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text("~$authors~"),
+            Text(
+              "~$authors~",
+            ),
           ],
         )
       ],
