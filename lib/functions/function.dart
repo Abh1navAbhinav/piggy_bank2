@@ -12,6 +12,9 @@ import '../modals/category_modal.dart';
 import '../modals/transaction_modal.dart';
 import '../modals/username_modal.dart';
 
+RegExp regx =
+    RegExp(r'''[ +×÷=/_€£¥₩;'`~\°•○●□■♤♡◇♧☆▪︎¤《》"¡¿!@#$%^&*(),.?:{}|<>]''');
+
 final widgetsobj = Widgets();
 
 class Functions {
@@ -181,6 +184,8 @@ class Functions {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'User name should not be empty';
+                } else if (value.startsWith(regx)) {
+                  return 'User name should not start with any special characters';
                 }
                 return null;
               },

@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../db/transaction_db.dart';
 import '../db/username_db.dart';
 import '../functions/colors_and_style.dart';
+import '../functions/function.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -132,6 +133,8 @@ class _SigninPageState extends State<SigninPage> {
                                             if (value == null ||
                                                 value.isEmpty) {
                                               return 'User name should not be empty';
+                                            } else if (value.startsWith(regx)) {
+                                              return 'User name should not start with any special characters';
                                             }
                                             return null;
                                           },
