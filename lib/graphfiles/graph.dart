@@ -193,19 +193,11 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                   16,
                 ),
                 child: chartdivertFunctionIncome().isEmpty
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Lottie.asset(
-                              'assets/images/lottie/97568-graph.json',
-                            ),
-                          ),
-                          const Text(
-                            'There is no enough income categories to display the graph.',
-                          ),
-                        ],
-                      )
+                    ? Center(
+                      child: Lottie.asset(
+                        'assets/images/lottie/89237-graph.json',
+                      ),
+                    )
                     : SfCircularChart(
                         legend: Legend(isVisible: true),
                         series: <CircularSeries>[
@@ -226,19 +218,12 @@ class _GraphsState extends State<Graphs> with TickerProviderStateMixin {
                   16,
                 ),
                 child: chartdivertFunctionExpense().isEmpty
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: Lottie.asset(
-                              'assets/images/lottie/97568-graph.json',
-                            ),
-                          ),
-                          const Text(
-                            'There is no enough expense categories to display the graph.',
-                          ),
-                        ],
-                      )
+                    ? Center(
+                      child: Lottie.asset(
+                        'assets/images/lottie/89237-graph.json',
+                        
+                      ),
+                    )
                     : SfCircularChart(
                         legend: Legend(isVisible: true),
                         series: <CircularSeries>[

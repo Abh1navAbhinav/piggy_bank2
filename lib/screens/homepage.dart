@@ -178,7 +178,7 @@ class _HomespagesState extends State<Homespages> {
             ],
           ),
           SizedBox(
-            height: height * 0.075,
+            height: height * 0.04,
           ),
           Row(
             children: [
@@ -207,7 +207,7 @@ class _HomespagesState extends State<Homespages> {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: 15,
+                  top: 20,
                 ),
                 child: ScrollConfiguration(
                   behavior: MyBehavior(),
@@ -220,9 +220,9 @@ class _HomespagesState extends State<Homespages> {
                         children: [
                           Center(
                             child: Text(
-                              'No Transactions Available',
+                              'No Data Available',
                               style: GoogleFonts.anton(
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: const Color.fromARGB(255, 27, 88, 83),
                               ),
@@ -254,25 +254,22 @@ class _HomespagesState extends State<Homespages> {
                                       );
                                     });
                                   },
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical:5),
-                                    child: obj.listTiles(
-                                      context: context,
-                                      amountColor:
-                                          values.type == CategoryType.expense
-                                              ? Colors.red
-                                              : Colors.green,
-                                      image: Image(
-                                        image: AssetImage(
-                                          values.type == CategoryType.income
-                                              ? 'assets/images/icons/piggy-bank (1).png'
-                                              : 'assets/images/icons/bankruptcy.png',
-                                        ),
+                                  child: obj.listTiles(
+                                    context: context,
+                                    amountColor:
+                                        values.type == CategoryType.expense
+                                            ? Colors.red
+                                            : Colors.green,
+                                    image: Image(
+                                      image: AssetImage(
+                                        values.type == CategoryType.income
+                                            ? 'assets/images/icons/piggy-bank (1).png'
+                                            : 'assets/images/icons/bankruptcy.png',
                                       ),
-                                      title: values.category.name,
-                                      subtitle: parseDate(values.date),
-                                      amount: values.amount.toString(),
                                     ),
+                                    title: values.category.name,
+                                    subtitle: parseDate(values.date),
+                                    amount: values.amount.toString(),
                                   ),
                                 );
                               },

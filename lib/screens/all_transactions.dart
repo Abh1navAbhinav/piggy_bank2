@@ -237,9 +237,9 @@ class _AllTransactionState extends State<AllTransaction> {
                         children: [
                           Center(
                             child: Text(
-                              'No Transactions Available',
+                              'No Data Available',
                               style: GoogleFonts.anton(
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: const Color.fromARGB(255, 27, 88, 83),
                               ),

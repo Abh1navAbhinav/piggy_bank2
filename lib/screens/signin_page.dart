@@ -78,9 +78,9 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       SizedBox(
                         height: height * 0.39,
-                        width: width*0.9,
+                        width: width,
                         child: Padding(
-                          padding: const EdgeInsets.only(left:20),
+                          padding:  const EdgeInsets.all(20),
                           child: CarouselSliderClass(),
                         ),
                       ),

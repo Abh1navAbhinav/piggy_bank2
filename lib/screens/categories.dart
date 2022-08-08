@@ -119,7 +119,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                             child: Text(
                                               'No Categories Available',
                                               style: GoogleFonts.anton(
-                                                fontSize: 20,
+                                                fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                                 color: const Color.fromARGB(
                                                     255, 27, 88, 83),
@@ -183,7 +183,7 @@ class _CategoriesState extends State<Categories> with TickerProviderStateMixin {
                                             child: Text(
                                               'No Categories Available',
                                               style: GoogleFonts.anton(
-                                                fontSize: 20,
+                                                fontSize: 16,
                                                 fontWeight: FontWeight.w500,
                                                 color: const Color.fromARGB(
                                                     255, 27, 88, 83),

@@ -64,14 +64,15 @@ class CarouselSliderClass extends StatelessWidget {
         Text(
           '" $quote "',
           textAlign: TextAlign.center,
-          style: GoogleFonts.allura(
-            fontSize: 33,
+          style: GoogleFonts.stylish(
+            fontSize: 25,
+            
             fontWeight: FontWeight.bold,
             foreground: Paint()
               ..shader = const LinearGradient(
                 colors: <Color>[
-                  Color.fromARGB(255, 22, 23, 23),
-                  Color.fromARGB(255, 62, 62, 62),
+                  Color.fromARGB(255, 43, 42, 42),
+                  Color.fromARGB(255, 111, 110, 111),
                   //add more color here.
                 ],
               ).createShader(
