@@ -114,7 +114,7 @@ class _SettingsState extends State<Settings> {
           obj.settingsitems(
             context: context,
             function: () {
-              Share.share('Piggy bank');
+              Share.share('https://play.google.com/store/apps/details?id=in.brototype.piggy_bank');
               /*  final TimeOfDay? pickedtime = await showTimePicker(
                   initialEntryMode: TimePickerEntryMode.input,
                   context: context,
