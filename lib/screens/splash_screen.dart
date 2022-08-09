@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Center(
             child: SizedBox(
               width: double.infinity,
-              height: 200,
+              height: 300,
               child: Image(
                 image: AssetImage('assets/images/splashscreen/Piggy bank 1.png'),
                 fit: BoxFit.cover,
